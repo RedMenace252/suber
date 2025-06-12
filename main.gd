@@ -20,7 +20,7 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("toggle_cockpit"):
+	if event.is_action_pressed("toggle_cockpit"): #THIS NEEDS TO FREEZE INPUT DURING SCENE SWITCHING
 		toggle_view_mode()
 
 func toggle_view_mode():
