@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://csdqidf21t33k"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q6j60"]
+flip_faces = true
+top_radius = 2.0
+bottom_radius = 2.0
+height = 5.0
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fqauq"]
+size = Vector3(5, 0.2, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_22pfr"]
+size = Vector3(4, 0.2, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i65ag"]
+size = Vector3(4, 3.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ll14"]
+size = Vector3(4, 3, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u8ejj"]
+size = Vector3(4, 3.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wha73"]
+size = Vector3(0.2, 3, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4bkqb"]
+size = Vector3(0.5, 1.2, 0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fqauq"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_22pfr"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.2
+
+[node name="SubmarineCockpit" type="Node3D"]
+
+[node name="RoomParts" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomParts"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1.2, 0, 1, -5.24537e-08, 0, 1.5, 0)
+mesh = SubResource("CylinderMesh_q6j60")
+
+[node name="Floor" type="StaticBody3D" parent="RoomParts"]
+
+[node name="FloorCollider" type="CollisionShape3D" parent="RoomParts/Floor"]
+shape = SubResource("BoxShape3D_fqauq")
+
+[node name="FloorMesh" type="MeshInstance3D" parent="RoomParts/Floor"]
+mesh = SubResource("BoxMesh_22pfr")
+skeleton = NodePath("../../..")
+
+[node name="Ceiling" type="StaticBody3D" parent="RoomParts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="CeilingMesh" type="MeshInstance3D" parent="RoomParts/Ceiling"]
+mesh = SubResource("BoxMesh_22pfr")
+skeleton = NodePath("../../..")
+
+[node name="CeilingCollider" type="CollisionShape3D" parent="RoomParts/Ceiling"]
+shape = SubResource("BoxShape3D_fqauq")
+
+[node name="FrontWall" type="StaticBody3D" parent="RoomParts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 2.6)
+
+[node name="FrontWallMesh" type="MeshInstance3D" parent="RoomParts/FrontWall"]
+mesh = SubResource("BoxMesh_i65ag")
+skeleton = NodePath("../../..")
+
+[node name="FrontWallCollider" type="CollisionShape3D" parent="RoomParts/FrontWall"]
+shape = SubResource("BoxShape3D_7ll14")
+
+[node name="BackWall" type="StaticBody3D" parent="RoomParts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -2.6)
+
+[node name="BackWallMesh" type="MeshInstance3D" parent="RoomParts/BackWall"]
+mesh = SubResource("BoxMesh_u8ejj")
+skeleton = NodePath("../../..")
+
+[node name="BackWallCollider" type="CollisionShape3D" parent="RoomParts/BackWall"]
+shape = SubResource("BoxShape3D_7ll14")
+
+[node name="LeftWall" type="StaticBody3D" parent="RoomParts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 1.5, 0)
+
+[node name="FrontWallCollider" type="CollisionShape3D" parent="RoomParts/LeftWall"]
+shape = SubResource("BoxShape3D_wha73")
+
+[node name="RightWall" type="StaticBody3D" parent="RoomParts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1.5, 0)
+
+[node name="FrontWallCollider" type="CollisionShape3D" parent="RoomParts/RightWall"]
+shape = SubResource("BoxShape3D_wha73")
+
+[node name="Details" type="Node3D" parent="."]
+
+[node name="Periscope" type="StaticBody3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, -1)
+
+[node name="PeriscopeCollider" type="CollisionShape3D" parent="Details/Periscope"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_4bkqb")
+
+[node name="PeriscopeShaft" type="MeshInstance3D" parent="Details/Periscope"]
+mesh = SubResource("CylinderMesh_fqauq")
+
+[node name="PeriscopeViewport" type="MeshInstance3D" parent="Details/Periscope"]
+transform = Transform3D(1, 0, 0, 0, -0.00942459, -0.599973, 0, 0.999956, -0.00565475, 0.004, -0.575, 0)
+mesh = SubResource("CylinderMesh_22pfr")
+
+[node name="Lights" type="Node3D" parent="Details"]
+
+[node name="FrontLight" type="OmniLight3D" parent="Details/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, -1.5)
+
+[node name="BackLight" type="OmniLight3D" parent="Details/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 1.5)

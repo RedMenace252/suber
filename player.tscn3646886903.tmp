@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://tyl7842kyr3w"]
+
+[ext_resource type="Script" uid="uid://dimxy261qcfdm" path="res://player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dbgy6v31kxwjv" path="res://art/sub roam 1.png" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://7noaus7ijv2l" path="res://art/sub roam 2.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://bm5bcqhdfjnw1" path="res://sonar_emitter.gd" id="4_hqtel"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"roam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_onrkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(29, 13)
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_i3pqv")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sh265")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2.5)
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="SonarEmitter" type="Node2D" parent="."]
+script = ExtResource("4_hqtel")
+pulse_radius = null
+num_rays = null
+dot_scene = null
+collision_mask = null

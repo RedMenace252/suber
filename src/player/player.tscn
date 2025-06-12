@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://cj3xfrm21n4fp"]
+
+[ext_resource type="Script" uid="uid://0xr0404yhvtw" path="res://src/player/player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dnt2ghs05it1x" path="res://assets/art/submarine/lightbeam.png" id="2_5f2sf"]
+[ext_resource type="Texture2D" uid="uid://7noaus7ijv2l" path="res://assets/art/submarine/sub roam 2.png" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://co683vl887oha" path="res://src/player/sonar_emitter.gd" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dbgy6v31kxwjv" path="res://assets/art/submarine/sub roam 1.png" id="4_sweqy"]
+[ext_resource type="Script" uid="uid://y2n68hlm6ibj" path="res://src/player/transition_camera.gd" id="6_jiejy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sweqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"roam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_sweqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(200, 47)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sweqy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtel"]
+bg_color = Color(0, 0.411765, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Submarine" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_i3pqv")
+metadata/_edit_group_ = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_sh265")
+animation = &"roam"
+
+[node name="SonarEmitter" type="Node2D" parent="."]
+script = ExtResource("4_hqtel")
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+light_mask = 0
+custom_minimum_size = Vector2(100, 12)
+offset_left = -104.0
+offset_top = -160.0
+offset_right = 104.0
+offset_bottom = -133.0
+theme_override_styles/background = SubResource("StyleBoxFlat_sweqy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hqtel")
+value = 100.0
+show_percentage = false
+
+[node name="Light" type="PointLight2D" parent="."]
+position = Vector2(70, 0)
+scale = Vector2(7, 7)
+shadow_enabled = true
+shadow_item_cull_mask = 4
+texture = ExtResource("2_5f2sf")
+offset = Vector2(75, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+script = ExtResource("6_jiejy")

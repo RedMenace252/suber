@@ -1,0 +1,17 @@
+{
+	"test1" : [
+		"test 1",
+		"",
+		"",
+		"",
+		"it worked"
+	],
+	"test2" : [
+		"test 2"
+	],
+	"intro" : [
+		"Welcome to Suber!",
+		"This is a wholesome, friendly little submarine exploration game (˃ᆺ˂)",
+		"Your goal is to reach the bottom! The front-mounted floodlights on your sub will light the way when it gets dark. Good luck and have fun!"
+	]
+}

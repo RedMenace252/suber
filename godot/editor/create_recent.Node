@@ -1,0 +1,14 @@
+Node3D
+AnimationPlayer
+Control
+ColorRect
+Node
+CanvasModulate
+CanvasLayer
+Camera3D
+CollisionShape3D
+CharacterBody3D
+Node2D
+MeshInstance3D
+OmniLight3D
+StaticBody3D

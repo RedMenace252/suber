@@ -1,0 +1,161 @@
+[gd_scene load_steps=13 format=3 uid="uid://biqy4k02aljp6"]
+
+[ext_resource type="Script" uid="uid://gi0qcnoom0i" path="res://main.gd" id="1_30cu5"]
+[ext_resource type="PackedScene" uid="uid://bfpljttujuemk" path="res://src/world/world.tscn" id="1_jqarl"]
+[ext_resource type="PackedScene" uid="uid://ddfhvkuagrdt8" path="res://src/wildlife/fish.tscn" id="2_30cu5"]
+[ext_resource type="PackedScene" uid="uid://cj3xfrm21n4fp" path="res://src/player/player.tscn" id="3_frqgp"]
+[ext_resource type="PackedScene" uid="uid://chbgu4iv7qdb2" path="res://src/ui/dialogue/dialogue_ui.tscn" id="5_km7bn"]
+[ext_resource type="PackedScene" uid="uid://hxsgq8ofkxd7" path="res://src/ui/pause_menu.tscn" id="6_erw1m"]
+[ext_resource type="PackedScene" uid="uid://m2l7keycg8t4" path="res://player_3d.tscn" id="7_2nke2"]
+[ext_resource type="PackedScene" uid="uid://csdqidf21t33k" path="res://submarine_cockpit.tscn" id="8_frqgp"]
+
+[sub_resource type="Animation" id="Animation_2nke2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_km7bn"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_frqgp"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_km7bn"]
+_data = {
+&"RESET": SubResource("Animation_2nke2"),
+&"fade_in": SubResource("Animation_km7bn"),
+&"fade_out": SubResource("Animation_frqgp")
+}
+
+[node name="Main" type="Node"]
+script = ExtResource("1_30cu5")
+
+[node name="Scene2D" type="Node2D" parent="."]
+
+[node name="World" parent="Scene2D" instance=ExtResource("1_jqarl")]
+
+[node name="Fishes" type="Node" parent="Scene2D/World"]
+
+[node name="Fish" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(-852, 492)
+
+[node name="Fish2" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(753, 757)
+
+[node name="Fish3" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(-72, 811)
+
+[node name="Fish4" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(-673, 936)
+
+[node name="Fish5" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(-638, 600)
+
+[node name="Fish6" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(578, 695)
+
+[node name="Fish7" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(2183, 960)
+
+[node name="Fish8" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(1358, 1014)
+
+[node name="Fish9" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(757, 1139)
+
+[node name="Fish10" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(792, 803)
+
+[node name="Fish11" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(518, -425)
+
+[node name="Fish12" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(2123, -160)
+
+[node name="Fish13" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(1298, -106)
+
+[node name="Fish14" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(697, 19)
+
+[node name="Fish15" parent="Scene2D/World/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(732, -317)
+
+[node name="Submarine" parent="Scene2D" instance=ExtResource("3_frqgp")]
+position = Vector2(941, 560)
+scale = Vector2(0.5, 0.5)
+
+[node name="Scene3D" type="Node3D" parent="."]
+visible = false
+
+[node name="SubmarineCockpit" parent="Scene3D" instance=ExtResource("8_frqgp")]
+
+[node name="Player3D" parent="Scene3D" instance=ExtResource("7_2nke2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
+
+[node name="Node" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FadeInOut" type="Control" parent="Node"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlackScreen" type="ColorRect" parent="Node/FadeInOut"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1880.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FadeInOutPlayer" type="AnimationPlayer" parent="Node/FadeInOut"]
+libraries = {
+&"": SubResource("AnimationLibrary_km7bn")
+}
+
+[node name="DialogueUI" parent="Node" instance=ExtResource("5_km7bn")]
+
+[node name="PauseMenu" parent="Node" instance=ExtResource("6_erw1m")]

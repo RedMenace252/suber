@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbpp0sxg7wtc0"]
+
+[ext_resource type="Script" uid="uid://ceyw7a6b4g0w5" path="res://sonar_dot.gd" id="1_gtyp5"]
+[ext_resource type="Texture2D" uid="uid://bdyvwydv8tyuu" path="res://art/dot.png" id="1_rgygg"]
+
+[node name="SonarDot" type="Node2D"]
+script = ExtResource("1_gtyp5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rgygg")

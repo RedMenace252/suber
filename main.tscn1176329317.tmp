@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bntubp4hwo71f"]
+
+[ext_resource type="PackedScene" uid="uid://c83v16vgti8ur" path="res://world.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ddfhvkuagrdt8" path="res://fish.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://tyl7842kyr3w" path="res://player.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://dgpvj23deubxn" path="res://transition_camera.gd" id="3_h2yge"]
+
+[node name="Main" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="Fishes" type="Node" parent="."]
+
+[node name="Fish" parent="Fishes" instance=ExtResource("2_1bvp3")]
+position = Vector2(1788, 769)
+
+[node name="Fish2" parent="Fishes" instance=ExtResource("2_1bvp3")]
+position = Vector2(2243, 391)
+
+[node name="Fish3" parent="Fishes" instance=ExtResource("2_1bvp3")]
+position = Vector2(1418, 445)
+
+[node name="Fish4" parent="Fishes" instance=ExtResource("2_1bvp3")]
+position = Vector2(817, 570)
+
+[node name="Fish5" parent="Fishes" instance=ExtResource("2_1bvp3")]
+position = Vector2(852, 234)
+
+[node name="Player" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(294, 324)
+scale = Vector2(0.5, 0.5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_smoothed = true
+script = ExtResource("3_h2yge")

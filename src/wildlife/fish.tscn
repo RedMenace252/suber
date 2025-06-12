@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddfhvkuagrdt8"]
+
+[ext_resource type="Script" uid="uid://bwe00flxpmg03" path="res://src/wildlife/fish.gd" id="1_xu20i"]
+[ext_resource type="Texture2D" uid="uid://bqers16dojygg" path="res://assets/art/wildlife/fish.png" id="2_0bxj3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_637v3"]
+light_mode = 2
+
+[node name="Fish" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_xu20i")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_637v3")
+texture = ExtResource("2_0bxj3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(45, -19, 44, 15, 25, 7, 15, 15, 0, 20, -17, 20, -35, 16, -47, 5, -47, -7, -39, -16, -24, -23, -7, -25, 10, -22, 20, -16, 25, -10)

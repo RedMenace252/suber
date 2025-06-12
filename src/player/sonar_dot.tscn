@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbpp0sxg7wtc0"]
+
+[ext_resource type="Script" uid="uid://qt23f37lh3il" path="res://src/player/sonar_dot.gd" id="1_gtyp5"]
+[ext_resource type="Texture2D" uid="uid://bdyvwydv8tyuu" path="res://assets/art/submarine/dot.png" id="2_gtyp5"]
+
+[node name="SonarDot" type="Node2D"]
+script = ExtResource("1_gtyp5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gtyp5")
