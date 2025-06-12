@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://hxsgq8ofkxd7"]
 
-[ext_resource type="Script" uid="uid://smybv0oocwsl" path="res://src/ui/pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://smybv0oocwsl" path="res://src/ui/ui_pause.gd" id="1_hdmo1"]
 [ext_resource type="Texture2D" uid="uid://bqt4s6vqxi8sx" path="res://assets/art/suberlogo.png" id="2_nwcfo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdmo1"]

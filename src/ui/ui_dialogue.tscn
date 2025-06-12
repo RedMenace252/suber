@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chbgu4iv7qdb2"]
 
-[ext_resource type="Script" uid="uid://cmoowwgaep63r" path="res://src/ui/dialogue/dialogue_ui.gd" id="1_njptv"]
-[ext_resource type="JSON" path="res://assets/json/dialogue.json" id="2_borsi"]
+[ext_resource type="Script" uid="uid://cmoowwgaep63r" path="res://src/ui/ui_dialogue.gd" id="1_lbwwa"]
+[ext_resource type="JSON" path="res://assets/json/dialogue.json" id="2_jfrg8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njptv"]
 bg_color = Color(0, 0, 0, 1)
@@ -23,8 +23,8 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="DialogueUI" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_njptv")
-scene_text_file = ExtResource("2_borsi")
+script = ExtResource("1_lbwwa")
+scene_text_file = ExtResource("2_jfrg8")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15

@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://cj3xfrm21n4fp"]
 
-[ext_resource type="Script" uid="uid://0xr0404yhvtw" path="res://src/player/player.gd" id="1_i3pqv"]
+[ext_resource type="Script" uid="uid://0xr0404yhvtw" path="res://src/player_2d/player_2d.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://dnt2ghs05it1x" path="res://assets/art/submarine/lightbeam.png" id="2_5f2sf"]
 [ext_resource type="Texture2D" uid="uid://7noaus7ijv2l" path="res://assets/art/submarine/sub roam 2.png" id="2_i3pqv"]
-[ext_resource type="Script" uid="uid://co683vl887oha" path="res://src/player/sonar_emitter.gd" id="4_hqtel"]
+[ext_resource type="Script" uid="uid://co683vl887oha" path="res://src/player_2d/sonar_emitter.gd" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dbgy6v31kxwjv" path="res://assets/art/submarine/sub roam 1.png" id="4_sweqy"]
-[ext_resource type="Script" uid="uid://y2n68hlm6ibj" path="res://src/player/transition_camera.gd" id="6_jiejy"]
+[ext_resource type="Script" uid="uid://y2n68hlm6ibj" path="res://src/player_2d/transition_camera.gd" id="6_jiejy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
 animations = [{
@@ -54,7 +54,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Submarine" type="CharacterBody2D"]
+[node name="Player2D" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_i3pqv")
 metadata/_edit_group_ = true

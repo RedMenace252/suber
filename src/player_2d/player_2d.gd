@@ -20,8 +20,6 @@ func _physics_process(delta):
 func _process(delta):
 	
 	light(delta)
-	emit_sonar()
-	test()
 		
 func move(delta):
 	var input_vector = Vector2.ZERO
@@ -70,9 +68,14 @@ func light(delta):
 		$Light.position.x = -70
 		$Light.rotation = PI - light_angle
 		
-func emit_sonar():
+func _input(event):
 	if Input.is_action_just_pressed("ping_sonar"):
 		sonar.emit_sonar()
+		
+	#test
+	if Input.is_action_just_pressed("test_key"):
+		do_test()
+		
 
 func set_current_screen(screen: Vector2):
 	current_screen = screen
@@ -87,10 +90,6 @@ func take_damage(amount: float):
 func die(): #expand later
 	print("Submarine destroyed!")
 	queue_free()
-	
-func test():
-	if Input.is_action_just_pressed("test_key"):
-		do_test()
 
 func do_test():
 	SignalBus.emit_signal("display_dialogue", "test1")

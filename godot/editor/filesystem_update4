@@ -10,3 +10,17 @@ res://submarine_cockpit.tscn
 res://player_3d.tscn
 res://main.gd
 res://user_interface.tscn
+res://src/ui/user_interface.tscn
+res://src/ui/ui_dialogue.tscn
+res://src/player_3d.tscn
+res://src/world_2d/world.tscn
+res://README.md
+res://src/player_2d/player_2d.tscn
+res://src/main/main.gd
+res://src/world_2d/world_2d.tscn
+res://src/player_2d/sonar_dot.tscn
+res://src/ui/ui_pause.tscn
+res://src/player_3d/submarine_cockpit.tscn
+res://src/player_3d/player_3d.tscn
+res://src/player_2d/sonar_emitter.gd
+res://src/player_2d/player_2d.gd
