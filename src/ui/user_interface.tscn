@@ -67,7 +67,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
-[node name="FadeInOutPlayer" type="AnimationPlayer" parent="FadeInOut"]
+[node name="FadeController" type="AnimationPlayer" parent="FadeInOut"]
 libraries = {
 &"": SubResource("AnimationLibrary_km7bn")
 }

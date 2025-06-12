@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://biqy4k02aljp6"]
+[gd_scene load_steps=7 format=3 uid="uid://biqy4k02aljp6"]
 
 [ext_resource type="Script" uid="uid://gi0qcnoom0i" path="res://src/main/main.gd" id="1_30cu5"]
 [ext_resource type="PackedScene" uid="uid://bfpljttujuemk" path="res://src/world_2d/world_2d.tscn" id="1_jqarl"]
 [ext_resource type="PackedScene" uid="uid://ddfhvkuagrdt8" path="res://src/wildlife/fish.tscn" id="2_30cu5"]
 [ext_resource type="PackedScene" uid="uid://cj3xfrm21n4fp" path="res://src/player_2d/player_2d.tscn" id="3_frqgp"]
-[ext_resource type="PackedScene" uid="uid://m2l7keycg8t4" path="res://src/player_3d/player_3d.tscn" id="7_2nke2"]
 [ext_resource type="PackedScene" uid="uid://cpt1lju5gtena" path="res://src/ui/user_interface.tscn" id="7_30cu5"]
 [ext_resource type="PackedScene" uid="uid://csdqidf21t33k" path="res://src/player_3d/submarine_cockpit.tscn" id="8_frqgp"]
 
@@ -67,11 +66,7 @@ position = Vector2(967, 865)
 scale = Vector2(0.5, 0.5)
 
 [node name="Scene3D" type="Node3D" parent="."]
-visible = false
 
 [node name="SubmarineCockpit" parent="Scene3D" instance=ExtResource("8_frqgp")]
-
-[node name="Player3D" parent="Scene3D" instance=ExtResource("7_2nke2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4)
 
 [node name="UI" parent="." instance=ExtResource("7_30cu5")]
