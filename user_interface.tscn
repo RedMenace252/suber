@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpt1lju5gtena"]
+
+[ext_resource type="PackedScene" uid="uid://chbgu4iv7qdb2" path="res://src/ui/dialogue/dialogue_ui.tscn" id="1_i7dvk"]
+[ext_resource type="PackedScene" uid="uid://hxsgq8ofkxd7" path="res://src/ui/pause_menu.tscn" id="2_juc2q"]
+
+[sub_resource type="Animation" id="Animation_2nke2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_km7bn"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_frqgp"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_km7bn"]
+_data = {
+&"RESET": SubResource("Animation_2nke2"),
+&"fade_in": SubResource("Animation_km7bn"),
+&"fade_out": SubResource("Animation_frqgp")
+}
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="FadeInOut" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="BlackScreen" type="ColorRect" parent="FadeInOut"]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="FadeInOutPlayer" type="AnimationPlayer" parent="FadeInOut"]
+libraries = {
+&"": SubResource("AnimationLibrary_km7bn")
+}
+
+[node name="DialogueUI" parent="." instance=ExtResource("1_i7dvk")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_juc2q")]

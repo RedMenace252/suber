@@ -1,3 +1,12 @@
-res://src/main/main.tscn
+res://src/world/world.tscn
 res://src/tilesets/ocean.tres
+res://src/main/main.tscn
+res://src/player/player.tscn
+res://src/player/sonar_dot.tscn
+res://src/wildlife/fish.tscn
+res://src/ui/dialogue/dialogue_ui.tscn
+res://src/ui/pause_menu.tscn
+res://submarine_cockpit.tscn
+res://player_3d.tscn
 res://main.gd
+res://user_interface.tscn

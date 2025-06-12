@@ -60,7 +60,7 @@ script = ExtResource("1_i3pqv")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_sh265")
 animation = &"roam"
 

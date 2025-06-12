@@ -112,7 +112,3 @@ look_3d={
 "deadzone": 0.2,
 "events": []
 }
-
-[rendering]
-
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)

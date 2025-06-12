@@ -1,10 +1,10 @@
+CanvasLayer
 Node3D
 AnimationPlayer
 Control
 ColorRect
 Node
 CanvasModulate
-CanvasLayer
 Camera3D
 CollisionShape3D
 CharacterBody3D

@@ -2,12 +2,13 @@ extends Node
 
 @onready var main_2d = $Scene2D
 @onready var main_3d = $Scene3D
-@onready var fadeinout  = $Node/FadeInOut/FadeInOutPlayer
+@onready var fadeinout  = $UI/FadeInOut/FadeInOutPlayer
 @onready var periscopeinout = $Scene3D/Player3D/PlayerAnimator
 @onready var player2d = $Scene2D/Submarine
 @onready var player3d = $Scene3D/Player3D
 
 var in_3d_mode = false
+var switching = false
 
 func _ready():
 	player3d.mouse_look_enabled = false
@@ -20,10 +21,11 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("toggle_cockpit"): #THIS NEEDS TO FREEZE INPUT DURING SCENE SWITCHING
+	if event.is_action_pressed("toggle_cockpit") && !switching:
 		toggle_view_mode()
 
 func toggle_view_mode():
+	switching = true
 	in_3d_mode = !in_3d_mode
 
 	if in_3d_mode:
@@ -57,6 +59,7 @@ func enter_2d():
 	player2d.set_process(true)
 	player2d.set_physics_process(true)
 	player2d.set_process_input(true)
+	switching = false
 	
 func enter_3d():
 	main_3d.visible = true
@@ -68,3 +71,4 @@ func enter_3d():
 	player3d.set_physics_process(true)
 	player3d.set_process_input(true)
 	player3d.mouse_look_enabled = true
+	switching = false
