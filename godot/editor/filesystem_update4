@@ -3,3 +3,4 @@ res://main.gd
 res://src/player_3d/player_3d.tscn
 res://src/main/main.gd
 res://src/ui/user_interface.tscn
+res://src/player_3d/submarine_cockpit.tscn

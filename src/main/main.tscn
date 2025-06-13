@@ -68,5 +68,6 @@ scale = Vector2(0.5, 0.5)
 [node name="Scene3D" type="Node3D" parent="."]
 
 [node name="SubmarineCockpit" parent="Scene3D" instance=ExtResource("8_frqgp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
 
 [node name="UI" parent="." instance=ExtResource("7_30cu5")]

@@ -61,7 +61,6 @@ func enter_3d():
 	player3d = player3dtemplate.instantiate()
 	main_3d.add_child(player3d)
 	player3danimator = player3d.get_node("Player3DAnimator")
-	player3d.position = Vector3(0, 0, 0.4)
 	player3d.set_process(false)
 	player3d.set_physics_process(false)
 	player3d.set_process_input(false)
