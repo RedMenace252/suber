@@ -46,19 +46,19 @@ func move(delta):
 			facing_right = input_vector.x > 0
 	else:
 		$Sprite.stop()
-
+	
 	velocity = input_vector * speed
 	
 	if above_water:
-		velocity.y = -300
-		gravity_velocity += 300 * delta 
+		velocity.y = - speed + gravity_velocity
+		gravity_velocity += delta * 1000
 	else:
-		if gravity_velocity > 0:
-			gravity_velocity -= 1000 * delta
+		if gravity_velocity > speed:
+			velocity.y = - speed + gravity_velocity
+			gravity_velocity -= delta * 3000
 		else:
 			gravity_velocity = 0
-	
-	velocity.y += gravity_velocity
+			
 
 	move_and_slide()
 	
