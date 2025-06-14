@@ -13,7 +13,8 @@ lightbeam.png::CompressedTexture2D/CompressedTexture2D::8112590665915227287::174
 sub roam 1.png::CompressedTexture2D/CompressedTexture2D::7243350876119631927::1749749491::1748660578::1::::<><><>0<>0<>285bac12010d61ffb7a84d2d549fb595<>res://godot/imported/sub roam 1.png-643e1aa66d3edd9063b3f77aa5984c91.ctex::
 sub roam 2.png::CompressedTexture2D/CompressedTexture2D::2273731024857029437::1749749491::1748660578::1::::<><><>0<>0<>7415139a343ec3a49deb1c0cf14d0162<>res://godot/imported/sub roam 2.png-fe0e66bb77950ca4acdcdf4b7c3ad90d.ctex::
 SubHullCylinder.glb::PackedScene/PackedScene::4495802675061804872::1748886730::1748886731::1::::<><><>0<>0<>cf5cf29b60d8b5e18a13cc868853ca4e<>res://godot/imported/SubHullCylinder.glb-2faf84116cbc39f9ebb775ff2ee7cae8.scn::
-::res://assets/art/tiles/::1749922929
+::res://assets/art/tiles/::1749932127
+extratiles.png::CompressedTexture2D::3197523991388529903::1749932127::1749932129::1::::<><><>0<>0<>8d53e89a67c6258f5b3fd7757bc6adae<>res://godot/imported/extratiles.png-9efc6e353d58b9d3b2970da1d76efbc9.ctex::
 ocean.png::CompressedTexture2D/CompressedTexture2D::6379922636311402575::1749922929::1748743406::1::::<><><>0<>0<>51c4c21c051b037500753f5ddca61abd<>res://godot/imported/ocean.png-d83acef8473399175f45f0e4da4c4f1d.ctex::
 rocktile.png::CompressedTexture2D/CompressedTexture2D::924193988816504077::1748061669::1748660578::1::::<><><>0<>0<>26e120f5bc72949b3aa00ae07eb2c0d1<>res://godot/imported/rocktile.png-efdb498368eac4a0d9a574c1251ba722.ctex::
 testtile2.png::CompressedTexture2D/CompressedTexture2D::3691013637533294536::1748304823::1748660578::1::::<><><>0<>0<>5f61149fcf7818814ab52b9e68c93c25<>res://godot/imported/testtile2.png-10b8114a4452245aeb7d0ed25a71be47.ctex::
@@ -24,12 +25,12 @@ fishtransparent.png::CompressedTexture2D/CompressedTexture2D::382144047519455582
 ::res://assets/json/::1748716228
 dialogue.json::JSON::-1::1748716228::0::1::::<><><>0<>0<><>::
 ::res://src/::1749752260
-::res://src/main/::1749922929
+::res://src/main/::1749932006
 main.gd::GDScript::12917491387258106::1749922929::0::1::::<>Node<><>0<>0<><>::
-main.tscn::PackedScene::2982471037792765241::1749922929::0::1::::<><><>0<>0<><>::uid://gi0qcnoom0i::::res://src/main/main.gd<>uid://bfpljttujuemk::::res://src/world_2d/world_2d.tscn<>uid://ddfhvkuagrdt8::::res://src/wildlife/fish.tscn<>uid://cj3xfrm21n4fp::::res://src/player_2d/player_2d.tscn<>uid://cpt1lju5gtena::::res://src/ui/user_interface.tscn<>uid://csdqidf21t33k::::res://src/player_3d/submarine_cockpit.tscn
-::res://src/player_2d/::1749922929
-player_2d.gd::GDScript::1803280176166100744::1749922929::0::1::::<>CharacterBody2D<><>0<>0<><>::
-player_2d.tscn::PackedScene::5463749869741971733::1749922929::0::1::::<><><>0<>0<><>::uid://0xr0404yhvtw::::res://src/player_2d/player_2d.gd<>uid://dnt2ghs05it1x::::res://assets/art/submarine/lightbeam.png<>uid://7noaus7ijv2l::::res://assets/art/submarine/sub roam 2.png<>uid://co683vl887oha::::res://src/player_2d/sonar_emitter.gd<>uid://dbgy6v31kxwjv::::res://assets/art/submarine/sub roam 1.png<>uid://y2n68hlm6ibj::::res://src/player_2d/transition_camera.gd
+main.tscn::PackedScene::2982471037792765241::1749932006::0::1::::<><><>0<>0<><>::uid://gi0qcnoom0i::::res://src/main/main.gd<>uid://bfpljttujuemk::::res://src/world_2d/world_2d.tscn<>uid://ddfhvkuagrdt8::::res://src/wildlife/fish.tscn<>uid://cj3xfrm21n4fp::::res://src/player_2d/player_2d.tscn<>uid://cpt1lju5gtena::::res://src/ui/user_interface.tscn<>uid://csdqidf21t33k::::res://src/player_3d/submarine_cockpit.tscn
+::res://src/player_2d/::1749932006
+player_2d.gd::GDScript::1803280176166100744::1749927848::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player_2d.tscn::PackedScene::5463749869741971733::1749932006::0::1::::<><><>0<>0<><>::uid://0xr0404yhvtw::::res://src/player_2d/player_2d.gd<>uid://dnt2ghs05it1x::::res://assets/art/submarine/lightbeam.png<>uid://7noaus7ijv2l::::res://assets/art/submarine/sub roam 2.png<>uid://co683vl887oha::::res://src/player_2d/sonar_emitter.gd<>uid://dbgy6v31kxwjv::::res://assets/art/submarine/sub roam 1.png<>uid://y2n68hlm6ibj::::res://src/player_2d/transition_camera.gd
 sonar_dot.gd::GDScript::1163934343909900915::1749749491::0::1::::<>Node2D<><>0<>0<><>::
 sonar_dot.tscn::PackedScene::4874952258341316697::1749752205::0::1::::<><><>0<>0<><>::uid://qt23f37lh3il::::res://src/player_2d/sonar_dot.gd<>uid://bdyvwydv8tyuu::::res://assets/art/submarine/dot.png
 sonar_emitter.gd::GDScript::5821535673213082774::1749749491::0::1::::<>Node2D<><>0<>0<><>::
@@ -48,10 +49,10 @@ ui_dialogue.tscn::PackedScene::5266629204974313833::1749752205::0::1::::<><><>0<
 ui_pause.gd::GDScript::1289631854418972983::1749749491::0::1::::<>CanvasLayer<><>0<>0<><>::
 ui_pause.tscn::PackedScene::539907106438172674::1749752205::0::1::::<><><>0<>0<><>::uid://smybv0oocwsl::::res://src/ui/ui_pause.gd<>uid://bqt4s6vqxi8sx::::res://assets/art/suberlogo.png
 user_interface.tscn::PackedScene::5866495989806777730::1749922929::0::1::::<><><>0<>0<><>::uid://chbgu4iv7qdb2::::res://src/ui/ui_dialogue.tscn<>uid://hxsgq8ofkxd7::::res://src/ui/ui_pause.tscn
-::res://src/wildlife/::1749922929
+::res://src/wildlife/::1749932006
 fish.gd::GDScript::3940395605087975158::1748309162::0::1::::<>CharacterBody2D<><>0<>0<><>::
-fish.tscn::PackedScene::7380613547523347355::1749922929::0::1::::<><><>0<>0<><>::uid://bwe00flxpmg03::::res://src/wildlife/fish.gd<>uid://bqers16dojygg::::res://assets/art/wildlife/fish.png
-::res://src/world_2d/::1749922929
-level_one.tscn::PackedScene::8224794757243453266::1749922929::0::1::::<><><>0<>0<><>::uid://cm4iprym5alg0::::res://assets/art/environment/pirateship.png<>uid://cw5qnneb0bm8f::::res://assets/art/tiles/ocean.png<>uid://bpjavj0gsxbbv::::res://src/world_2d/sky.gd
+fish.tscn::PackedScene::7380613547523347355::1749932006::0::1::::<><><>0<>0<><>::uid://bwe00flxpmg03::::res://src/wildlife/fish.gd<>uid://bqers16dojygg::::res://assets/art/wildlife/fish.png
+::res://src/world_2d/::1749932006
+level_one.tscn::PackedScene::8224794757243453266::1749932006::0::1::::<><><>0<>0<><>::uid://cm4iprym5alg0::::res://assets/art/environment/pirateship.png<>uid://cw5qnneb0bm8f::::res://assets/art/tiles/ocean.png<>uid://bpjavj0gsxbbv::::res://src/world_2d/sky.gd
 sky.gd::GDScript::3457870751349961107::1749922929::0::1::::<>Area2D<><>0<>0<><>::
-world_2d.tscn::PackedScene::2769015555476198050::1749922929::0::1::::<><><>0<>0<><>::uid://dpgffyg303pxy::::res://src/world_2d/level_one.tscn
+world_2d.tscn::PackedScene::2769015555476198050::1749932006::0::1::::<><><>0<>0<><>::uid://dpgffyg303pxy::::res://src/world_2d/level_one.tscn

@@ -55,7 +55,6 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="Player2D" type="CharacterBody2D"]
-collision_layer = 2
 script = ExtResource("1_i3pqv")
 metadata/_edit_group_ = true
 
@@ -86,6 +85,7 @@ show_percentage = false
 [node name="Light" type="PointLight2D" parent="."]
 position = Vector2(70, 0)
 scale = Vector2(7, 7)
+range_z_min = -500
 range_z_max = 1
 shadow_enabled = true
 shadow_item_cull_mask = 4

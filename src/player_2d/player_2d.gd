@@ -51,11 +51,11 @@ func move(delta):
 	
 	if above_water:
 		velocity.y = - speed + gravity_velocity
-		gravity_velocity += delta * 1000
+		gravity_velocity += delta * speed * 2
 	else:
 		if gravity_velocity > speed:
 			velocity.y = - speed + gravity_velocity
-			gravity_velocity -= delta * 3000
+			gravity_velocity -= delta * speed * 6
 		else:
 			gravity_velocity = 0
 			

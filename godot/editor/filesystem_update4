@@ -4,3 +4,5 @@ res://src/main/main.tscn
 res://src/world_2d/world_2d.tscn
 res://src/world_2d/level_one.tscn
 res://src/wildlife/fish.tscn
+res://src/wildlife/fish.gd
+res://src/world_2d/sky.gd
