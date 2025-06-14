@@ -12,6 +12,9 @@ var current_health := max_health
 var facing_right = true
 var light_angle = 0
 
+var above_water = false
+var gravity_velocity = 0
+
 
 func _physics_process(delta):
 	
@@ -45,6 +48,17 @@ func move(delta):
 		$Sprite.stop()
 
 	velocity = input_vector * speed
+	
+	if above_water:
+		velocity.y = -300
+		gravity_velocity += 300 * delta 
+	else:
+		if gravity_velocity > 0:
+			gravity_velocity -= 1000 * delta
+		else:
+			gravity_velocity = 0
+	
+	velocity.y += gravity_velocity
 
 	move_and_slide()
 	

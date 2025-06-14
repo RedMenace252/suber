@@ -33,7 +33,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(200, 47)
+size = Vector2(120, 33)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sweqy"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -60,7 +60,7 @@ script = ExtResource("1_i3pqv")
 metadata/_edit_group_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(8, 8)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sh265")
 animation = &"roam"
 
@@ -68,16 +68,16 @@ animation = &"roam"
 script = ExtResource("4_hqtel")
 
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2.5)
+position = Vector2(3, -0.5)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 light_mask = 0
 custom_minimum_size = Vector2(100, 12)
-offset_left = -104.0
-offset_top = -160.0
-offset_right = 104.0
-offset_bottom = -133.0
+offset_left = -48.0
+offset_top = -64.0
+offset_right = 52.0
+offset_bottom = -52.0
 theme_override_styles/background = SubResource("StyleBoxFlat_sweqy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hqtel")
 value = 100.0
@@ -86,6 +86,7 @@ show_percentage = false
 [node name="Light" type="PointLight2D" parent="."]
 position = Vector2(70, 0)
 scale = Vector2(7, 7)
+range_z_max = 1
 shadow_enabled = true
 shadow_item_cull_mask = 4
 texture = ExtResource("2_5f2sf")
