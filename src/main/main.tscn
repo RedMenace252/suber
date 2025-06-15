@@ -62,7 +62,7 @@ position = Vector2(697, 19)
 position = Vector2(732, -317)
 
 [node name="Player2D" parent="Scene2D" instance=ExtResource("3_frqgp")]
-position = Vector2(967, 865)
+position = Vector2(714, 235)
 
 [node name="Scene3D" type="Node3D" parent="."]
 

@@ -6,3 +6,5 @@ res://src/world_2d/level_one.tscn
 res://src/wildlife/fish.tscn
 res://src/wildlife/fish.gd
 res://src/world_2d/sky.gd
+res://src/world_2d/entering_tunnel.gd
+res://assets/json/dialogue.json

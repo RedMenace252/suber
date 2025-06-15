@@ -13,5 +13,12 @@
 		"Welcome to Suber!",
 		"This is a wholesome, friendly little submarine exploration game (˃ᆺ˂)",
 		"Your goal is to reach the bottom! The front-mounted floodlights on your sub will light the way when it gets dark. Good luck and have fun!"
+	],
+	"entering tunnel 1" : [
+		"Captain! Our sub won't be able to withstand the pressure down there.",
+		"We'll have to find an upgrade before we can continue down."
+	],
+	"entering tunnel 2" : [
+		"We'll have to find an upgrade before we can continue down."
 	]
 }
