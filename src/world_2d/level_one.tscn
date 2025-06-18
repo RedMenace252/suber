@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=4 uid="uid://dpgffyg303pxy"]
+[gd_scene load_steps=19 format=4 uid="uid://dpgffyg303pxy"]
 
 [ext_resource type="Texture2D" uid="uid://cm4iprym5alg0" path="res://assets/art/environment/pirateship.png" id="1_vden5"]
 [ext_resource type="Texture2D" uid="uid://cw5qnneb0bm8f" path="res://assets/art/tiles/ocean.png" id="2_juy0o"]
 [ext_resource type="Texture2D" uid="uid://bls50uo5maoup" path="res://assets/art/tiles/extratiles.png" id="2_ridg1"]
 [ext_resource type="Script" uid="uid://bpjavj0gsxbbv" path="res://src/world_2d/sky.gd" id="3_p115f"]
-[ext_resource type="Script" uid="uid://xc61q3qwdpm1" path="res://src/world_2d/entering_tunnel.gd" id="5_7scke"]
+[ext_resource type="Script" path="res://src/world_2d/entering_tunnel.gd" id="5_7scke"]
+[ext_resource type="PackedScene" uid="uid://w6te14844cwt" path="res://src/world_2d/world objects/upgrade_orb.tscn" id="6_ynx36"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7scke"]
 texture = ExtResource("2_ridg1")
@@ -90,7 +91,7 @@ size = Vector2(640, 80)
 [node name="Environmental Details" type="Node2D" parent="Environment"]
 z_index = 10
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Environmental Details"]
+[node name="Pirate Ship" type="Sprite2D" parent="Environment/Environmental Details"]
 position = Vector2(2632, 696)
 scale = Vector2(12, 12)
 texture = ExtResource("1_vden5")
@@ -153,6 +154,10 @@ script = ExtResource("5_7scke")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Text Triggers/Entering Tunnel"]
 position = Vector2(6800, 2120)
 shape = SubResource("RectangleShape2D_ynx36")
+
+[node name="UpgradeOrb" parent="Gameplay" instance=ExtResource("6_ynx36")]
+position = Vector2(14817, 441)
+scale = Vector2(4, 4)
 
 [connection signal="body_entered" from="Environment/Background/Sky" to="Environment/Background/Sky" method="_on_body_entered"]
 [connection signal="body_exited" from="Environment/Background/Sky" to="Environment/Background/Sky" method="_on_body_exited"]

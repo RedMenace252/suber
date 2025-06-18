@@ -1,10 +1,11 @@
-res://src/player_2d/player_2d.tscn
-res://src/player_2d/player_2d.gd
+res://src/world_2d/world objects/upgrade_orb.tscn
 res://src/main/main.tscn
 res://src/world_2d/world_2d.tscn
+res://src/player_2d/player_2d.tscn
 res://src/world_2d/level_one.tscn
 res://src/wildlife/fish.tscn
-res://src/wildlife/fish.gd
-res://src/world_2d/sky.gd
-res://src/world_2d/entering_tunnel.gd
-res://assets/json/dialogue.json
+res://src/world_2d/world objects/upgrade_orb.gd
+res://src/player_2d/player_2d.gd
+res://src/player_2d/control.gd
+res://src/ui/ui_dialogue.tscn
+res://src/ui/ui_pause.tscn
