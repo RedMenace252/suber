@@ -78,7 +78,7 @@ func gravity(delta):
 		else:
 			gravity_velocity = 0
 			
-	clamp(velocity.y, - speed, speed)
+	velocity.y = clamp(velocity.y, - speed, speed)
 
 func move_sprite():
 	if velocity.length() > 0:
@@ -92,6 +92,7 @@ func move_sprite():
 	
 func move_and_handle_collisions(delta):
 	if bounce_velocity.length() > 0:
+		print(bounce_velocity)
 		velocity = bounce_velocity * speed
 		bounce_velocity.x = move_toward(bounce_velocity.x, 0, delta * 2)
 		bounce_velocity.y = move_toward(bounce_velocity.y, 0, delta * 2)
@@ -105,9 +106,10 @@ func move_and_handle_collisions(delta):
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		if collision:
-			take_damage(20)
+			take_damage(10)
 			red_screen.color.a = 0.6
-			bounce_velocity = collision.get_normal()
+			var normal = collision.get_normal()
+			bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
 			
 	
 	

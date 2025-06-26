@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 80
+@export var speed = 100
 var direction = Vector2.RIGHT.rotated(randf() * TAU)
 
 var above_water = false
@@ -20,6 +20,9 @@ func _physics_process(delta):
 		
 	if gravity_velocity > - speed:
 		motion.y = gravity_velocity * delta
+	
+	motion.y = clamp(motion.y, -speed, speed)
+	gravity_velocity = clamp(gravity_velocity, -speed * 2, speed * 2)
 	
 	var collision = move_and_collide(motion)
 	

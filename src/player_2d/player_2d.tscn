@@ -123,6 +123,7 @@ text = "Max Depth  |"
 label_settings = SubResource("LabelSettings_23aib")
 
 [node name="Max Depth Value" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
 offset_left = 22.0
 offset_top = 40.0
 offset_right = 225.0
@@ -140,6 +141,7 @@ text = "Current Depth  |"
 label_settings = SubResource("LabelSettings_23aib")
 
 [node name="Current Depth Value" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
 offset_left = 22.0
 offset_right = 225.0
 offset_bottom = 45.0
