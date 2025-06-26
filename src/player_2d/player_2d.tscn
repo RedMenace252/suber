@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj3xfrm21n4fp"]
+[gd_scene load_steps=13 format=3 uid="uid://cj3xfrm21n4fp"]
 
 [ext_resource type="Script" uid="uid://0xr0404yhvtw" path="res://src/player_2d/player_2d.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://dnt2ghs05it1x" path="res://assets/art/submarine/lightbeam.png" id="2_5f2sf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://co683vl887oha" path="res://src/player_2d/sonar_emitter.gd" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dbgy6v31kxwjv" path="res://assets/art/submarine/sub roam 1.png" id="4_sweqy"]
 [ext_resource type="Script" uid="uid://y2n68hlm6ibj" path="res://src/player_2d/transition_camera.gd" id="6_jiejy"]
+[ext_resource type="Script" uid="uid://cgmt41tj1myyw" path="res://src/player_2d/light.gd" id="6_pv17u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
 animations = [{
@@ -86,8 +87,7 @@ value = 100.0
 show_percentage = false
 
 [node name="Light" type="PointLight2D" parent="."]
-position = Vector2(70, 0)
-scale = Vector2(7, 7)
+scale = Vector2(7, 9)
 energy = 3.0
 range_z_min = -500
 range_z_max = 1
@@ -95,6 +95,7 @@ shadow_enabled = true
 shadow_item_cull_mask = 4
 texture = ExtResource("2_5f2sf")
 offset = Vector2(75, 0)
+script = ExtResource("6_pv17u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true

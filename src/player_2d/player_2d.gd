@@ -22,14 +22,27 @@ var current_depth = 0
 @onready var max_depth_value = $"Camera2D/Control/Max Depth Value"
 @onready var current_depth_value = $"Camera2D/Control/Current Depth Value"
 
+var powered = true
+
+func _ready() -> void:
+	SignalBus.submarine_power_off.connect(_on_power_off)
+	
 func _physics_process(delta):
-	velocity = Vector2(0,0)
 	
-	movement_input(delta)
-	gravity(delta)
-	
-	move_sprite()
-	
+	if powered:
+		velocity = Vector2(0,0)
+		
+		movement_input(delta)
+		gravity(delta)
+		
+		move_sprite()
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed * delta)
+		velocity.y = move_toward(velocity.y, 0, speed * delta)
+		if $Sprite.is_playing():
+			$Sprite.stop()
+			
+		
 	move_and_handle_collisions(delta)
 	
 func _process(delta):
@@ -52,16 +65,7 @@ func _process(delta):
 		
 	
 func movement_input(delta):
-	var input_vector = Vector2.ZERO
-
-	if Input.is_action_pressed("move_right"):
-		input_vector.x += 1
-	if Input.is_action_pressed("move_left"):
-		input_vector.x -= 1
-	if Input.is_action_pressed("move_down"):
-		input_vector.y += 1
-	if Input.is_action_pressed("move_up"):
-		input_vector.y -= 1
+	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	input_vector = input_vector.normalized()
 	
@@ -106,27 +110,27 @@ func move_and_handle_collisions(delta):
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		if collision:
-			take_damage(10)
-			red_screen.color.a = 0.6
-			var normal = collision.get_normal()
-			bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
+			if collision.get_collider() is RigidBody2D:
+				collision.get_collider().apply_impulse(velocity.normalized() * 75)
+				var normal = collision.get_normal()
+				bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
+			else:
+				take_damage(10)
+				red_screen.color.a = 0.6
+				var normal = collision.get_normal()
+				bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
 			
 	
 	
 func light(delta):
-	if Input.is_action_pressed("light_up"):
-		light_angle -= delta
-	if Input.is_action_pressed("light_down"):
-		light_angle += delta	
-	
-	light_angle = clamp(light_angle, -PI/6, PI/3)
-		
-	if facing_right:
-		$Light.position.x = 70
-		$Light.rotation = light_angle
-	else:
-		$Light.position.x = -70
-		$Light.rotation = PI - light_angle
+	var global_mouse_pos = get_global_mouse_position()
+	var light_global_pos = $Light.global_position
+
+	# Calculate angle from light to mouse
+	var angle_to_mouse = (global_mouse_pos - light_global_pos).angle()
+
+	# Determine facing direction, flip light position if needed
+	$Light.rotation = lerp_angle($Light.rotation, angle_to_mouse, 3 * delta)
 		
 func _input(event):
 	if Input.is_action_just_pressed("ping_sonar"):
@@ -151,10 +155,17 @@ func die(): #expand later
 	red_screen.color.a = 0.6
 	get_tree().reload_current_scene()
 		
+func _on_power_off() -> void:
+	powered = false
+	$Light.flicker_light_off()
 		
 		
 		
 		
 ####################################################################
 func do_test():
-	SignalBus.emit_signal("display_dialogue", "test1")
+	#SignalBus.emit_signal("display_dialogue", "test1")
+	#SignalBus.move_debris.emit()
+	if $Light.energy <= 20:
+		$Light.energy = 20
+	max_depth = 10

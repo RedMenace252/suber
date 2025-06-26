@@ -1,63 +1,81 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1750243645
+::res://::1750937188
 README.md::TextFile/TextFile::-1::1749746409::0::1::::<><><>0<>0<><>::
 ::res://assets/::1749699946
-::res://assets/art/::1750244912
+::res://assets/art/::1750244913
 suberlogo.png::CompressedTexture2D/CompressedTexture2D::3550459957732073455::1749699946::1749699971::1::::<><><>0<>0<>02d464b471c7ce87d7a61d9653cb96fb<>res://godot/imported/suberlogo.png-bb06050715d13f947da0f21185e48823.ctex::
-upgrade orb.png::CompressedTexture2D::7218689633185284351::1750244912::1750244913::1::::<><><>0<>0<>f27352cbf6f728977869bfa468452570<>res://godot/imported/upgrade orb.png-336642d68ac31cc59b915d585784130c.ctex::
+upgrade orb.png::CompressedTexture2D/CompressedTexture2D::7218689633185284351::1750244912::1750244913::1::::<><><>0<>0<>f27352cbf6f728977869bfa468452570<>res://godot/imported/upgrade orb.png-336642d68ac31cc59b915d585784130c.ctex::
 whitescreen.png::CompressedTexture2D/CompressedTexture2D::5723956998994099722::1749699946::1749699971::1::::<><><>0<>0<>2338ebffaea7789614eececcd902ab1b<>res://godot/imported/whitescreen.png-a4ce34ad646884ebc3610c8fc5b5f9de.ctex::
-::res://assets/art/environment/::1749915038
+::res://assets/art/environment/::1750942257
+ball.png::CompressedTexture2D::5025812389206301575::1750942255::1750942257::1::::<><><>0<>0<>a9157b5788254e9b4c7a8bbae347d074<>res://godot/imported/ball.png-4eda23e5fccfa184a05e71b88137da63.ctex::
+debris.png::CompressedTexture2D::8144590306385003145::1750942216::1750942257::1::::<><><>0<>0<>1dede28171e84a678f6e87d6581c4be9<>res://godot/imported/debris.png-3ea657750683ad1d6a81fd2271f47750.ctex::
 pirateship.png::CompressedTexture2D/CompressedTexture2D::5675487899318615921::1749915038::1749914975::1::::<><><>0<>0<>73af898f95ce8d73935fc3418c8843d1<>res://godot/imported/pirateship.png-d91888c803bd1c3de8b4c178b150cdb6.ctex::
+skull.png::CompressedTexture2D::6897577554381594177::1750941620::1750941621::1::::<><><>0<>0<>f1fe75316f43078af6b827bb781a903c<>res://godot/imported/skull.png-71fbb461b0ea1813dab13d9f22698771.ctex::
 ::res://assets/art/submarine/::1749744653
 dot.png::CompressedTexture2D/CompressedTexture2D::2647847891212471204::1749699946::1749699971::1::::<><><>0<>0<>af528c0786b1af1ccf4bb3221568e5c1<>res://godot/imported/dot.png-df1a6e91d84f57bd3e77bd735c59344b.ctex::
 lightbeam.png::CompressedTexture2D/CompressedTexture2D::8112590665915227287::1749699946::1749699971::1::::<><><>0<>0<>a02858fbe563168b251ec46088f0cdb2<>res://godot/imported/lightbeam.png-e0edab85e780256c336ef7bba85fbbad.ctex::
 sub roam 1.png::CompressedTexture2D/CompressedTexture2D::7243350876119631927::1749744651::1749744653::1::::<><><>0<>0<>285bac12010d61ffb7a84d2d549fb595<>res://godot/imported/sub roam 1.png-643e1aa66d3edd9063b3f77aa5984c91.ctex::
 sub roam 2.png::CompressedTexture2D/CompressedTexture2D::2273731024857029437::1749744644::1749744653::1::::<><><>0<>0<>7415139a343ec3a49deb1c0cf14d0162<>res://godot/imported/sub roam 2.png-fe0e66bb77950ca4acdcdf4b7c3ad90d.ctex::
 SubHullCylinder.glb::PackedScene/PackedScene::4495802675061804872::1749699946::1749699972::1::::<><><>0<>0<>cf5cf29b60d8b5e18a13cc868853ca4e<>res://godot/imported/SubHullCylinder.glb-2faf84116cbc39f9ebb775ff2ee7cae8.scn::
-::res://assets/art/tiles/::1750100991
+::res://assets/art/tiles/::1750935194
 extratiles.png::CompressedTexture2D/CompressedTexture2D::3197523991388529903::1750100986::1750100991::1::::<><><>0<>0<>8d53e89a67c6258f5b3fd7757bc6adae<>res://godot/imported/extratiles.png-9efc6e353d58b9d3b2970da1d76efbc9.ctex::
-ocean.png::CompressedTexture2D/CompressedTexture2D::6379922636311402575::1749916959::1749916962::1::::<><><>0<>0<>51c4c21c051b037500753f5ddca61abd<>res://godot/imported/ocean.png-d83acef8473399175f45f0e4da4c4f1d.ctex::
+ocean.png::CompressedTexture2D/CompressedTexture2D::6379922636311402575::1750935193::1750935194::1::::<><><>0<>0<>51c4c21c051b037500753f5ddca61abd<>res://godot/imported/ocean.png-d83acef8473399175f45f0e4da4c4f1d.ctex::
 rocktile.png::CompressedTexture2D/CompressedTexture2D::924193988816504077::1749699946::1749699971::1::::<><><>0<>0<>26e120f5bc72949b3aa00ae07eb2c0d1<>res://godot/imported/rocktile.png-efdb498368eac4a0d9a574c1251ba722.ctex::
 testtile2.png::CompressedTexture2D/CompressedTexture2D::3691013637533294536::1749699946::1749699971::1::::<><><>0<>0<>5f61149fcf7818814ab52b9e68c93c25<>res://godot/imported/testtile2.png-10b8114a4452245aeb7d0ed25a71be47.ctex::
 testtile.png::CompressedTexture2D/CompressedTexture2D::4824256625354449557::1749699946::1749699971::1::::<><><>0<>0<>dc772de90d8a401bf2efad7905b34a8e<>res://godot/imported/testtile.png-9ddcf8dfb96eb27a7629b82713d35a0c.ctex::
 ::res://assets/art/wildlife/::1749699971
 fish.png::CompressedTexture2D/CompressedTexture2D::3518765439736613626::1749699946::1749699971::1::::<><><>0<>0<>22f162e72820cf963f346d90f02d8c36<>res://godot/imported/fish.png-a75670d5ed1c503a6b573bc6638147e1.ctex::
 fishtransparent.png::CompressedTexture2D/CompressedTexture2D::3821440475194555823::1749699946::1749699971::1::::<><><>0<>0<>16e3fc29f3e21ef6846cd9a6759211f7<>res://godot/imported/fishtransparent.png-996650f8120ce3218396a63c4499419b.ctex::
-::res://assets/json/::1750100986
-dialogue.json::JSON::-1::1750100986::0::1::::<><><>0<>0<><>::
+::res://assets/json/::1750942720
+dialogue.json::JSON::-1::1750942720::0::1::::<><><>0<>0<><>::
 ::res://src/::1749746397
-::res://src/main/::1750244879
-main.gd::GDScript/GDScript::12917491387258106::1749785036::0::1::::<>Node<><>0<>0<><>::
-main.tscn::PackedScene::2982471037792765241::1750244879::0::1::::<><><>0<>0<><>::uid://gi0qcnoom0i::::res://src/main/main.gd<>uid://bfpljttujuemk::::res://src/world_2d/world_2d.tscn<>uid://ddfhvkuagrdt8::::res://src/wildlife/fish.tscn<>uid://cj3xfrm21n4fp::::res://src/player_2d/player_2d.tscn<>uid://cpt1lju5gtena::::res://src/ui/user_interface.tscn<>uid://csdqidf21t33k::::res://src/player_3d/submarine_cockpit.tscn
-::res://src/player_2d/::1750244879
-player_2d.gd::GDScript::1803280176166100744::1750244393::0::1::::<>CharacterBody2D<><>0<>0<><>::
-player_2d.tscn::PackedScene::5463749869741971733::1750244879::0::1::::<><><>0<>0<><>::uid://0xr0404yhvtw::::res://src/player_2d/player_2d.gd<>uid://dnt2ghs05it1x::::res://assets/art/submarine/lightbeam.png<>uid://7noaus7ijv2l::::res://assets/art/submarine/sub roam 2.png<>uid://co683vl887oha::::res://src/player_2d/sonar_emitter.gd<>uid://dbgy6v31kxwjv::::res://assets/art/submarine/sub roam 1.png<>uid://y2n68hlm6ibj::::res://src/player_2d/transition_camera.gd
+::res://src/main/::1750947264
+main.gd::GDScript::12917491387258106::1750946624::0::1::::<>Node<><>0<>0<><>::
+main.tscn::PackedScene::2982471037792765241::1750947285::0::1::::<><><>0<>0<><>::uid://gi0qcnoom0i::::res://src/main/main.gd<>uid://bfpljttujuemk::::res://src/world_2d/world_2d.tscn<>uid://ddfhvkuagrdt8::::res://src/wildlife/fish.tscn<>uid://cj3xfrm21n4fp::::res://src/player_2d/player_2d.tscn<>uid://cpt1lju5gtena::::res://src/ui/user_interface.tscn<>uid://csdqidf21t33k::::res://src/player_3d/submarine_cockpit.tscn
+::res://src/player_2d/::1750946999
+control.gd::GDScript/GDScript::4197459561933935351::1750259155::0::1::::<>Control<><>0<>0<><>::
+player_2d.gd::GDScript::1803280176166100744::1750946197::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player_2d.tscn::PackedScene::5463749869741971733::1750946999::0::1::::<><><>0<>0<><>::uid://0xr0404yhvtw::::res://src/player_2d/player_2d.gd<>uid://dnt2ghs05it1x::::res://assets/art/submarine/lightbeam.png<>uid://7noaus7ijv2l::::res://assets/art/submarine/sub roam 2.png<>uid://co683vl887oha::::res://src/player_2d/sonar_emitter.gd<>uid://dbgy6v31kxwjv::::res://assets/art/submarine/sub roam 1.png<>uid://y2n68hlm6ibj::::res://src/player_2d/transition_camera.gd<>uid://cgmt41tj1myyw::::res://src/player_2d/light.gd
+light.gd::GDScript::5219953768551469958::1750946023::0::1::::<>PointLight2D<><>0<>0<><>::
 sonar_dot.gd::GDScript/GDScript::1163934343909900915::1749699947::0::1::::<>Node2D<><>0<>0<><>::
 sonar_dot.tscn::PackedScene/PackedScene::4874952258341316697::1749746965::0::1::::<><><>0<>0<><>::uid://qt23f37lh3il::::res://src/player_2d/sonar_dot.gd<>uid://bdyvwydv8tyuu::::res://assets/art/submarine/dot.png
 sonar_emitter.gd::GDScript/GDScript::5821535673213082774::1749746824::0::1::::<>Node2D<><>0<>0<><>::
-transition_camera.gd::GDScript/GDScript::1741116871790646051::1749699947::0::1::::<>Camera2D<><>0<>0<><>::
+transition_camera.gd::GDScript::1741116871790646051::1750943658::0::1::::<>Camera2D<><>0<>0<><>::
 ::res://src/player_3d/::1749785007
 player_3d.gd::GDScript/GDScript::6796514526863392765::1749699946::0::1::::<>CharacterBody3D<><>0<>0<><>::
 player_3d.tscn::PackedScene/PackedScene::898729887847506935::1749785007::0::1::::<><><>0<>0<><>::uid://c33jupcqob8ej::::res://src/player_3d/player_3d.gd
 submarine_cockpit.tscn::PackedScene/PackedScene::6043419610924820746::1749785007::0::1::::<><><>0<>0<><>::
-::res://src/singletons/::1749699947
-signal_bus.gd::GDScript/GDScript::4247513182593279154::1749699947::0::1::::<>Node<><>0<>0<><>::
+::res://src/singletons/::1750946475
+signal_bus.gd::GDScript::4247513182593279154::1750946475::0::1::::<>Node<><>0<>0<><>::
 ::res://src/tilesets/::1749743119
 ocean.tres::TileSet/TileSet::2528272831519680505::1749743119::0::1::::<><><>0<>0<><>::uid://cw5qnneb0bm8f::::res://assets/art/tiles/ocean.png
-::res://src/ui/::1749785082
+::res://src/ui/::1750946999
+fade_controller.gd::GDScript::5526145594692191501::1750946792::0::1::::<>AnimationPlayer<><>0<>0<><>::
 ui_dialogue.gd::GDScript/GDScript::5644899269752567165::1749699947::0::1::::<>CanvasLayer<><>0<>0<><>::
-ui_dialogue.tscn::PackedScene/PackedScene::5266629204974313833::1749746965::0::1::::<><><>0<>0<><>::uid://cmoowwgaep63r::::res://src/ui/ui_dialogue.gd<>res://assets/json/dialogue.json
+ui_dialogue.tscn::PackedScene/PackedScene::5266629204974313833::1750344619::0::1::::<><><>0<>0<><>::uid://cmoowwgaep63r::::res://src/ui/ui_dialogue.gd<>res://assets/json/dialogue.json
 ui_pause.gd::GDScript/GDScript::1289631854418972983::1749699947::0::1::::<>CanvasLayer<><>0<>0<><>::
-ui_pause.tscn::PackedScene/PackedScene::539907106438172674::1749746965::0::1::::<><><>0<>0<><>::uid://smybv0oocwsl::::res://src/ui/ui_pause.gd<>uid://bqt4s6vqxi8sx::::res://assets/art/suberlogo.png
-user_interface.tscn::PackedScene/PackedScene::5866495989806777730::1749785082::0::1::::<><><>0<>0<><>::uid://chbgu4iv7qdb2::::res://src/ui/ui_dialogue.tscn<>uid://hxsgq8ofkxd7::::res://src/ui/ui_pause.tscn
-::res://src/wildlife/::1750244879
-fish.gd::GDScript::3940395605087975158::1750100986::0::1::::<>CharacterBody2D<><>0<>0<><>::
-fish.tscn::PackedScene::7380613547523347355::1750244879::0::1::::<><><>0<>0<><>::uid://bwe00flxpmg03::::res://src/wildlife/fish.gd<>uid://bqers16dojygg::::res://assets/art/wildlife/fish.png
-::res://src/world_2d/::1750244879
-entering_tunnel.gd::GDScript/GDScript::-1::1750100986::0::1::::<>Area2D<><>0<>0<><>::
-level_one.tscn::PackedScene::8224794757243453266::1750244879::0::1::::<><><>0<>0<><>::uid://cm4iprym5alg0::::res://assets/art/environment/pirateship.png<>uid://cw5qnneb0bm8f::::res://assets/art/tiles/ocean.png<>uid://bls50uo5maoup::::res://assets/art/tiles/extratiles.png<>uid://bpjavj0gsxbbv::::res://src/world_2d/sky.gd<>res://src/world_2d/entering_tunnel.gd<>uid://w6te14844cwt::::res://src/world_2d/world objects/upgrade_orb.tscn
-sky.gd::GDScript::3457870751349961107::1750100986::0::1::::<>Area2D<><>0<>0<><>::
-world_2d.tscn::PackedScene::2769015555476198050::1750244879::0::1::::<><><>0<>0<><>::uid://dpgffyg303pxy::::res://src/world_2d/level_one.tscn
-::res://src/world_2d/world objects/::1750244879
-upgrade_orb.gd::GDScript::7782361716010925132::1750244423::0::1::::<>Node2D<><>0<>0<><>::
-upgrade_orb.tscn::PackedScene::1609312448396445343::1750244879::0::1::::<><><>0<>0<><>::uid://di43miw7gv4y7::::res://src/world_2d/world objects/upgrade_orb.gd<>uid://da3107ylh3bvb::::res://assets/art/upgrade orb.png
+ui_pause.tscn::PackedScene/PackedScene::539907106438172674::1750344619::0::1::::<><><>0<>0<><>::uid://smybv0oocwsl::::res://src/ui/ui_pause.gd<>uid://bqt4s6vqxi8sx::::res://assets/art/suberlogo.png
+user_interface.tscn::PackedScene::5866495989806777730::1750946999::0::1::::<><><>0<>0<><>::uid://cky52taowqyef::::res://src/ui/fade_controller.gd<>uid://chbgu4iv7qdb2::::res://src/ui/ui_dialogue.tscn<>uid://hxsgq8ofkxd7::::res://src/ui/ui_pause.tscn
+::res://src/wildlife/::1750344619
+fish.gd::GDScript/GDScript::3940395605087975158::1750344617::0::1::::<>CharacterBody2D<><>0<>0<><>::
+fish.tscn::PackedScene/PackedScene::7380613547523347355::1750344619::0::1::::<><><>0<>0<><>::uid://bwe00flxpmg03::::res://src/wildlife/fish.gd<>uid://bqers16dojygg::::res://assets/art/wildlife/fish.png
+::res://src/world_2d/::1750946999
+entering_tunnel.gd::GDScript::1620401700984779878::1750935633::0::1::::<>Area2D<><>0<>0<><>::
+level_one.tscn::PackedScene::8224794757243453266::1750947350::0::1::::<><><>0<>0<><>::uid://cm4iprym5alg0::::res://assets/art/environment/pirateship.png<>uid://cw5qnneb0bm8f::::res://assets/art/tiles/ocean.png<>uid://bls50uo5maoup::::res://assets/art/tiles/extratiles.png<>uid://bpjavj0gsxbbv::::res://src/world_2d/sky.gd<>uid://xc61q3qwdpm1::::res://src/world_2d/entering_tunnel.gd<>uid://w6te14844cwt::::res://src/world_2d/world objects/upgrade_orb.tscn
+level_two.tscn::PackedScene::7404244382128304681::1750947350::0::1::::<><><>0<>0<><>::uid://cw5qnneb0bm8f::::res://assets/art/tiles/ocean.png<>uid://ctt8lac2cails::::res://src/world_2d/world objects/ball.tscn<>uid://bde7r8hiejlvg::::res://src/world_2d/light_brightener.gd<>uid://cgeta1p00yifo::::res://src/world_2d/light_brightener_2.gd<>uid://cv1qy4oi3hpjb::::res://src/world_2d/world objects/debris.tscn<>uid://cdel3ofrlk70t::::res://src/world_2d/world objects/debris.gd<>uid://chu16if5elqmy::::res://src/world_2d/debris.gd<>uid://vohlu7x6sfiq::::res://src/world_2d/ball_drop_zone.gd
+light_brightener.gd::GDScript::2607219772341728964::1750935652::0::1::::<>Area2D<><>0<>0<><>::
+light_brightener_2.gd::GDScript::5203386953042615048::1750935723::0::1::::<>Area2D<><>0<>0<><>::
+level_three.tscn::PackedScene::4029083647773688785::1750947350::0::1::::<><><>0<>0<><>::uid://cw5qnneb0bm8f::::res://assets/art/tiles/ocean.png<>uid://qlqu6547vncd::::res://src/world_2d/world objects/skull.tscn<>uid://ca5a4yefj2ude::::res://src/world_2d/power_down.gd
+debris.gd::GDScript::5307085258636286728::1750942487::0::1::::<>Area2D<><>0<>0<><>::
+ball_drop_zone.gd::GDScript::1503312768625734932::1750943353::0::1::::<>Area2D<><>0<>0<><>::
+power_down.gd::GDScript::4834825755011147074::1750946939::0::1::::<>Area2D<><>0<>0<><>::
+sky.gd::GDScript/GDScript::3457870751349961107::1750100986::0::1::::<>Area2D<><>0<>0<><>::
+world_2d.tscn::PackedScene::2769015555476198050::1750946999::0::1::::<><><>0<>0<><>::uid://dpgffyg303pxy::::res://src/world_2d/level_one.tscn<>uid://ddqw28vb2rsrh::::res://src/world_2d/level_two.tscn<>uid://bxnyoiniv5ptp::::res://src/world_2d/level_three.tscn
+::res://src/world_2d/triggers/::0
+::res://src/world_2d/world objects/::1750946198
+ball.tscn::PackedScene::6147675882649247912::1750946198::0::1::::<><><>0<>0<><>::uid://cdusnprlq4hr8::::res://assets/art/environment/ball.png
+debris.tscn::PackedScene::6301496781534026855::1750946198::0::1::::<><><>0<>0<><>::uid://dobkhhsovcre4::::res://assets/art/environment/debris.png
+debris.gd::GDScript::4992384042304763461::1750944391::0::1::::<>RigidBody2D<><>0<>0<><>::
+skull.tscn::PackedScene::1146738517194754499::1750946198::0::1::::<><><>0<>0<><>::uid://c5jidhlb6wixt::::res://assets/art/environment/skull.png
+upgrade_orb.gd::GDScript/GDScript::7782361716010925132::1750263945::0::1::::<>Node2D<><>0<>0<><>::
+upgrade_orb.tscn::PackedScene/PackedScene::1609312448396445343::1750344619::0::1::::<><><>0<>0<><>::uid://di43miw7gv4y7::::res://src/world_2d/world objects/upgrade_orb.gd<>uid://da3107ylh3bvb::::res://assets/art/upgrade orb.png

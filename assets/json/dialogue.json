@@ -20,5 +20,10 @@
 	],
 	"entering tunnel 2" : [
 		"We'll have to find an upgrade before we can continue down."
+	],
+	"debris" : [
+		"The way down seems to be blocked by debris.",
+		"It looks loose... A nearby disturbance, like a heavy object falling, should be enough to clear the way.",
+		"Have a look around Captain. Worst case scenario, you may have to use this sub as a battering ram."
 	]
 }

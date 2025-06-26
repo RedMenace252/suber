@@ -6,15 +6,14 @@ extends Node
 var player3dtemplate = preload("res://src/player_3d/player_3d.tscn")
 var player3d
 var player3danimator
-@onready var fadecontroller = $UI/FadeInOut/FadeController
 
 var in_3d_mode = false
 var is_switching = false
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	fadecontroller.play("fade_in")
-	await fadecontroller.animation_finished
+	RenderingServer.set_default_clear_color(Color(0, 0, 0))
+	SignalBus.emit_signal("fade_in")
+	await get_tree().create_timer(1.0).timeout
 	#SignalBus.emit_signal("display_dialogue", "intro")
 
 
@@ -38,8 +37,8 @@ func exit_2d():
 	player2d.set_process(false)
 	player2d.set_physics_process(false)
 	player2d.set_process_input(false)
-	fadecontroller.play("fade_out")
-	await fadecontroller.animation_finished
+	SignalBus.emit_signal("fade_out")
+	await get_tree().create_timer(1.0).timeout
 	main_2d.visible = false
 	enter_3d()
 	
@@ -49,22 +48,24 @@ func exit_3d():
 	player3d.set_process(false)
 	player3d.set_physics_process(false)
 	player3d.set_process_input(false)
-	fadecontroller.play("fade_out")
-	await fadecontroller.animation_finished
+	SignalBus.emit_signal("fade_out")
+	await get_tree().create_timer(1.0).timeout
 	player3d.queue_free()
 	main_3d.visible = false
 	enter_2d()
 	
 func enter_2d():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	main_2d.visible = true
-	fadecontroller.play("fade_in")
-	await fadecontroller.animation_finished
+	SignalBus.emit_signal("fade_in")
+	await get_tree().create_timer(1.0).timeout
 	player2d.set_process(true)
 	player2d.set_physics_process(true)
 	player2d.set_process_input(true)
 	is_switching = false
 	
 func enter_3d():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	main_3d.visible = true
 	player3d = player3dtemplate.instantiate()
 	main_3d.add_child(player3d)
@@ -73,7 +74,7 @@ func enter_3d():
 	player3d.set_physics_process(false)
 	player3d.set_process_input(false)
 	player3d.mouse_look_enabled = false
-	fadecontroller.play("fade_in")
+	SignalBus.emit_signal("fade_in")
 	player3danimator.play("periscope_out")
 	await player3danimator.animation_finished
 	player3d.set_process(true)

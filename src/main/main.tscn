@@ -19,8 +19,14 @@ script = ExtResource("1_30cu5")
 [node name="Fish" parent="Scene2D/World2D/Fishes" instance=ExtResource("2_30cu5")]
 position = Vector2(649, 196)
 
+[node name="Fish2" parent="Scene2D/World2D/Fishes" instance=ExtResource("2_30cu5")]
+position = Vector2(3922, 6340)
+
+[node name="Fish" parent="Scene2D/World2D/Fishes/Fish2" instance=ExtResource("2_30cu5")]
+position = Vector2(6582, 1928)
+
 [node name="Player2D" parent="Scene2D" instance=ExtResource("3_frqgp")]
-position = Vector2(723, 295)
+position = Vector2(997, 547)
 
 [node name="Scene3D" type="Node3D" parent="."]
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpt1lju5gtena"]
+[gd_scene load_steps=8 format=3 uid="uid://cpt1lju5gtena"]
 
+[ext_resource type="Script" uid="uid://cky52taowqyef" path="res://src/ui/fade_controller.gd" id="1_5shr6"]
 [ext_resource type="PackedScene" uid="uid://chbgu4iv7qdb2" path="res://src/ui/ui_dialogue.tscn" id="1_i7dvk"]
 [ext_resource type="PackedScene" uid="uid://hxsgq8ofkxd7" path="res://src/ui/ui_pause.tscn" id="2_juc2q"]
 
@@ -71,6 +72,7 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_km7bn")
 }
+script = ExtResource("1_5shr6")
 
 [node name="DialogueUI" parent="." instance=ExtResource("1_i7dvk")]
 
