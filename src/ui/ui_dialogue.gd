@@ -35,6 +35,7 @@ func finish():
 	visible = false
 	in_progress = false
 	get_tree().paused = false
+	SignalBus.emit_signal("dialogue_finished")
 
 func on_display_dialogue(text_key):
 	if in_progress:

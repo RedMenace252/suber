@@ -23,9 +23,11 @@ var current_depth = 0
 @onready var current_depth_value = $"Camera2D/Control/Current Depth Value"
 
 var powered = true
+var sonar_enabled = false
 
 func _ready() -> void:
 	SignalBus.submarine_power_off.connect(_on_power_off)
+	SignalBus.sonar_enabled.connect(_switch_navigation)
 	
 func _physics_process(delta):
 	
@@ -133,7 +135,7 @@ func light(delta):
 	$Light.rotation = lerp_angle($Light.rotation, angle_to_mouse, 3 * delta)
 		
 func _input(event):
-	if Input.is_action_just_pressed("ping_sonar"):
+	if Input.is_action_just_pressed("ping_sonar") && sonar_enabled:
 		sonar.emit_sonar()
 		
 	#test############################################################
@@ -159,7 +161,11 @@ func _on_power_off() -> void:
 	powered = false
 	$Light.flicker_light_off()
 		
-		
+func _switch_navigation() -> void:
+	$Light.visible = false
+	powered = true
+	sonar_enabled = true
+	
 		
 		
 ####################################################################
@@ -168,4 +174,4 @@ func do_test():
 	#SignalBus.move_debris.emit()
 	if $Light.energy <= 20:
 		$Light.energy = 20
-	max_depth = 10
+	max_depth = 8

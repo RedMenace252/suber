@@ -1,7 +1,16 @@
-res://src/world_2d/level_one.tscn
 res://src/main/main.tscn
 res://src/world_2d/world_2d.tscn
 res://src/player_2d/player_2d.tscn
+res://src/world_2d/level_one.tscn
 res://src/world_2d/level_two.tscn
 res://src/world_2d/level_three.tscn
 res://src/ui/user_interface.tscn
+res://src/player_3d/submarine_cockpit.tscn
+res://src/player_3d/player_3d.tscn
+res://src/player_3d/player_3d.gd
+res://src/player_3d/button_3d.gd
+res://src/player_2d/player_2d.gd
+res://src/singletons/signal_bus.gd
+res://src/world_2d/triggers/power_down.gd
+res://assets/json/dialogue.json
+res://src/ui/ui_dialogue.gd

@@ -8,4 +8,7 @@ func _on_body_entered(body: Node2D) -> void:
 		SignalBus.submarine_power_off.emit()
 		
 		await get_tree().create_timer(2.0).timeout
-		SignalBus.emit_signal("fade_out")
+		SignalBus.emit_signal("display_dialogue", "power_down")
+		await SignalBus.dialogue_finished
+		
+		get_tree().root.get_node("Main").toggle_view_mode()

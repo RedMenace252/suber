@@ -1,4 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://csdqidf21t33k"]
+[gd_scene load_steps=17 format=3 uid="uid://csdqidf21t33k"]
+
+[ext_resource type="Script" uid="uid://dfmnpy3ght0bp" path="res://src/player_3d/button_3d.gd" id="1_21mgf"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_q6j60"]
 flip_faces = true
@@ -38,6 +40,20 @@ height = 1.0
 top_radius = 0.2
 bottom_radius = 0.2
 height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21mgf"]
+albedo_color = Color(0.491325, 0.000170768, 0.491322, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_21mgf"]
+material = SubResource("StandardMaterial3D_21mgf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ulmg"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c5vqe"]
+material = SubResource("StandardMaterial3D_3ulmg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c5vqe"]
 
 [node name="SubmarineCockpit" type="Node3D"]
 
@@ -121,3 +137,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, -1.5)
 
 [node name="BackLight" type="OmniLight3D" parent="Details/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 1.5)
+
+[node name="Button" type="StaticBody3D" parent="Details"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.5, 1)
+collision_layer = 2
+script = ExtResource("1_21mgf")
+
+[node name="ButtonBorder" type="MeshInstance3D" parent="Details/Button"]
+transform = Transform3D(0.25, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("BoxMesh_21mgf")
+skeleton = NodePath("")
+
+[node name="ButtonPresser" type="MeshInstance3D" parent="Details/Button"]
+transform = Transform3D(0.25, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.05, 0, 0)
+mesh = SubResource("BoxMesh_c5vqe")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Details/Button"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.025, 0, 0)
+shape = SubResource("BoxShape3D_c5vqe")

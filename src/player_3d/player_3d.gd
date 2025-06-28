@@ -21,6 +21,19 @@ func _input(event):
 
 		rotation.y = y_rotation
 		camera_pivot.rotation.x = x_rotation
+		
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var camera = get_viewport().get_camera_3d()
+		var from = camera.project_ray_origin(event.position)
+		var to = from + camera.project_ray_normal(event.position) * 1000
+
+		var query = PhysicsRayQueryParameters3D.create(from, to)
+		query.collision_mask = 2 #layer 2 = button layer
+		var space_state = get_world_3d().direct_space_state
+		var result = space_state.intersect_ray(query)
+
+		if result and result.collider and result.collider.has_method("on_button_pressed"):
+			result.collider.on_button_pressed()
 
 func _physics_process(delta):
 	var input_dir = Input.get_vector("move_left_3d", "move_right_3d", "move_forward_3d", "move_backward_3d")

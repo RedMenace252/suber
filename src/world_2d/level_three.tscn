@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://bxnyoiniv5ptp"]
+[gd_scene load_steps=10 format=4 uid="uid://bxnyoiniv5ptp"]
 
 [ext_resource type="Texture2D" uid="uid://cw5qnneb0bm8f" path="res://assets/art/tiles/ocean.png" id="1_xb82b"]
 [ext_resource type="PackedScene" uid="uid://qlqu6547vncd" path="res://src/world_2d/world objects/skull.tscn" id="2_vv7cw"]
 [ext_resource type="Script" uid="uid://ca5a4yefj2ude" path="res://src/world_2d/triggers/power_down.gd" id="3_cjagu"]
+[ext_resource type="PackedScene" uid="uid://w6te14844cwt" path="res://src/world_2d/world objects/upgrade_orb.tscn" id="4_htunu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xb82b"]
 light_mode = 2
@@ -90,5 +91,9 @@ script = ExtResource("3_cjagu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Triggers/PowerDown"]
 position = Vector2(-106, 238)
 shape = SubResource("RectangleShape2D_htunu")
+
+[node name="UpgradeOrb" parent="Environment/Triggers" instance=ExtResource("4_htunu")]
+position = Vector2(3268, 591)
+scale = Vector2(4, 4)
 
 [connection signal="body_entered" from="Environment/Triggers/PowerDown" to="Environment/Triggers/PowerDown" method="_on_body_entered"]
