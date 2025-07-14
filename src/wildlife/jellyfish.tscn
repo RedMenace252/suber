@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bt1oc5jfnc4tb"]
+
+[ext_resource type="Script" uid="uid://d3rlyrf40vcdl" path="res://src/wildlife/jellyfish.gd" id="1_7epsg"]
+[ext_resource type="Texture2D" uid="uid://d2dmvnqk35aae" path="res://assets/art/wildlife/Jelly1.png" id="1_aeuxd"]
+[ext_resource type="Texture2D" uid="uid://dxnta80vdf3nm" path="res://assets/art/wildlife/Jelly2.png" id="2_7epsg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f8s3g"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_aeuxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7epsg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aeuxd")
+}],
+"loop": true,
+"name": &"propel",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aeuxd"]
+radius = 21.0
+
+[node name="Jellyfish" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_7epsg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 2)
+rotation = 1.5708
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_f8s3g")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aeuxd")

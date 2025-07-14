@@ -6,6 +6,8 @@ var current_screen := Vector2.ZERO
 var above_water = false
 var gravity_velocity = 0
 var bounce_velocity = Vector2(0,0)
+var input_vector
+var control_factor = 1 #how much control the submarine has over movement after a collision
 
 @onready var sonar = $SonarEmitter
 
@@ -25,9 +27,16 @@ var current_depth = 0
 var powered = true
 var sonar_enabled = false
 
+@onready var dirty_sprite = $DirtySprite
+@onready var clean_sprite = $CleanSprite
+var current_sprite
+
 func _ready() -> void:
 	SignalBus.submarine_power_off.connect(_on_power_off)
 	SignalBus.sonar_enabled.connect(_switch_navigation)
+	SignalBus.switch_artstyle.connect(_switch_artstyle)
+	
+	current_sprite = dirty_sprite
 	
 func _physics_process(delta):
 	
@@ -41,8 +50,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed * delta)
 		velocity.y = move_toward(velocity.y, 0, speed * delta)
-		if $Sprite.is_playing():
-			$Sprite.stop()
+		if current_sprite.is_playing():
+			current_sprite.stop()
 			
 		
 	move_and_handle_collisions(delta)
@@ -67,7 +76,7 @@ func _process(delta):
 		
 	
 func movement_input(delta):
-	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	input_vector = input_vector.normalized()
 	
@@ -88,20 +97,20 @@ func gravity(delta):
 
 func move_sprite():
 	if velocity.length() > 0:
-		$Sprite.play()
+		current_sprite.play()
 	
 		if velocity.x != 0:
-			$Sprite.flip_h = velocity.x < 0
+			current_sprite.flip_h = velocity.x < 0
 			facing_right = velocity.x > 0
 	else:
-		$Sprite.stop()
+		current_sprite.stop()
 	
 func move_and_handle_collisions(delta):
 	if bounce_velocity.length() > 0:
-		print(bounce_velocity)
-		velocity = bounce_velocity * speed
+		velocity = bounce_velocity * speed + input_vector * speed * control_factor
 		bounce_velocity.x = move_toward(bounce_velocity.x, 0, delta * 2)
 		bounce_velocity.y = move_toward(bounce_velocity.y, 0, delta * 2)
+		control_factor = move_toward(control_factor, 1, delta)
 		
 		if gravity_velocity > 0:
 			velocity.y += (- speed + gravity_velocity)/2
@@ -112,15 +121,17 @@ func move_and_handle_collisions(delta):
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
 		if collision:
-			if collision.get_collider() is RigidBody2D:
+			if collision.get_collider() is RigidBody2D: #if object is moveable (no damage is taken)
 				collision.get_collider().apply_impulse(velocity.normalized() * 75)
 				var normal = collision.get_normal()
 				bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
-			else:
+				control_factor = 0 #lose control of movement
+			else: #if object is immovable (ie wall)
 				take_damage(10)
 				red_screen.color.a = 0.6
 				var normal = collision.get_normal()
 				bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
+				control_factor = 0 #lose control of movement
 			
 	
 	
@@ -139,8 +150,8 @@ func _input(event):
 		sonar.emit_sonar()
 		
 	#test############################################################
-	if Input.is_action_just_pressed("test_key"):
-		do_test()
+	#if Input.is_action_just_pressed("test_key"):
+		#do_test()
 		
 
 func set_current_screen(screen: Vector2):
@@ -166,12 +177,26 @@ func _switch_navigation() -> void:
 	powered = true
 	sonar_enabled = true
 	
+func _switch_artstyle() -> void:
+	dirty_sprite.visible = !dirty_sprite.visible
+	clean_sprite.visible = !clean_sprite.visible
+	if clean_sprite.visible:
+		current_sprite = clean_sprite
+	else:
+		current_sprite = dirty_sprite
+	
 		
 		
 ####################################################################
 func do_test():
 	#SignalBus.emit_signal("display_dialogue", "test1")
 	#SignalBus.move_debris.emit()
-	if $Light.energy <= 20:
+	if speed < 2000:
+		speed = 2000
+	else:
+		speed = 500
+	if $Light.energy < 20:
 		$Light.energy = 20
-	max_depth = 8
+	else:
+		$Light.energy = 10
+	max_depth = 1000

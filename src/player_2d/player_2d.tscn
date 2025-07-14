@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cj3xfrm21n4fp"]
+[gd_scene load_steps=16 format=3 uid="uid://cj3xfrm21n4fp"]
 
 [ext_resource type="Script" uid="uid://0xr0404yhvtw" path="res://src/player_2d/player_2d.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://dnt2ghs05it1x" path="res://assets/art/submarine/lightbeam.png" id="2_5f2sf"]
 [ext_resource type="Texture2D" uid="uid://7noaus7ijv2l" path="res://assets/art/submarine/sub roam 2.png" id="2_i3pqv"]
 [ext_resource type="Script" uid="uid://co683vl887oha" path="res://src/player_2d/sonar_emitter.gd" id="4_hqtel"]
+[ext_resource type="Texture2D" uid="uid://dul88scsjwd46" path="res://assets/art/submarine/sub ver 2.png" id="4_k1njs"]
 [ext_resource type="Texture2D" uid="uid://dbgy6v31kxwjv" path="res://assets/art/submarine/sub roam 1.png" id="4_sweqy"]
+[ext_resource type="Texture2D" uid="uid://d3k6oaqngsvbl" path="res://assets/art/submarine/sub ver 2 move.png" id="5_evqt0"]
 [ext_resource type="Script" uid="uid://y2n68hlm6ibj" path="res://src/player_2d/transition_camera.gd" id="6_jiejy"]
 [ext_resource type="Script" uid="uid://cgmt41tj1myyw" path="res://src/player_2d/light.gd" id="6_pv17u"]
 
@@ -27,6 +29,31 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sarlp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_k1njs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_evqt0")
+}],
+"loop": true,
+"name": &"roam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_k1njs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_evqt0")
 }],
 "loop": true,
 "name": &"up",
@@ -59,13 +86,20 @@ corner_radius_bottom_left = 10
 font_size = 32
 
 [node name="Player2D" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_i3pqv")
 metadata/_edit_group_ = true
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
+[node name="DirtySprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sh265")
 animation = &"roam"
+
+[node name="CleanSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_sarlp")
+animation = &"up"
 
 [node name="SonarEmitter" type="Node2D" parent="."]
 script = ExtResource("4_hqtel")
@@ -89,8 +123,8 @@ show_percentage = false
 [node name="Light" type="PointLight2D" parent="."]
 scale = Vector2(7, 9)
 energy = 3.0
-range_z_min = -500
-range_z_max = 1
+range_z_min = -200
+range_z_max = -100
 shadow_enabled = true
 shadow_item_cull_mask = 4
 texture = ExtResource("2_5f2sf")

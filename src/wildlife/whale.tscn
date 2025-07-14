@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dasjjwyockfb1"]
+
+[ext_resource type="Texture2D" uid="uid://bc6g7imi47gua" path="res://assets/art/wildlife/Whale1.png" id="1_bsxbr"]
+[ext_resource type="Script" uid="uid://30hc16e531j6" path="res://src/wildlife/whale.gd" id="1_h5x41"]
+[ext_resource type="Texture2D" uid="uid://dyut8xc3nlsmf" path="res://assets/art/wildlife/Whale2.png" id="2_h5x41"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7wti3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bsxbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_h5x41")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsxbr"]
+size = Vector2(548, 177)
+
+[node name="Whale" type="CharacterBody2D"]
+modulate = Color(0.18, 0.18, 0.18, 1)
+z_index = -125
+z_as_relative = false
+collision_layer = 2
+script = ExtResource("1_h5x41")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 2)
+scale = Vector2(25, 25)
+sprite_frames = SubResource("SpriteFrames_7wti3")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, 40.5)
+shape = SubResource("RectangleShape2D_bsxbr")

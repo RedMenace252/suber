@@ -10,16 +10,29 @@ var player3danimator
 var in_3d_mode = false
 var is_switching = false
 
+var first_time_switching = true
+var manual_switching_enabled = false
+
+
 func _ready():
 	RenderingServer.set_default_clear_color(Color(0, 0, 0))
 	SignalBus.emit_signal("fade_in")
 	await get_tree().create_timer(1.0).timeout
 	#SignalBus.emit_signal("display_dialogue", "intro")
+	SignalBus.toggle_view.connect(toggle_view_mode)
 
 
 func _input(event):
 	if event.is_action_pressed("toggle_cockpit"):
-		toggle_view_mode()
+		if manual_switching_enabled:
+			toggle_view_mode()
+			
+	if event.is_action_pressed("switch_artstyle"):
+		SignalBus.emit_signal("switch_artstyle")
+			
+	################test
+	#if event.is_action_pressed("test_key"):
+		#manual_switching_enabled = true
 
 func toggle_view_mode():
 	if is_switching:
@@ -63,6 +76,17 @@ func enter_2d():
 	player2d.set_physics_process(true)
 	player2d.set_process_input(true)
 	is_switching = false
+	if first_time_switching:
+		first_time_switching = false
+		SignalBus.emit_signal("display_dialogue", "view_switch_tutorial_2")
+		manual_switching_enabled = true
+		
+		##########################END OF VERSION 1
+		await SignalBus.dialogue_finished
+		SignalBus.emit_signal("display_dialogue", "version_1_end")
+		await SignalBus.dialogue_finished
+		$Scene2D/Player2D.position.x = 13124.0
+		$Scene2D/Player2D.position.y = 8268.0
 	
 func enter_3d():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

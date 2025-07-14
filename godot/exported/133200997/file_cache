@@ -1,18 +1,19 @@
-res://src/main/main.tscn::42c90bedb53f7c88f00af11e593c9235::1750968579::res://godot/exported/133200997/export-69fd87c629ce721eb5cf84cfb0d5183c-main.scn
-res://src/player_2d/player_2d.tscn::d62efb6b17b45603b293cddfcbf1287c::1750946999::res://godot/exported/133200997/export-fa38b859138690d28045a1ce32f4ae71-player_2d.scn
+res://src/main/main.tscn::25b4da425102befb53b8b04578ff5273::1751300382::res://godot/exported/133200997/export-69fd87c629ce721eb5cf84cfb0d5183c-main.scn
+res://src/player_2d/player_2d.tscn::d62efb6b17b45603b293cddfcbf1287c::1751300352::res://godot/exported/133200997/export-fa38b859138690d28045a1ce32f4ae71-player_2d.scn
 res://src/player_2d/sonar_dot.tscn::23806fe6af3f198bf9ab2378012bbd54::1749746965::res://godot/exported/133200997/export-97627a269501140a097f9b95e66c3799-sonar_dot.scn
-res://src/player_3d/player_3d.tscn::5d958215ea9ca7abdc708ff62256509a::1749785007::res://godot/exported/133200997/export-3e9f8efa6722c255ca4de3e4cd6dbbc5-player_3d.scn
-res://src/player_3d/submarine_cockpit.tscn::b4eafedc222aa6e2ec03f101f424d1a6::1749785007::res://godot/exported/133200997/export-16b4321c1f7d4f6a02e36b44ff0d0b63-submarine_cockpit.scn
+res://src/player_3d/player_3d.tscn::5d958215ea9ca7abdc708ff62256509a::1751300352::res://godot/exported/133200997/export-3e9f8efa6722c255ca4de3e4cd6dbbc5-player_3d.scn
+res://src/player_3d/submarine_cockpit.tscn::147e5afa8211850324616d9c1107ab5b::1751300352::res://godot/exported/133200997/export-16b4321c1f7d4f6a02e36b44ff0d0b63-submarine_cockpit.scn
 res://src/tilesets/ocean.tres::e2d86fda9e9980d95a50357efb58738f::1749743119::res://godot/exported/133200997/export-56d88e612c728ba6141a7c3ea10c3cd2-ocean.res
 res://src/ui/ui_dialogue.tscn::1e41cdecabe6a30804c736e733596484::1750344619::res://godot/exported/133200997/export-e736e6b12d3692400f4ab4ff230fdf24-ui_dialogue.scn
-res://src/ui/ui_pause.tscn::d6ae655fde4566a4116863760c40b5a1::1750344619::res://godot/exported/133200997/export-9e0f26eb33339dd3b9be26bf7d81a77f-ui_pause.scn
-res://src/ui/user_interface.tscn::bfd779bef24837480b533b2f59ba89d0::1750946999::res://godot/exported/133200997/export-ae2933265c3823f2d9cbfe46a9e1c566-user_interface.scn
+res://src/ui/ui_pause.tscn::d6ae655fde4566a4116863760c40b5a1::1751300352::res://godot/exported/133200997/export-9e0f26eb33339dd3b9be26bf7d81a77f-ui_pause.scn
+res://src/ui/user_interface.tscn::bfd779bef24837480b533b2f59ba89d0::1751300352::res://godot/exported/133200997/export-ae2933265c3823f2d9cbfe46a9e1c566-user_interface.scn
 res://src/wildlife/fish.tscn::a6feec9b6ed4e88ef931b40dd34427ab::1750344619::res://godot/exported/133200997/export-45bbbeb15937bb96997cc838e769dfcd-fish.scn
 res://src/world_2d/world objects/ball.tscn::cc27cb56523f16349c3dfed28ad42b3b::1750946198::res://godot/exported/133200997/export-2a764d3af3420040843c1e4f5cfc96f4-ball.scn
 res://src/world_2d/world objects/debris.tscn::e4366271db5418b61453b900d502c371::1750946198::res://godot/exported/133200997/export-afd12c47f035cb0e541670e6171cb65e-debris.scn
 res://src/world_2d/world objects/skull.tscn::183ebb977a43d1f573ca2f80a53cd7ba::1750946198::res://godot/exported/133200997/export-bc921a905c3e75dabe2ab7b1339112c9-skull.scn
 res://src/world_2d/world objects/upgrade_orb.tscn::132aaf4a7ae7a4b926b6ee4c3207ccdb::1750344619::res://godot/exported/133200997/export-56aed6ff3620c2d08f6b2c8a710e6186-upgrade_orb.scn
-res://src/world_2d/level_one.tscn::973aa49bc0738804ced0e7620ed3d589::1750947350::res://godot/exported/133200997/export-67e1dcf4a79f062429d4a9dcbca4210e-level_one.scn
-res://src/world_2d/level_three.tscn::a28ffb0febec7b2c32d6139ba2e0ed62::1750947350::res://godot/exported/133200997/export-c7f0cab95f5b9b50018a3249ad833d82-level_three.scn
-res://src/world_2d/level_two.tscn::49d53d7327180f91ab8c7385f7cfe1df::1750947350::res://godot/exported/133200997/export-3a64c544902d3ca45e3de79d1575ec40-level_two.scn
-res://src/world_2d/world_2d.tscn::cf6572578b28175be258bb84ea54ad2f::1750946999::res://godot/exported/133200997/export-a52788f9c5ce7eb247b8dee07abe553e-world_2d.scn
+res://src/world_2d/level_one.tscn::db4143fec05ced3207b032d7422dbc4b::1751300352::res://godot/exported/133200997/export-67e1dcf4a79f062429d4a9dcbca4210e-level_one.scn
+res://src/world_2d/level_three.tscn::8a06f989f87cec227c04e35d0d79e918::1751300352::res://godot/exported/133200997/export-c7f0cab95f5b9b50018a3249ad833d82-level_three.scn
+res://src/world_2d/level_two.tscn::c95ec7710f56649277693413089b1d73::1751300352::res://godot/exported/133200997/export-3a64c544902d3ca45e3de79d1575ec40-level_two.scn
+res://src/world_2d/world_2d.tscn::cf6572578b28175be258bb84ea54ad2f::1751300352::res://godot/exported/133200997/export-a52788f9c5ce7eb247b8dee07abe553e-world_2d.scn
+res://src/ui/ui_start.tscn::f914d63042bfaf061e7436ed147dc482::1751300352::res://godot/exported/133200997/export-c6ae30461b84bf8927429b5c7246e4dc-ui_start.scn

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://ddqw28vb2rsrh"]
+[gd_scene load_steps=19 format=4 uid="uid://ddqw28vb2rsrh"]
 
 [ext_resource type="Texture2D" uid="uid://cw5qnneb0bm8f" path="res://assets/art/tiles/ocean.png" id="1_2u8cr"]
 [ext_resource type="PackedScene" uid="uid://ctt8lac2cails" path="res://src/world_2d/world objects/ball.tscn" id="2_ew3h0"]
@@ -65,11 +65,17 @@ tile_size = Vector2i(8, 8)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qmngl")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5do3"]
-size = Vector2(1777, 276)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n75y"]
+size = Vector2(679, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofv42"]
+size = Vector2(853, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7ar0"]
 size = Vector2(839, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5do3"]
+size = Vector2(1777, 276)
 
 [node name="LevelTwo" type="Node2D"]
 
@@ -123,16 +129,16 @@ position = Vector2(0, -5)
 script = ExtResource("2_qmngl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/LightBrightener"]
-position = Vector2(1060, 45)
-shape = SubResource("RectangleShape2D_d5do3")
+position = Vector2(1054, 27)
+shape = SubResource("RectangleShape2D_5n75y")
 
 [node name="LightBrightener2" type="Area2D" parent="Triggers"]
 position = Vector2(-114, 1075)
 script = ExtResource("3_ew3h0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/LightBrightener2"]
-position = Vector2(1060, 45)
-shape = SubResource("RectangleShape2D_d5do3")
+position = Vector2(1088.5, 45)
+shape = SubResource("RectangleShape2D_ofv42")
 
 [node name="Text Triggers" type="Node2D" parent="Triggers"]
 

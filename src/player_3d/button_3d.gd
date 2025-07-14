@@ -10,3 +10,4 @@ func on_button_pressed():
 			mat.albedo_color = Color.GREEN
 			
 		SignalBus.emit_signal("sonar_enabled")
+		SignalBus.emit_signal("display_dialogue", "view_switch_tutorial")

@@ -30,6 +30,17 @@
 		"Looks like the sub took some damage pushing those boulders - the main power has gone out. We're on backup power now.",
 		"Captain, I think we should head ba-",
 		"...",
-		"Ignore that. You must continue deeper."
+		"Ignore that. Why don't we keep descending."
+	],
+	"view_switch_tutorial" : [
+		"Great! Now just click on the periscope to return to the external view."
+	],
+	"view_switch_tutorial_2" : [
+		"To return to the interior view at any time, press the 'C' key."
+	],
+	"version_1_end" : [
+		"This is the end of version 1 of suber. Feel free to explore and try out the sonar (space key). Can you make it back to the surface without meeting an unfortunate end?",
+		"Or, you could restart and go for the speed record. Send me your best times and I'll note them down!",
+		"Don't despair! Suber will return... with an extended map, more features, and beautiful updated graphics drawn by the one and only Aronbae!"
 	]
 }
