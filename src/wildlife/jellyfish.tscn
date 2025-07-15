@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt1oc5jfnc4tb"]
+[gd_scene load_steps=7 format=3 uid="uid://bt1oc5jfnc4tb"]
 
 [ext_resource type="Script" uid="uid://d3rlyrf40vcdl" path="res://src/wildlife/jellyfish.gd" id="1_7epsg"]
 [ext_resource type="Texture2D" uid="uid://d2dmvnqk35aae" path="res://assets/art/wildlife/Jelly1.png" id="1_aeuxd"]
 [ext_resource type="Texture2D" uid="uid://dxnta80vdf3nm" path="res://assets/art/wildlife/Jelly2.png" id="2_7epsg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7epsg"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8s3g"]
 animations = [{
@@ -34,6 +37,7 @@ collision_layer = 2
 script = ExtResource("1_7epsg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_7epsg")
 position = Vector2(1, 2)
 rotation = 1.5708
 scale = Vector2(5, 5)

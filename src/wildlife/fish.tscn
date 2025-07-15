@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddfhvkuagrdt8"]
 
-[ext_resource type="Script" uid="uid://bwe00flxpmg03" path="res://src/wildlife/fish.gd" id="1_xu20i"]
+[ext_resource type="Script" uid="uid://bwe00flxpmg03" path="res://src/wildlife/fish_old.gd" id="1_xu20i"]
 [ext_resource type="Texture2D" uid="uid://bqers16dojygg" path="res://assets/art/wildlife/fish.png" id="2_0bxj3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_637v3"]

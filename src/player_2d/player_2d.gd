@@ -100,7 +100,8 @@ func move_sprite():
 		current_sprite.play()
 	
 		if velocity.x != 0:
-			current_sprite.flip_h = velocity.x < 0
+			dirty_sprite.flip_h = velocity.x < 0
+			clean_sprite.flip_h = velocity.x < 0
 			facing_right = velocity.x > 0
 	else:
 		current_sprite.stop()
@@ -150,8 +151,8 @@ func _input(event):
 		sonar.emit_sonar()
 		
 	#test############################################################
-	#if Input.is_action_just_pressed("test_key"):
-		#do_test()
+	if Input.is_action_just_pressed("test_key"):
+		do_test()
 		
 
 func set_current_screen(screen: Vector2):

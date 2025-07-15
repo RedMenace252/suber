@@ -43,10 +43,10 @@ func _physics_process(delta: float) -> void:
 func bounce_off_screen_bounds():
 	var bounced = false
 	
-	var bound_left = screen.x * screen_size.x
-	var bound_right = (screen.x + 1) * screen_size.x
-	var bound_top = screen.y * screen_size.y
-	var bound_bottom = (screen.y + 1) * screen_size.y
+	var bound_left = screen.x * screen_size.x + 30
+	var bound_right = (screen.x + 1) * screen_size.x - 30
+	var bound_top = screen.y * screen_size.y + 30
+	var bound_bottom = (screen.y + 1) * screen_size.y - 30
 
 	if global_position.x <= bound_left or global_position.x >= bound_right:
 		direction.x *= -1

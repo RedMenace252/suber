@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bo6j8invb7qsg"]
+
+[ext_resource type="Script" uid="uid://bilgjwb768u08" path="res://src/wildlife/fish.gd" id="1_xvu2y"]
+[ext_resource type="Texture2D" uid="uid://6jrb54us775g" path="res://assets/art/wildlife/Red1.png" id="2_647lo"]
+[ext_resource type="Texture2D" uid="uid://d2htig33tkfoc" path="res://assets/art/wildlife/Red2.png" id="3_eq8aa"]
+[ext_resource type="Script" uid="uid://n2r1acyu1sa2" path="res://src/wildlife/fish_animation_offset.gd" id="4_647lo"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mk7k8"]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5mhx2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_647lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eq8aa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6ve8"]
+size = Vector2(40, 18)
+
+[node name="RedFish" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_xvu2y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_mk7k8")
+position = Vector2(5.96046e-08, -1)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_5mhx2")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("4_647lo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_w6ve8")

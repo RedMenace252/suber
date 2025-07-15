@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dasjjwyockfb1"]
+[gd_scene load_steps=5 format=3 uid="uid://dasjjwyockfb1"]
 
 [ext_resource type="Texture2D" uid="uid://bc6g7imi47gua" path="res://assets/art/wildlife/Whale1.png" id="1_bsxbr"]
 [ext_resource type="Script" uid="uid://30hc16e531j6" path="res://src/wildlife/whale.gd" id="1_h5x41"]
@@ -18,9 +18,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsxbr"]
-size = Vector2(548, 177)
-
 [node name="Whale" type="CharacterBody2D"]
 modulate = Color(0.18, 0.18, 0.18, 1)
 z_index = -125
@@ -29,11 +26,12 @@ collision_layer = 2
 script = ExtResource("1_h5x41")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 2)
-scale = Vector2(25, 25)
+position = Vector2(-71, -159)
+scale = Vector2(100, 100)
 sprite_frames = SubResource("SpriteFrames_7wti3")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(26, 40.5)
-shape = SubResource("RectangleShape2D_bsxbr")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(139.836, 25.6626)
+scale = Vector2(1.0539, 1.08958)
+polygon = PackedVector2Array(-872, -388, -1077, -179, -1278, -84, -1392, 45, -1392, 216, -1107, 216, -1100, 501, -891, 504, -773, 322, 518, 322, 909, 109, 1027, -88, 1012, -396)

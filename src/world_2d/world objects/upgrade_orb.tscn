@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://w6te14844cwt"]
+[gd_scene load_steps=8 format=3 uid="uid://w6te14844cwt"]
 
 [ext_resource type="Script" uid="uid://di43miw7gv4y7" path="res://src/world_2d/world objects/upgrade_orb.gd" id="1_qfhp6"]
 [ext_resource type="Texture2D" uid="uid://da3107ylh3bvb" path="res://assets/art/upgrade orb.png" id="1_x4vfc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_43qeb"]
 radius = 7.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qfhp6"]
+light_mode = 2
 
 [sub_resource type="Animation" id="Animation_qfhp6"]
 length = 0.001
@@ -39,11 +42,14 @@ script = ExtResource("1_qfhp6")
 position = Vector2(0, -10)
 
 [node name="Area2D" type="Area2D" parent="Bounce"]
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounce/Area2D"]
 shape = SubResource("CircleShape2D_43qeb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Bounce"]
+z_index = -410
+material = SubResource("CanvasItemMaterial_qfhp6")
 texture = ExtResource("1_x4vfc")
 
 [node name="OrbBounce" type="AnimationPlayer" parent="Bounce"]

@@ -87,7 +87,8 @@ size = Vector2(1777, 276)
 scale = Vector2(1, 2)
 
 [node name="OceanColour" type="ColorRect" parent="Environment/Background/Ocean"]
-z_index = -20
+z_index = -500
+z_as_relative = false
 material = SubResource("CanvasItemMaterial_y6f38")
 offset_left = -3840.0
 offset_right = 5760.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dpgffyg303pxy"]
+[gd_scene load_steps=34 format=4 uid="uid://dpgffyg303pxy"]
 
 [ext_resource type="Texture2D" uid="uid://cm4iprym5alg0" path="res://assets/art/environment/pirateship.png" id="1_vden5"]
 [ext_resource type="Texture2D" uid="uid://bhebow7x3ehmx" path="res://assets/art/environment/containership.png" id="2_4fkox"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://4oanap3e1atn" path="res://assets/art/environment/Seaweedshort2.png" id="7_yo2h0"]
 [ext_resource type="PackedScene" uid="uid://bt1oc5jfnc4tb" path="res://src/wildlife/jellyfish.tscn" id="11_3a4tv"]
 [ext_resource type="PackedScene" uid="uid://dasjjwyockfb1" path="res://src/wildlife/whale.tscn" id="12_cuaft"]
+[ext_resource type="PackedScene" uid="uid://by1xv2a3rmej4" path="res://src/wildlife/green_fish.tscn" id="13_yo2h0"]
+[ext_resource type="PackedScene" uid="uid://bo6j8invb7qsg" path="res://src/wildlife/red_fish.tscn" id="14_1wnq8"]
+[ext_resource type="PackedScene" uid="uid://drxa8n2jm05xk" path="res://src/wildlife/orange_fish.tscn" id="15_4i7x6"]
+[ext_resource type="PackedScene" uid="uid://bkk8x6ih0dccg" path="res://src/wildlife/gold_fish.tscn" id="16_5ut67"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4fkox"]
 light_mode = 1
@@ -200,7 +204,7 @@ z_index = -1000
 z_as_relative = false
 position = Vector2(0, -1080)
 scale = Vector2(1, 0.75)
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("3_p115f")
 
 [node name="SkyCollisionZone" type="CollisionShape2D" parent="Environment/Background/Sky"]
@@ -216,7 +220,7 @@ expand_mode = 1
 flip_h = true
 
 [node name="Ocean" type="Node2D" parent="Environment/Background"]
-z_index = -150
+z_index = -750
 z_as_relative = false
 position = Vector2(0, -270)
 
@@ -233,11 +237,21 @@ rotation = -1.5708
 scale = Vector2(3, 1)
 color = Color(0.778164, 0.825496, 1, 1)
 energy = 3.0
-range_z_min = -170
-range_z_max = -90
+range_z_min = -800
+range_z_max = -400
 texture = SubResource("GradientTexture2D_4fkox")
 
+[node name="OceanFog" type="ColorRect" parent="Environment/Background/Ocean"]
+z_index = -450
+z_as_relative = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(1, 2.25)
+color = Color(0.0048, 0.12896, 0.16, 0.392157)
+
 [node name="ContainerShip" type="Sprite2D" parent="Environment/Background"]
+z_index = -500
+z_as_relative = false
 material = SubResource("CanvasItemMaterial_4fkox")
 position = Vector2(968.556, -537)
 scale = Vector2(0.555556, 5)
@@ -295,23 +309,303 @@ speed_scale = 0.1
 
 [node name="Wildlife" type="Node2D" parent="."]
 
-[node name="Jellyfish" parent="Wildlife" instance=ExtResource("11_3a4tv")]
-position = Vector2(5125, 336)
+[node name="Jellys" type="Node2D" parent="Wildlife"]
+position = Vector2(1920, 0)
 
-[node name="Jellyfish2" parent="Wildlife" instance=ExtResource("11_3a4tv")]
-position = Vector2(5011, 309)
+[node name="Jellyfish" parent="Wildlife/Jellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(1189, 336)
 
-[node name="Jellyfish3" parent="Wildlife" instance=ExtResource("11_3a4tv")]
-position = Vector2(5134, 430)
+[node name="Jellyfish2" parent="Wildlife/Jellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(1725, 684)
 
-[node name="Jellyfish4" parent="Wildlife" instance=ExtResource("11_3a4tv")]
-position = Vector2(5203, 312)
+[node name="Jellyfish3" parent="Wildlife/Jellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(1843, 564)
 
-[node name="Jellyfish5" parent="Wildlife" instance=ExtResource("11_3a4tv")]
-position = Vector2(5134, 430)
+[node name="Jellyfish4" parent="Wildlife/Jellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(299, 355)
 
-[node name="Whale" parent="Wildlife" instance=ExtResource("12_cuaft")]
-position = Vector2(8539, 725)
+[node name="Jellyfish5" parent="Wildlife/Jellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(1843, 769)
+
+[node name="DistantJellys" type="Node2D" parent="Wildlife/Jellys"]
+z_index = -500
+z_as_relative = false
+scale = Vector2(0.85, 0.85)
+
+[node name="Jellyfish10" parent="Wildlife/Jellys/DistantJellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(656.47, 162.353)
+
+[node name="Jellyfish11" parent="Wildlife/Jellys/DistantJellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(1322.23, 508.177)
+
+[node name="Jellyfish12" parent="Wildlife/Jellys/DistantJellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(1595.29, 914.118)
+
+[node name="Jellyfish13" parent="Wildlife/Jellys/DistantJellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(2005.88, 95.2941)
+
+[node name="Jellyfish14" parent="Wildlife/Jellys/DistantJellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(972.941, 862.353)
+
+[node name="Jellyfish15" parent="Wildlife/Jellys/DistantJellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(1722.35, 724.706)
+
+[node name="Jellyfish16" parent="Wildlife/Jellys/DistantJellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(1523.53, 443.529)
+
+[node name="Jellyfish17" parent="Wildlife/Jellys/DistantJellys" instance=ExtResource("11_3a4tv")]
+position = Vector2(1329.41, 743.529)
+
+[node name="Whales" type="Node2D" parent="Wildlife"]
+position = Vector2(11520, 0)
+
+[node name="Whale" parent="Wildlife/Whales" instance=ExtResource("12_cuaft")]
+z_index = -500
+position = Vector2(1441, 246)
+scale = Vector2(0.75, 0.75)
+
+[node name="Whale2" parent="Wildlife/Whales" node_paths=PackedStringArray("parent_whale") instance=ExtResource("12_cuaft")]
+z_index = -500
+position = Vector2(438, 176)
+scale = Vector2(0.25, 0.25)
+child = true
+parent_whale = NodePath("../Whale")
+
+[node name="GreenFish" type="Node2D" parent="Wildlife"]
+z_index = 3
+position = Vector2(1920, 0)
+
+[node name="DistantGreenFish" type="Node2D" parent="Wildlife/GreenFish"]
+z_index = -500
+z_as_relative = false
+scale = Vector2(0.85, 0.85)
+
+[node name="GreenFish" parent="Wildlife/GreenFish/DistantGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(638.294, 257.647)
+
+[node name="GreenFish2" parent="Wildlife/GreenFish/DistantGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(702.353, 161.176)
+
+[node name="GreenFish3" parent="Wildlife/GreenFish/DistantGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(538.823, 363.529)
+
+[node name="GreenFish4" parent="Wildlife/GreenFish/DistantGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(583.529, 154.118)
+
+[node name="GreenFish5" parent="Wildlife/GreenFish/DistantGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(383.529, 180)
+
+[node name="GreenFish" parent="Wildlife/GreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(415, 148)
+
+[node name="GreenFish2" parent="Wildlife/GreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(507, 167)
+
+[node name="GreenFish3" parent="Wildlife/GreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(463, 245)
+
+[node name="GreenFish4" parent="Wildlife/GreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(580, 235)
+
+[node name="GreenFish5" parent="Wildlife/GreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(352, 223)
+
+[node name="CloseGreenFish" type="Node2D" parent="Wildlife/GreenFish"]
+z_index = 500
+z_as_relative = false
+scale = Vector2(1.1, 1.1)
+
+[node name="GreenFish" parent="Wildlife/GreenFish/CloseGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(638.294, 257.647)
+
+[node name="GreenFish2" parent="Wildlife/GreenFish/CloseGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(702.353, 161.176)
+
+[node name="GreenFish3" parent="Wildlife/GreenFish/CloseGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(538.823, 363.529)
+
+[node name="GreenFish4" parent="Wildlife/GreenFish/CloseGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(583.529, 154.118)
+
+[node name="GreenFish5" parent="Wildlife/GreenFish/CloseGreenFish" instance=ExtResource("13_yo2h0")]
+position = Vector2(383.529, 180)
+
+[node name="RedFish" type="Node2D" parent="Wildlife"]
+z_index = 3
+position = Vector2(1920, 0)
+
+[node name="DistantRedFish" type="Node2D" parent="Wildlife/RedFish"]
+z_index = -500
+z_as_relative = false
+scale = Vector2(0.85, 0.85)
+
+[node name="RedFish" parent="Wildlife/RedFish/DistantRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1812.94, 480)
+
+[node name="RedFish2" parent="Wildlife/RedFish/DistantRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1812.94, 480)
+
+[node name="RedFish3" parent="Wildlife/RedFish/DistantRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1812.94, 480)
+
+[node name="RedFish4" parent="Wildlife/RedFish/DistantRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1812.94, 480)
+
+[node name="RedFish5" parent="Wildlife/RedFish/DistantRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1812.94, 480)
+
+[node name="RedFish" parent="Wildlife/RedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="RedFish2" parent="Wildlife/RedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="RedFish3" parent="Wildlife/RedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="RedFish4" parent="Wildlife/RedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="RedFish5" parent="Wildlife/RedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="CloseRedFish" type="Node2D" parent="Wildlife/RedFish"]
+z_index = 500
+z_as_relative = false
+scale = Vector2(1.1, 1.1)
+
+[node name="RedFish" parent="Wildlife/RedFish/CloseRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="RedFish2" parent="Wildlife/RedFish/CloseRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="RedFish3" parent="Wildlife/RedFish/CloseRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="RedFish4" parent="Wildlife/RedFish/CloseRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="RedFish5" parent="Wildlife/RedFish/CloseRedFish" instance=ExtResource("14_1wnq8")]
+position = Vector2(1541, 408)
+
+[node name="OrangeFish" type="Node2D" parent="Wildlife"]
+z_index = 3
+position = Vector2(1920, 0)
+
+[node name="DistantOrangeFish" type="Node2D" parent="Wildlife/OrangeFish"]
+z_index = -500
+z_as_relative = false
+scale = Vector2(0.85, 0.85)
+
+[node name="OrangeFish" parent="Wildlife/OrangeFish/DistantOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1189.41, 583.529)
+
+[node name="OrangeFish2" parent="Wildlife/OrangeFish/DistantOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1189.41, 583.529)
+
+[node name="OrangeFish3" parent="Wildlife/OrangeFish/DistantOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1189.41, 583.529)
+
+[node name="OrangeFish4" parent="Wildlife/OrangeFish/DistantOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1189.41, 583.529)
+
+[node name="OrangeFish5" parent="Wildlife/OrangeFish/DistantOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1189.41, 583.529)
+
+[node name="OrangeFish" parent="Wildlife/OrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="OrangeFish2" parent="Wildlife/OrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="OrangeFish3" parent="Wildlife/OrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="OrangeFish4" parent="Wildlife/OrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="OrangeFish5" parent="Wildlife/OrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="CloseOrangeFish" type="Node2D" parent="Wildlife/OrangeFish"]
+z_index = 500
+z_as_relative = false
+scale = Vector2(1.1, 1.1)
+
+[node name="OrangeFish" parent="Wildlife/OrangeFish/CloseOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="OrangeFish2" parent="Wildlife/OrangeFish/CloseOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="OrangeFish3" parent="Wildlife/OrangeFish/CloseOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="OrangeFish4" parent="Wildlife/OrangeFish/CloseOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="OrangeFish5" parent="Wildlife/OrangeFish/CloseOrangeFish" instance=ExtResource("15_4i7x6")]
+position = Vector2(1011, 496)
+
+[node name="GoldFish" type="Node2D" parent="Wildlife"]
+z_index = 3
+position = Vector2(1920, 0)
+
+[node name="DistantGoldFish" type="Node2D" parent="Wildlife/GoldFish"]
+z_index = -500
+z_as_relative = false
+scale = Vector2(0.85, 0.85)
+
+[node name="GoldFish" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1276.47, 177.647)
+
+[node name="GoldFish2" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1276.47, 177.647)
+
+[node name="GoldFish3" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1276.47, 177.647)
+
+[node name="GoldFish4" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1276.47, 177.647)
+
+[node name="GoldFish5" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1276.47, 177.647)
+
+[node name="GoldFish" parent="Wildlife/GoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
+
+[node name="GoldFish2" parent="Wildlife/GoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
+
+[node name="GoldFish3" parent="Wildlife/GoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
+
+[node name="GoldFish4" parent="Wildlife/GoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
+
+[node name="GoldFish5" parent="Wildlife/GoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
+
+[node name="CloseGoldFish" type="Node2D" parent="Wildlife/GoldFish"]
+z_index = 500
+z_as_relative = false
+scale = Vector2(1.2, 1.2)
+
+[node name="GoldFish" parent="Wildlife/GoldFish/CloseGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
+
+[node name="GoldFish2" parent="Wildlife/GoldFish/CloseGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
+
+[node name="GoldFish3" parent="Wildlife/GoldFish/CloseGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
+
+[node name="GoldFish4" parent="Wildlife/GoldFish/CloseGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
+
+[node name="GoldFish5" parent="Wildlife/GoldFish/CloseGoldFish" instance=ExtResource("16_5ut67")]
+position = Vector2(1085, 151)
 
 [node name="Triggers" type="Node2D" parent="."]
 

@@ -1,5 +1,6 @@
-CharacterBody2D
 Node2D
+CharacterBody2D
+CollisionPolygon2D
 CollisionShape2D
 AnimatedSprite2D
 Sprite2D
@@ -11,4 +12,3 @@ CollisionShape3D
 Node3D
 MeshInstance3D
 RigidBody2D
-DirectionalLight2D

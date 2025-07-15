@@ -123,7 +123,7 @@ show_percentage = false
 [node name="Light" type="PointLight2D" parent="."]
 scale = Vector2(7, 9)
 energy = 3.0
-range_z_min = -200
+range_z_min = -600
 range_z_max = -100
 shadow_enabled = true
 shadow_item_cull_mask = 4
