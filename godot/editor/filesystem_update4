@@ -1,18 +1,10 @@
 res://src/world_2d/level_one.tscn
-res://src/wildlife/whale.gd
+res://assets/art/tiles/clean_tileset.tres
 res://src/main/main.tscn
 res://src/world_2d/world_2d.tscn
 res://src/player_2d/player_2d.tscn
-res://src/wildlife/jellyfish.tscn
-res://src/wildlife/whale.tscn
-res://src/player_2d/player_2d.gd
-res://src/world_2d/world objects/upgrade_orb.tscn
 res://src/world_2d/level_two.tscn
 res://src/world_2d/level_three.tscn
-res://src/wildlife/green_fish.tscn
-res://src/wildlife/fish.gd
-res://src/wildlife/red_fish.tscn
-res://src/wildlife/orange_fish.tscn
-res://src/wildlife/gold_fish.tscn
-res://src/wildlife/fish_animation_offset.gd
-res://src/wildlife/jellyfish.gd
+res://src/wildlife/flock_fish.tscn
+res://src/wildlife/flock_manager.tscn
+res://src/ui/ui_start.tscn

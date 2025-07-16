@@ -1,3 +1,4 @@
+res://assets/art/tiles
 res://src/wildlife
 res://assets/art/wildlife
 C:/Users/Jed/Documents/suber/src/wildlife
@@ -8,7 +9,6 @@ res://src/player_3d
 res://src/ui
 res://src/world_2d/world objects
 res://src/world_2d
-res://assets/art/tiles
 res://
 res://src/main
 res://src/singletons

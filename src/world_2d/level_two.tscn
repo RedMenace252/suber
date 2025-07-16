@@ -127,6 +127,7 @@ script = ExtResource("4_5n75y")
 
 [node name="LightBrightener" type="Area2D" parent="Triggers"]
 position = Vector2(0, -5)
+collision_mask = 4
 script = ExtResource("2_qmngl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/LightBrightener"]
@@ -135,6 +136,7 @@ shape = SubResource("RectangleShape2D_5n75y")
 
 [node name="LightBrightener2" type="Area2D" parent="Triggers"]
 position = Vector2(-114, 1075)
+collision_mask = 4
 script = ExtResource("3_ew3h0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/LightBrightener2"]
@@ -145,6 +147,7 @@ shape = SubResource("RectangleShape2D_ofv42")
 
 [node name="Debris" type="Area2D" parent="Triggers/Text Triggers"]
 position = Vector2(966, 3280)
+collision_mask = 4
 script = ExtResource("6_nhw41")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Text Triggers/Debris"]

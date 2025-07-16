@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dab51yj0v2ye0"]
+
+[ext_resource type="Script" uid="uid://bpjc3aft7a68b" path="res://src/wildlife/flock_manager.gd" id="1_jf2no"]
+[ext_resource type="PackedScene" uid="uid://b6s8yk1hddxow" path="res://src/wildlife/flock_fish.tscn" id="2_k80y1"]
+
+[node name="FlockManager" type="Node2D"]
+script = ExtResource("1_jf2no")
+fish_scene = ExtResource("2_k80y1")

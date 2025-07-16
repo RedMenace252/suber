@@ -1,4 +1,7 @@
+ColorRect
+TileMapLayer
 Node2D
+Node
 CharacterBody2D
 CollisionPolygon2D
 CollisionShape2D
@@ -10,5 +13,3 @@ CanvasLayer
 StaticBody3D
 CollisionShape3D
 Node3D
-MeshInstance3D
-RigidBody2D

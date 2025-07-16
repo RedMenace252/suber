@@ -171,6 +171,7 @@ func die(): #expand later
 		
 func _on_power_off() -> void:
 	powered = false
+	speed *= 0.5
 	$Light.flicker_light_off()
 		
 func _switch_navigation() -> void:
