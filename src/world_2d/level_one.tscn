@@ -1640,11 +1640,9 @@ position = Vector2(9395.68, 2166.96)
 
 [node name="RedFish2" parent="Wildlife/RedFish/DistantRedFish" instance=ExtResource("14_1wnq8")]
 position = Vector2(11043.3, 2034.31)
-scale = Vector2(1, 1)
 
 [node name="RedFish3" parent="Wildlife/RedFish/DistantRedFish" instance=ExtResource("14_1wnq8")]
 position = Vector2(10237.8, 2007.46)
-scale = Vector2(1, 1)
 
 [node name="RedFish8" parent="Wildlife/RedFish" instance=ExtResource("14_1wnq8")]
 position = Vector2(5039.17, 1044.91)
@@ -1744,21 +1742,18 @@ scale = Vector2(0.85, 0.85)
 
 [node name="GoldFish3" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
 position = Vector2(10016.7, 2125.54)
-scale = Vector2(1, 1)
 
 [node name="GoldFish" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
 position = Vector2(13033.8, 2053.81)
 
 [node name="GoldFish2" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
 position = Vector2(11994.6, 2121.3)
-scale = Vector2(1, 1)
 
 [node name="GoldFish4" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
 position = Vector2(13785.6, 1375.52)
 
 [node name="GoldFish5" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
 position = Vector2(14745.2, 1306.2)
-scale = Vector2(1, 1)
 
 [node name="GoldFish6" parent="Wildlife/GoldFish/DistantGoldFish" instance=ExtResource("16_5ut67")]
 position = Vector2(15694.9, 1889.01)
