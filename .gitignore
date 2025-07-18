@@ -1,3 +1,19 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Godot metadata and editor cache
+.import/
+*.import
+*.md5
+*.ctex
+*.cfg
+*.tscn-*editstate-*
+*.tscn-*folding-*
+*.gd-*-folding-*
+*.uid
+uid_cache.bin
+
+# Godot build and editor project files
+godot/editor/*
+godot/imported/*
