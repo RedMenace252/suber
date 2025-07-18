@@ -36,7 +36,7 @@ func _ready() -> void:
 	SignalBus.sonar_enabled.connect(_switch_navigation)
 	SignalBus.switch_artstyle.connect(_switch_artstyle)
 	
-	current_sprite = dirty_sprite
+	current_sprite = clean_sprite
 	
 func _physics_process(delta):
 	

@@ -1,6 +1,6 @@
-ColorRect
 TileMapLayer
 Node2D
+ColorRect
 Node
 CharacterBody2D
 CollisionPolygon2D
@@ -12,4 +12,3 @@ TextureRect
 CanvasLayer
 StaticBody3D
 CollisionShape3D
-Node3D

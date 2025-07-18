@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bilgjwb768u08" path="res://src/wildlife/fish.gd" id="1_lcies"]
 [ext_resource type="Texture2D" uid="uid://xvngolxjanwv" path="res://assets/art/wildlife/Green1.png" id="1_tma3d"]
 [ext_resource type="Texture2D" uid="uid://yjfrdi0ao2j1" path="res://assets/art/wildlife/Green2.png" id="2_lcies"]
-[ext_resource type="Script" uid="uid://n2r1acyu1sa2" path="res://src/wildlife/fish_animation_offset.gd" id="4_mk7k8"]
+[ext_resource type="Script" uid="uid://n2r1acyu1sa2" path="res://src/wildlife/animation_offset.gd" id="4_mk7k8"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mk7k8"]
 light_mode = 1

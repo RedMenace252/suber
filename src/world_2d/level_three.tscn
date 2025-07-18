@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bxnyoiniv5ptp"]
+[gd_scene load_steps=11 format=4 uid="uid://bxnyoiniv5ptp"]
 
 [ext_resource type="Texture2D" uid="uid://cw5qnneb0bm8f" path="res://assets/art/tiles/ocean.png" id="1_xb82b"]
 [ext_resource type="PackedScene" uid="uid://qlqu6547vncd" path="res://src/world_2d/world objects/skull.tscn" id="2_vv7cw"]
@@ -53,6 +53,9 @@ sources/0 = SubResource("TileSetAtlasSource_cjagu")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htunu"]
 size = Vector2(682, 252)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_htunu"]
+light_mode = 2
+
 [node name="LevelThree" type="Node2D"]
 
 [node name="Environment" type="Node2D" parent="."]
@@ -95,6 +98,7 @@ position = Vector2(-106, 238)
 shape = SubResource("RectangleShape2D_htunu")
 
 [node name="UpgradeOrb" parent="Environment/Triggers" instance=ExtResource("4_htunu")]
+material = SubResource("CanvasItemMaterial_htunu")
 position = Vector2(3268, 591)
 scale = Vector2(4, 4)
 

@@ -91,12 +91,12 @@ script = ExtResource("1_i3pqv")
 metadata/_edit_group_ = true
 
 [node name="DirtySprite" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sh265")
 animation = &"roam"
 
 [node name="CleanSprite" type="AnimatedSprite2D" parent="."]
-visible = false
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sarlp")
 animation = &"up"
