@@ -17,3 +17,4 @@ uid_cache.bin
 # Godot build and editor project files
 godot/editor/*
 godot/imported/*
+*.avi
