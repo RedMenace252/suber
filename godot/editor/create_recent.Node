@@ -1,6 +1,7 @@
-Sprite2D
-TileMapLayer
 Node2D
+Label
+TileMapLayer
+Sprite2D
 ColorRect
 Node
 CharacterBody2D
@@ -11,4 +12,3 @@ AnimationPlayer
 TextureRect
 CanvasLayer
 StaticBody3D
-CollisionShape3D

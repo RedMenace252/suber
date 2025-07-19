@@ -10,7 +10,7 @@
 [node name="LevelOne" parent="." instance=ExtResource("1_xl7vm")]
 
 [node name="LevelTwo" parent="." instance=ExtResource("2_eeti5")]
-position = Vector2(5760, 3240)
+position = Vector2(5760, 2160)
 
 [node name="LevelThree" parent="." instance=ExtResource("3_07ucy")]
 position = Vector2(9600, 7560)

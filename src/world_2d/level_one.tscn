@@ -1794,6 +1794,16 @@ script = ExtResource("5_7scke")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Text Triggers/Entering Tunnel"]
 shape = SubResource("RectangleShape2D_ynx36")
 
+[node name="LocationText" type="Node2D" parent="Triggers/Text Triggers"]
+
+[node name="TheSurface" type="Label" parent="Triggers/Text Triggers/LocationText"]
+offset_left = 685.0
+offset_top = 242.0
+offset_right = 1378.0
+offset_bottom = 381.0
+theme_override_font_sizes/font_size = 100
+text = "The Surface"
+
 [node name="UpgradeOrb" parent="Triggers" instance=ExtResource("6_ynx36")]
 material = SubResource("CanvasItemMaterial_aeyhl")
 position = Vector2(14817, 441)
