@@ -84,6 +84,9 @@ func movement_input(delta):
 
 func gravity(delta):
 	if above_water:
+		if gravity_velocity == 0:
+			if input_vector.y >= 0:
+				gravity_velocity = speed
 		velocity.y = - speed + gravity_velocity
 		gravity_velocity += delta * speed * 2
 	else:
@@ -93,7 +96,7 @@ func gravity(delta):
 		else:
 			gravity_velocity = 0
 			
-	velocity.y = clamp(velocity.y, - speed, speed)
+	velocity.y = clamp(velocity.y, - 1.5 * speed, 1.5 * speed)
 
 func move_sprite():
 	if velocity.length() > 0:
@@ -200,5 +203,5 @@ func do_test():
 	if $Light.energy < 20:
 		$Light.energy = 20
 	else:
-		$Light.energy = 10
+		$Light.energy = 5
 	max_depth = 1000

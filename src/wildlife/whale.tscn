@@ -19,7 +19,6 @@ animations = [{
 }]
 
 [node name="Whale" type="CharacterBody2D"]
-modulate = Color(0.18, 0.18, 0.18, 1)
 z_index = -125
 z_as_relative = false
 collision_layer = 2
