@@ -8,18 +8,7 @@ var shake_timer: float = 0.0
 var shake_strength: float = 10.0
 var is_shaking: bool = false
 
-var large_areas = [
-	{
-		"bounds": [Vector2(4, 0), Vector2(5, 1)],
-		"center": Vector2(4.5, 0.5),
-		"zoom": 0.5
-	},
-	{
-		"bounds": [Vector2(4, 6), Vector2(6, 8)],
-		"center": Vector2(5, 7),
-		"zoom": .33333
-	}
-]
+@onready var large_areas = LargeAreas.get_large_areas()
 var in_large_area = false
 var cur_large_area = null
 
@@ -82,12 +71,6 @@ func _update_screen(new_screen: Vector2):
 		global_position = cur_screen * screen_size + screen_size * 0.5
 
 	get_parent().set_current_screen(cur_screen)
-
-	if cur_screen.y > 1:
-		$DarkTint.visible = true
-		$DarkTint.color = Color(0, 0, .2,clamp(.3 + .1 * cur_screen.y, 0.3, 0.8))
-	else:
-		$DarkTint.visible = false
 
 		
 	

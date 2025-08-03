@@ -7,12 +7,18 @@ var speed = 0
 var impulse_speed = 5
 var impulse_timer
 var impulse_cooldown = 2
+var hazard = false
 
 var screen
 
 func _ready() -> void:
 	screen =  (global_position / screen_size).floor()
 	impulse_timer = randf() * impulse_cooldown
+	
+	if get_parent().z_index <= -500:
+		collision_layer -= 8
+	else:
+		hazard = true
 	
 func _physics_process(delta: float) -> void:
 	impulse_timer += delta
@@ -26,10 +32,16 @@ func _physics_process(delta: float) -> void:
 	
 	if speed > 0:
 		speed -= impulse_speed * delta
-		$AnimatedSprite2D.play("propel")
+		if hazard:
+			$AnimatedSprite2D.play("electric_propel")
+		else:
+			$AnimatedSprite2D.play("propel")
 	else:
 		speed = 0
-		$AnimatedSprite2D.play("idle")
+		if hazard:
+			$AnimatedSprite2D.play("electric")
+		else:
+			$AnimatedSprite2D.play("idle")
 	
 	velocity = speed * direction.normalized()
 	
@@ -43,10 +55,10 @@ func _physics_process(delta: float) -> void:
 func bounce_off_screen_bounds():
 	var bounced = false
 	
-	var bound_left = screen.x * screen_size.x + 30
-	var bound_right = (screen.x + 1) * screen_size.x - 30
-	var bound_top = screen.y * screen_size.y + 30
-	var bound_bottom = (screen.y + 1) * screen_size.y - 30
+	var bound_left = screen.x * screen_size.x + 100
+	var bound_right = (screen.x + 1) * screen_size.x - 100
+	var bound_top = screen.y * screen_size.y + 100
+	var bound_bottom = (screen.y + 1) * screen_size.y - 100
 
 	if global_position.x <= bound_left or global_position.x >= bound_right:
 		direction.x *= -1

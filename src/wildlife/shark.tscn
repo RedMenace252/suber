@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwqubo7gur4n7"]
+
+[ext_resource type="Texture2D" uid="uid://cfu710i714cfg" path="res://assets/art/wildlife/Shark1.png" id="1_4pxqc"]
+[ext_resource type="Script" uid="uid://cmkdfrjoxfqi1" path="res://src/wildlife/shark.gd" id="1_giq1r"]
+[ext_resource type="Texture2D" uid="uid://ue8h0j3xdu4y" path="res://assets/art/wildlife/Shark2.png" id="2_giq1r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xsj4r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4pxqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_giq1r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_giq1r"]
+radius = 300.0
+
+[node name="Shark" type="CharacterBody2D"]
+collision_layer = 18
+motion_mode = 1
+script = ExtResource("1_giq1r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_xsj4r")
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(3, -32, 24, -11, 64, -7, 66, 26, -10, 25, -28, 10, -51, 24, -59, -16, -30, -2)
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRadius"]
+shape = SubResource("CircleShape2D_giq1r")
+
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]

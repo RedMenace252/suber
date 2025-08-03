@@ -1,14 +1,41 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt1oc5jfnc4tb"]
+[gd_scene load_steps=9 format=3 uid="uid://bt1oc5jfnc4tb"]
 
 [ext_resource type="Script" uid="uid://d3rlyrf40vcdl" path="res://src/wildlife/jellyfish.gd" id="1_7epsg"]
 [ext_resource type="Texture2D" uid="uid://d2dmvnqk35aae" path="res://assets/art/wildlife/Jelly1.png" id="1_aeuxd"]
 [ext_resource type="Texture2D" uid="uid://dxnta80vdf3nm" path="res://assets/art/wildlife/Jelly2.png" id="2_7epsg"]
+[ext_resource type="Texture2D" uid="uid://c4sygef6xlys1" path="res://assets/art/wildlife/Jelly1Electric.png" id="4_f8s3g"]
+[ext_resource type="Texture2D" uid="uid://p2mfay20ybbm" path="res://assets/art/wildlife/Jelly2Electric.png" id="5_b4q74"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7epsg"]
 light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8s3g"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aeuxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7epsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f8s3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b4q74")
+}],
+"loop": true,
+"name": &"electric",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_f8s3g")
+}],
+"loop": true,
+"name": &"electric_propel",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 2.0,
 "texture": ExtResource("1_aeuxd")
@@ -33,7 +60,7 @@ animations = [{
 radius = 21.0
 
 [node name="Jellyfish" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 10
 script = ExtResource("1_7epsg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -42,7 +69,7 @@ position = Vector2(1, 2)
 rotation = 1.5708
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_f8s3g")
-animation = &"idle"
+animation = &"electric"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

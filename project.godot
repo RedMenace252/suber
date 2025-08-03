@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 SignalBus="*res://src/singletons/signal_bus.gd"
+LargeAreas="*res://src/singletons/large_areas.gd"
 
 [display]
 

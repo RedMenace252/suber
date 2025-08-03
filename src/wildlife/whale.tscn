@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://dasjjwyockfb1"]
 
-[ext_resource type="Texture2D" uid="uid://bc6g7imi47gua" path="res://assets/art/wildlife/Whale1.png" id="1_bsxbr"]
 [ext_resource type="Script" uid="uid://30hc16e531j6" path="res://src/wildlife/whale.gd" id="1_h5x41"]
-[ext_resource type="Texture2D" uid="uid://dyut8xc3nlsmf" path="res://assets/art/wildlife/Whale2.png" id="2_h5x41"]
+[ext_resource type="Texture2D" uid="uid://c20wkb1lr7c0u" path="res://assets/art/wildlife/whalemedium1.png" id="2_h5x41"]
+[ext_resource type="Texture2D" uid="uid://dfvaeqbhl0gcy" path="res://assets/art/wildlife/whalemedium2.png" id="3_7wti3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7wti3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_bsxbr")
+"texture": ExtResource("2_h5x41")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_h5x41")
+"texture": ExtResource("3_7wti3")
 }],
 "loop": true,
 "name": &"idle",
@@ -26,11 +26,11 @@ script = ExtResource("1_h5x41")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-71, -159)
-scale = Vector2(100, 100)
+scale = Vector2(50, 50)
 sprite_frames = SubResource("SpriteFrames_7wti3")
 animation = &"idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(139.836, 25.6626)
 scale = Vector2(1.0539, 1.08958)
-polygon = PackedVector2Array(-872, -388, -1077, -179, -1278, -84, -1392, 45, -1392, 216, -1107, 216, -1100, 501, -891, 504, -773, 322, 518, 322, 909, 109, 1027, -88, 1012, -396)
+polygon = PackedVector2Array(-949.65, -584.319, -1310.22, -169.481, -1634.72, -89.6332, -1405.1, 128.8, -1539.84, 439.929, -1080.59, 332.548, 518, 322, 1194.77, -85.9621, 1123.6, -653.153)

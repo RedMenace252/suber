@@ -1,9 +1,11 @@
+res://src/wildlife
+C:/Users/Jed/Documents/suber/src/wildlife
+res://src/singletons
+res://assets/art/submarine
+res://assets/art/wildlife
 res://src/world_2d
 res://src/world_2d/triggers
 res://assets/art/tiles
-res://src/wildlife
-res://assets/art/wildlife
-C:/Users/Jed/Documents/suber/src/wildlife
 C:/Users/Jed/Documents/suber
 res://assets/art/environment
 C:/Users/Jed/Downloads
@@ -12,6 +14,4 @@ res://src/ui
 res://src/world_2d/world objects
 res://
 res://src/main
-res://src/singletons
 res://src/tilesets
-res://assets/art/submarine

@@ -8,6 +8,12 @@ var gravity_velocity = 0
 var bounce_velocity = Vector2(0,0)
 var input_vector
 var control_factor = 1 #how much control the submarine has over movement after a collision
+var collision_cooldown = 0
+var invuln_timer = 0 #checking if lots of collisions in a row
+var successive_collisions = 0 #3 non-damaging collisions or one damaging collision grant invulnerability
+var invulnerable = false
+var zapped = false
+var zap_timer = 0
 
 @onready var sonar = $SonarEmitter
 
@@ -59,9 +65,31 @@ func _physics_process(delta):
 func _process(delta):
 	
 	light(delta)
+	collision_cooldown = max(collision_cooldown - delta, 0)
+	
+	invuln_timer = max(invuln_timer - delta, 0)
+	if invuln_timer <= 0:
+		successive_collisions = 0
+		invulnerable = false
+		
+	zap_timer = max(zap_timer - delta, 0)
+	if zap_timer <= 0:
+		zapped = false
+	
+	if zapped:
+		current_sprite.animation = "zapped"
+		current_sprite.play()
+	else:
+		if invulnerable:
+			current_sprite.animation = "invulnerable"
+			current_sprite.play()
+		else:
+			current_sprite.animation = "default"
+	
+	control_factor = move_toward(control_factor, 1, delta)
 	
 	current_depth = position.y / 1080
-	
+
 	if current_depth > max_depth:
 		take_damage(1)
 		red_screen.color.a = 0.2
@@ -78,7 +106,8 @@ func _process(delta):
 func movement_input(delta):
 	input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
-	input_vector = input_vector.normalized()
+	var control_factor_clamped = clamp(control_factor, 0, 1)
+	input_vector = input_vector.normalized() * control_factor_clamped
 	
 	velocity = input_vector * speed
 
@@ -107,14 +136,14 @@ func move_sprite():
 			clean_sprite.flip_h = velocity.x < 0
 			facing_right = velocity.x > 0
 	else:
-		current_sprite.stop()
+		if current_sprite.animation == "default" :
+			current_sprite.stop()
 	
 func move_and_handle_collisions(delta):
 	if bounce_velocity.length() > 0:
-		velocity = bounce_velocity * speed + input_vector * speed * control_factor
+		velocity = bounce_velocity * speed + input_vector * speed
 		bounce_velocity.x = move_toward(bounce_velocity.x, 0, delta * 2)
 		bounce_velocity.y = move_toward(bounce_velocity.y, 0, delta * 2)
-		control_factor = move_toward(control_factor, 1, delta)
 		
 		if gravity_velocity > 0:
 			velocity.y += (- speed + gravity_velocity)/2
@@ -124,18 +153,47 @@ func move_and_handle_collisions(delta):
 	# Collision response
 	if get_slide_collision_count() > 0:
 		var collision = get_slide_collision(0)
-		if collision:
-			if collision.get_collider() is RigidBody2D: #if object is moveable (no damage is taken)
+		
+		if collision && collision_cooldown <=0:
+			collision_cooldown = 0.1
+			
+			if invuln_timer <= 0:
+				invuln_timer = 2 #using invuln timer to check how many collisions happened within 2 seconds
+			
+			if collision.get_collider() is RigidBody2D && successive_collisions: #if object is moveable
 				collision.get_collider().apply_impulse(velocity.normalized() * 75)
 				var normal = collision.get_normal()
 				bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
 				control_factor = 0 #lose control of movement
 			else: #if object is immovable (ie wall)
-				take_damage(10)
+				#take_damage(10)  #expermenting with removing wall collision damage
 				red_screen.color.a = 0.6
 				var normal = collision.get_normal()
 				bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
 				control_factor = 0 #lose control of movement
+				var collider = collision.get_collider()
+				if collider is CharacterBody2D:
+					if collider.collision_layer & (1 << 3): #is collider on collision layer 4 (hazards)
+						take_damage(10)
+						successive_collisions = 3
+						zapped = true
+						zap_timer = 1
+						control_factor = -1
+					if collider.collision_layer & (1 << 4): #is collider on collision layer 5 (predators)
+						take_damage(15)
+						successive_collisions = 3
+						control_factor = 0
+						collider.target = null
+						collider.target_direction *= -1
+					
+			successive_collisions += 1
+			
+			if successive_collisions >= 3:
+				invulnerable = true
+				invuln_timer = 2
+				collision_cooldown = 2
+			
+				
 			
 	
 	
@@ -198,10 +256,8 @@ func do_test():
 	#SignalBus.move_debris.emit()
 	if speed < 2000:
 		speed = 2000
+		$Light.energy *= 10
 	else:
 		speed = 500
-	if $Light.energy < 20:
-		$Light.energy = 20
-	else:
-		$Light.energy = 5
+		$Light.energy /= 10
 	max_depth = 1000

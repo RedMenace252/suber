@@ -41,7 +41,7 @@ func _physics_process(delta):
 		
 	# Flip sprite_direction with direction
 	$AnimatedSprite2D.flip_v = sprite_direction == Vector2.LEFT
-			
+	
 	# Smooth turn toward target
 	current_direction = current_direction.slerp(target_direction, turn_speed * delta).normalized()
 	
@@ -55,7 +55,8 @@ func _physics_process(delta):
 	# Rotate FISH to match movement direction
 	rotation = current_direction.angle()
 	
-	bounce_off_screen_bounds()
+	if bounce_off_screen_bounds():
+		direction_timer = 0
 
 func bounce_off_screen_bounds():
 	var bounced = false

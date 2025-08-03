@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://wnqv0r4lu6kn"]
+
+[ext_resource type="Script" uid="uid://cmkdfrjoxfqi1" path="res://src/wildlife/shark.gd" id="1_m4374"]
+[ext_resource type="Texture2D" uid="uid://b7xy764x5jgfb" path="res://assets/art/wildlife/anglerfish.png" id="1_mn5cc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m4374"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mn5cc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_mn5cc"]
+offsets = PackedFloat32Array(0, 0.743316)
+colors = PackedColorArray(0.962567, 0.962567, 0.962567, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m4374"]
+gradient = SubResource("Gradient_mn5cc")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m4374"]
+polygon = PackedVector2Array(17, -53, 57, -69, 85, -70, 95, -54, 94, -19, 98, -15, 88, -12, 89, -52, 59, -54, 36, -39, 50, -31, 54, -1, 48, 33, 49, 44, 12, 48, -7, 33, -42, 39, -43, 47, -53, 48, -58, 42, -85, 42, -88, 50, -106, 56, -118, 24, -104, 4, -112, -9, -87, -34, -66, -23, -61, -34, -40, -45, -44, -48, -42, -56, -21, -51, -23, -67, -12, -72, 6, -53)
+
+[node name="Anglerfish" type="CharacterBody2D"]
+light_mask = 2
+script = ExtResource("1_m4374")
+top_left_bound = Vector2(4, 11)
+bottom_right_bound = Vector2(7, 14)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+sprite_frames = SubResource("SpriteFrames_m4374")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(55, -22, 36, -39, 56, -53, 88, -54, 88, -15, 98, -13, 93, -19, 94, -54, 85, -69, 58, -69, 17, -49, 6, -51, -13, -70, -24, -67, -15, -50, -22, -50, -40, -57, -43, -48, -39, -46, -61, -35, -62, -20, -89, -32, -110, -10, -104, 4, -119, 25, -104, 55, -87, 48, -84, 41, -57, 40, -48, 51, -38, 38, -6, 32, 10, 48, 48, 44, 46, 33, 52, 17, 33, 15, 34, -2, 49, 3)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(92, 2)
+energy = 0.5
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_m4374")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_m4374")
+occluder_light_mask = 2

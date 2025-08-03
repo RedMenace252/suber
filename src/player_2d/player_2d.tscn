@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cj3xfrm21n4fp"]
+[gd_scene load_steps=21 format=3 uid="uid://cj3xfrm21n4fp"]
 
 [ext_resource type="Script" uid="uid://0xr0404yhvtw" path="res://src/player_2d/player_2d.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://dnt2ghs05it1x" path="res://assets/art/submarine/lightbeam.png" id="2_5f2sf"]
@@ -6,9 +6,13 @@
 [ext_resource type="Script" uid="uid://co683vl887oha" path="res://src/player_2d/sonar_emitter.gd" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dul88scsjwd46" path="res://assets/art/submarine/sub ver 2.png" id="4_k1njs"]
 [ext_resource type="Texture2D" uid="uid://dbgy6v31kxwjv" path="res://assets/art/submarine/sub roam 1.png" id="4_sweqy"]
+[ext_resource type="Texture2D" uid="uid://clj2xu26j4i6i" path="res://assets/art/submarine/sub electric 1.png" id="4_uwkav"]
+[ext_resource type="Texture2D" uid="uid://ciljiasfdywxq" path="res://assets/art/submarine/sub electric 2.png" id="5_8paqf"]
 [ext_resource type="Texture2D" uid="uid://d3k6oaqngsvbl" path="res://assets/art/submarine/sub ver 2 move.png" id="5_evqt0"]
 [ext_resource type="Script" uid="uid://y2n68hlm6ibj" path="res://src/player_2d/transition_camera.gd" id="6_jiejy"]
 [ext_resource type="Script" uid="uid://cgmt41tj1myyw" path="res://src/player_2d/light.gd" id="6_pv17u"]
+[ext_resource type="Texture2D" uid="uid://csquxkpywrhvl" path="res://assets/art/submarine/sub electric 1 ver 2.png" id="8_rxgdv"]
+[ext_resource type="Texture2D" uid="uid://cmu0svamtsvy3" path="res://assets/art/submarine/sub electric 2 ver 2.png" id="9_pa1hq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
 animations = [{
@@ -20,7 +24,7 @@ animations = [{
 "texture": ExtResource("2_i3pqv")
 }],
 "loop": true,
-"name": &"roam",
+"name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
@@ -28,10 +32,21 @@ animations = [{
 "texture": ExtResource("4_sweqy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_i3pqv")
+"texture": null
 }],
 "loop": true,
-"name": &"up",
+"name": &"invulnerable",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_uwkav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8paqf")
+}],
+"loop": true,
+"name": &"zapped",
 "speed": 5.0
 }]
 
@@ -45,7 +60,7 @@ animations = [{
 "texture": ExtResource("5_evqt0")
 }],
 "loop": true,
-"name": &"roam",
+"name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
@@ -53,10 +68,21 @@ animations = [{
 "texture": ExtResource("4_k1njs")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_evqt0")
+"texture": null
 }],
 "loop": true,
-"name": &"up",
+"name": &"invulnerable",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_rxgdv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pa1hq")
+}],
+"loop": true,
+"name": &"zapped",
 "speed": 5.0
 }]
 
@@ -91,6 +117,7 @@ size = Vector2(1, 1)
 [node name="Player2D" type="CharacterBody2D"]
 z_as_relative = false
 collision_layer = 4
+collision_mask = 25
 script = ExtResource("1_i3pqv")
 metadata/_edit_group_ = true
 
@@ -98,12 +125,12 @@ metadata/_edit_group_ = true
 visible = false
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sh265")
-animation = &"roam"
+animation = &"zapped"
 
 [node name="CleanSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sarlp")
-animation = &"up"
+animation = &"zapped"
 
 [node name="SonarEmitter" type="Node2D" parent="."]
 script = ExtResource("4_hqtel")
@@ -125,11 +152,11 @@ value = 100.0
 show_percentage = false
 
 [node name="Light" type="PointLight2D" parent="."]
-scale = Vector2(7, 9)
-energy = 5.0
+scale = Vector2(14, 18)
 range_item_cull_mask = 2
 shadow_enabled = true
-shadow_item_cull_mask = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_item_cull_mask = 2
 texture = ExtResource("2_5f2sf")
 offset = Vector2(75, 0)
 script = ExtResource("6_pv17u")
@@ -201,22 +228,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(5, 5)
 color = Color(1, 0, 0, 0)
-
-[node name="DarkTint" type="ColorRect" parent="Camera2D"]
-z_index = 100
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -7200.0
-offset_top = -4050.0
-offset_right = -4320.0
-offset_bottom = -2430.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(5, 5)
-color = Color(0, 0, 0.254902, 0.352941)
 
 [node name="CameraHitbox" type="Area2D" parent="Camera2D"]
 
