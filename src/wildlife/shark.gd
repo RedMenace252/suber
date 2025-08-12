@@ -30,10 +30,6 @@ func _ready():
 	
 	chase_range = 750 * (bottom_right_bound.x - top_left_bound.x) / 1920
 	
-	#if chase_range > 750:
-	print(chase_range)
-	print(name)
-		
 func _physics_process(delta):
 	direction_timer += delta
 	if direction_timer >= direction_cooldown:
@@ -51,10 +47,10 @@ func _physics_process(delta):
 		sprite_direction = Vector2.LEFT
 		
 	# Flip sprite_direction with direction
-	if sprite_direction == Vector2.LEFT:
-		scale.x = -1
-	else:
-		scale.x = 1
+	#if sprite_direction == Vector2.LEFT:
+	#	scale.x = -1
+	#else:
+	#	scale.x = 1
 	
 	if target != null:
 		target_direction = target.global_position - global_position
@@ -103,6 +99,10 @@ func bounce_off_screen_bounds():
 		bounced = true
 	
 	return bounced
+	
+func caught_player():
+	target = null
+	target_direction *= -1
 
 func _on_detection_radius_body_entered(body: Node2D) -> void:
 	if body.name == "Player2D":

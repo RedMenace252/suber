@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var current_screen := Vector2.ZERO
 
-@export var speed = 500
+@export var speed = 450
 var above_water = false
 var gravity_velocity = 0
 var bounce_velocity = Vector2(0,0)
@@ -25,17 +25,44 @@ var current_health := max_health
 var facing_right = true
 var light_angle = 0
 
-var max_depth = 2
+var max_depth = 200
 var current_depth = 0
 @onready var max_depth_value = $"Camera2D/Control/Max Depth Value"
 @onready var current_depth_value = $"Camera2D/Control/Current Depth Value"
 
 var powered = true
-var sonar_enabled = false
+var sonar_enabled = true
 
 @onready var dirty_sprite = $DirtySprite
 @onready var clean_sprite = $CleanSprite
 var current_sprite
+
+var pirate_mode_ready = false
+@onready var pirate_sprite = $PirateSprite
+
+#dash experimental
+var dash_speed := 4
+var dash_duration := .2
+var dash_cooldown := 1.0
+var dash_timer := 0.0
+var is_dashing := false
+var dash_direction := Vector2.ZERO
+var dash_cooldown_timer := 0.0
+
+# Constants for chain dash skill window
+const CHAIN_WINDOW_START := 0.7
+const MIN_CHAIN_ANGLE := deg_to_rad(45)   # minimum turn angle in radians
+const MAX_CHAIN_ANGLE := deg_to_rad(225)   # maximum turn angle in radians
+
+var chain_dash_count = 0
+var failed_chain_dash = false
+
+@onready var DashTrailScene := preload("res://src/player_2d/dash_trail.tscn")
+var active_trail: Line2D = null
+
+var acceleration = 3000
+var deceleration = 5000
+
 
 func _ready() -> void:
 	SignalBus.submarine_power_off.connect(_on_power_off)
@@ -46,16 +73,37 @@ func _ready() -> void:
 	
 func _physics_process(delta):
 	
+	#if powered:
+	#	velocity = Vector2(0,0)
+	#	
+	#	movement_input(delta)
+	#	gravity(delta)
+	#	
+	#	move_sprite()
+		
+
+	if active_trail:
+		active_trail.add_point(global_position)
+
+	#experimental dash
 	if powered:
-		velocity = Vector2(0,0)
+		#velocity = Vector2.ZERO
+
+		if is_dashing:
+			dash_timer -= delta
+			if dash_timer <= 0:
+				is_dashing = false
+				control_factor = 1
 		
 		movement_input(delta)
 		gravity(delta)
 		
 		move_sprite()
+
+
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed * delta)
-		velocity.y = move_toward(velocity.y, 0, speed * delta)
+		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
+		velocity.y = move_toward(velocity.y, 0, deceleration * delta)
 		if current_sprite.is_playing():
 			current_sprite.stop()
 			
@@ -63,6 +111,58 @@ func _physics_process(delta):
 	move_and_handle_collisions(delta)
 	
 func _process(delta):
+	
+	# Dash experimental
+	dash_cooldown_timer = max(dash_cooldown_timer - delta, 0.0)
+	var input_vec := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	var in_chain_window = false
+	var chain_window_size = clamp(0.3/chain_dash_count, 0.05, 0.3)
+	var chain_window_end = CHAIN_WINDOW_START - chain_window_size
+	in_chain_window = dash_cooldown_timer <= CHAIN_WINDOW_START and dash_cooldown_timer >= chain_window_end
+	
+	#VISUALS
+	if dash_cooldown_timer <= 0.0:
+		failed_chain_dash = false #reset
+		chain_dash_count = 0 #reset
+		#some kind of visual indicator the timer is up
+	else:
+		#reset visual indicator
+		pass
+
+	if in_chain_window && !failed_chain_dash:
+		pass
+	else:
+		pass
+		
+	# Check for dash input
+	if Input.is_action_just_pressed("dash") and input_vec.length() > 0:
+		var can_normal_dash := dash_cooldown_timer <= 0.0 and !is_dashing
+		
+		var new_dir := input_vec.normalized()
+		
+		if dash_cooldown_timer > CHAIN_WINDOW_START:
+			failed_chain_dash = true
+		
+		if in_chain_window:
+			var angle_diff = abs(new_dir.angle_to(dash_direction))
+			if angle_diff < MIN_CHAIN_ANGLE or angle_diff > MAX_CHAIN_ANGLE:
+				in_chain_window = false  # Not enough turn or too sharp
+		
+		if (in_chain_window && !failed_chain_dash) or can_normal_dash:
+			dash_direction = new_dir
+			start_dash()
+			chain_dash_count += 1
+
+
+
+	#pirate
+	if pirate_mode_ready:
+		if Input.is_action_just_pressed("interact"):
+			current_sprite.visible = false
+			current_sprite = pirate_sprite
+			current_sprite.visible = true
+	#
 	
 	light(delta)
 	collision_cooldown = max(collision_cooldown - delta, 0)
@@ -76,15 +176,18 @@ func _process(delta):
 	if zap_timer <= 0:
 		zapped = false
 	
-	if zapped:
-		current_sprite.animation = "zapped"
+	var anim = "default"
+
+	if dash_cooldown_timer > dash_cooldown/2:
+		anim = "dash"
+	elif zapped:
+		anim = "zapped"
+	elif invulnerable:
+		anim = "invulnerable"
+
+	if current_sprite.animation != anim:
+		current_sprite.animation = anim
 		current_sprite.play()
-	else:
-		if invulnerable:
-			current_sprite.animation = "invulnerable"
-			current_sprite.play()
-		else:
-			current_sprite.animation = "default"
 	
 	control_factor = move_toward(control_factor, 1, delta)
 	
@@ -109,7 +212,7 @@ func movement_input(delta):
 	var control_factor_clamped = clamp(control_factor, 0, 1)
 	input_vector = input_vector.normalized() * control_factor_clamped
 	
-	velocity = input_vector * speed
+	velocity = velocity.move_toward(input_vector * speed, acceleration * delta)
 
 func gravity(delta):
 	if above_water:
@@ -121,11 +224,11 @@ func gravity(delta):
 	else:
 		if gravity_velocity > speed:
 			velocity.y = - speed + gravity_velocity
-			gravity_velocity -= delta * speed * 6
+			gravity_velocity -= delta * speed * 6 
+			gravity_velocity -= delta * speed * gravity_velocity/5
+			velocity.y = clamp(velocity.y, - 1.5 * speed, 1.5 * speed)
 		else:
 			gravity_velocity = 0
-			
-	velocity.y = clamp(velocity.y, - 1.5 * speed, 1.5 * speed)
 
 func move_sprite():
 	if velocity.length() > 0:
@@ -134,6 +237,8 @@ func move_sprite():
 		if velocity.x != 0:
 			dirty_sprite.flip_h = velocity.x < 0
 			clean_sprite.flip_h = velocity.x < 0
+			pirate_sprite.flip_h = velocity.x < 0
+			
 			facing_right = velocity.x > 0
 	else:
 		if current_sprite.animation == "default" :
@@ -183,8 +288,7 @@ func move_and_handle_collisions(delta):
 						take_damage(15)
 						successive_collisions = 3
 						control_factor = 0
-						collider.target = null
-						collider.target_direction *= -1
+						collider.caught_player()
 					
 			successive_collisions += 1
 			
@@ -205,7 +309,7 @@ func light(delta):
 	var angle_to_mouse = (global_mouse_pos - light_global_pos).angle()
 
 	# Determine facing direction, flip light position if needed
-	$Light.rotation = lerp_angle($Light.rotation, angle_to_mouse, 3 * delta)
+	$Light.rotation = lerp_angle($Light.rotation, angle_to_mouse - PI/2, 3 * delta)
 		
 func _input(event):
 	if Input.is_action_just_pressed("ping_sonar") && sonar_enabled:
@@ -254,10 +358,31 @@ func _switch_artstyle() -> void:
 func do_test():
 	#SignalBus.emit_signal("display_dialogue", "test1")
 	#SignalBus.move_debris.emit()
-	if speed < 2000:
-		speed = 2000
-		$Light.energy *= 10
+	#if speed < 2000:
+	#	speed = 2000
+	#	$Light.energy *= 10
+	#else:
+	#	speed = 500
+	#	$Light.energy /= 10
+	#max_depth = 1000
+	
+	if $Light.energy == 0:
+		$Light.energy = 1
 	else:
-		speed = 500
-		$Light.energy /= 10
-	max_depth = 1000
+		$Light.energy = 0
+	
+#experimental dash
+func start_dash():
+	if above_water || control_factor < 1:
+		return 
+	is_dashing = true
+	dash_timer = dash_duration
+	dash_cooldown_timer = dash_cooldown
+	
+	# Spawn the trail
+	active_trail = DashTrailScene.instantiate()
+	active_trail.add_point(global_position)
+	get_parent().add_child(active_trail)  # ✅ makes it a sibling, not child
+	
+	velocity = input_vector * speed
+	velocity *= dash_speed

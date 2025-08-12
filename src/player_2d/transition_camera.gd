@@ -11,6 +11,8 @@ var is_shaking: bool = false
 @onready var large_areas = LargeAreas.get_large_areas()
 var in_large_area = false
 var cur_large_area = null
+var scrolling_center = false
+var center_range = [Vector2(0,0), Vector2(0,0)]
 
 func _ready():
 	set_as_top_level( true )
@@ -35,6 +37,15 @@ func _physics_process(_delta):
 	var parent_screen : Vector2 = ( get_parent().global_position / screen_size ).floor()
 	if not parent_screen.is_equal_approx( cur_screen ):
 		_update_screen( parent_screen )
+	
+	if scrolling_center:
+		var player_position = get_parent().global_position
+		global_position = Vector2(
+			clamp(player_position.x, center_range[0].x, center_range[1].x),
+			clamp(player_position.y, center_range[0].y, center_range[1].y)
+		)
+		
+		
 
 func _update_screen(new_screen: Vector2):
 	cur_screen = new_screen
@@ -56,7 +67,14 @@ func _update_screen(new_screen: Vector2):
 	if found_large_area and cur_large_area != found_large_area:
 		cur_large_area = found_large_area
 		zoom = Vector2(found_large_area["zoom"], found_large_area["zoom"])
-		global_position = found_large_area["center"] * screen_size + screen_size * 0.5
+		
+		var center = found_large_area["center"]
+		if typeof(center) == TYPE_ARRAY and center.size() == 2:
+			scrolling_center = true
+			center_range = [center[0] * screen_size, center[1] * screen_size]
+		else:
+			global_position = found_large_area["center"] * screen_size + screen_size * 0.5
+		
 		in_large_area = true
 
 	# Leaving large area
@@ -65,14 +83,17 @@ func _update_screen(new_screen: Vector2):
 		zoom = Vector2(1, 1)
 		global_position = cur_screen * screen_size + screen_size * 0.5
 		in_large_area = false
+		scrolling_center = false
 
 	# Not changing large area state
 	elif not in_large_area:
 		global_position = cur_screen * screen_size + screen_size * 0.5
 
 	get_parent().set_current_screen(cur_screen)
+	
+	print(cur_large_area)
 
-		
+	
 	
 func on_shake_camera() -> void:
 	is_shaking = true

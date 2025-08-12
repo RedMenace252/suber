@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var num_rays: int = 1000
+@export var num_rays: int = 500
 @export var dot_scene: PackedScene = preload("res://src/player_2d/sonar_dot.tscn") # Preloaded dot scene to instance
 
 

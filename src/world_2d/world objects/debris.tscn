@@ -1,20 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv1qy4oi3hpjb"]
+[gd_scene load_steps=6 format=3 uid="uid://cv1qy4oi3hpjb"]
 
-[ext_resource type="Texture2D" uid="uid://dobkhhsovcre4" path="res://assets/art/environment/debris.png" id="1_tn4pc"]
+[ext_resource type="Texture2D" uid="uid://cem0j2g7sj4r0" path="res://assets/art/wildlife/Eel1.png" id="1_51d7g"]
+[ext_resource type="Texture2D" uid="uid://b1ni5oxgh0yj4" path="res://assets/art/wildlife/Eel2.png" id="2_atq67"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0xoei"]
 light_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2gbl"]
-size = Vector2(66, 531)
+size = Vector2(549, 89)
 
-[node name="Debris" type="RigidBody2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ootuy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_51d7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_atq67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_51d7g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Eels" type="RigidBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 material = SubResource("CanvasItemMaterial_0xoei")
-position = Vector2(0, -7.5)
+position = Vector2(142.5, -30.5)
 shape = SubResource("RectangleShape2D_y2gbl")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(30, 30)
-texture = ExtResource("1_tn4pc")
+[node name="Sprite2D4" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+position = Vector2(-37, -50)
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_ootuy")
+autoplay = "default"
+frame_progress = 0.465992
+
+[node name="Sprite2D3" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+position = Vector2(189, -50)
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_ootuy")
+autoplay = "default"
+frame_progress = 0.611432
+flip_h = true
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+position = Vector2(53, -19)
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_ootuy")
+autoplay = "default"
+frame_progress = 0.445127
+
+[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+position = Vector2(324, -23)
+scale = Vector2(12, 12)
+sprite_frames = SubResource("SpriteFrames_ootuy")
+autoplay = "default"
+frame_progress = 0.465992

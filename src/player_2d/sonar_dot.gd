@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var lifetime: float = 5
-@export var move_speed: float = 500.0
-@export var collision_mask: int = 5 #layer 1 and 3
+@export var lifetime: float = 3
+@export var move_speed: float = 1000.0
+@export var collision_mask: int = 1 #layer 1 and 3
 
 @export var move_direction: Vector2 = Vector2.ZERO
 
@@ -22,6 +22,7 @@ func _process(delta):
 		if result:
 			global_position = result.position
 			move_direction = Vector2.ZERO
+			lifetime *= 2
 		else:
 			global_position = target_position
 

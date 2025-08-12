@@ -6,14 +6,19 @@
 light_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ec5sr"]
-radius = 125.0
+radius = 107.005
 
 [node name="Ball" type="RigidBody2D"]
+light_mask = 2
+collision_layer = 32
+collision_mask = 5
+mass = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 material = SubResource("CanvasItemMaterial_0xoei")
 shape = SubResource("CircleShape2D_ec5sr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(30, 30)
+light_mask = 6
+scale = Vector2(16, 16)
 texture = ExtResource("1_fn170")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://003ctfif1gyo"]
+
+[ext_resource type="Script" uid="uid://dg0xhpeh5eaxq" path="res://src/player_2d/dash_trail.gd" id="1_n0cjg"]
+
+[sub_resource type="Curve" id="Curve_n0cjg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.511312, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="DashTrail" type="Line2D"]
+z_index = -100
+z_as_relative = false
+width_curve = SubResource("Curve_n0cjg")
+default_color = Color(1, 1, 1, 0.313726)
+script = ExtResource("1_n0cjg")

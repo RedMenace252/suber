@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://wnqv0r4lu6kn"]
 
-[ext_resource type="Script" uid="uid://cmkdfrjoxfqi1" path="res://src/wildlife/shark.gd" id="1_m4374"]
+[ext_resource type="Script" uid="uid://b5681hk4g1mdf" path="res://src/wildlife/anglerfish.gd" id="1_m4374"]
 [ext_resource type="Texture2D" uid="uid://b7xy764x5jgfb" path="res://assets/art/wildlife/anglerfish.png" id="1_mn5cc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m4374"]
@@ -14,12 +14,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_mn5cc"]
+[sub_resource type="Gradient" id="Gradient_m4374"]
 offsets = PackedFloat32Array(0, 0.743316)
 colors = PackedColorArray(0.962567, 0.962567, 0.962567, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_m4374"]
-gradient = SubResource("Gradient_mn5cc")
+gradient = SubResource("Gradient_m4374")
 width = 512
 height = 512
 fill = 1
@@ -31,12 +31,12 @@ polygon = PackedVector2Array(17, -53, 57, -69, 85, -70, 95, -54, 94, -19, 98, -1
 
 [node name="Anglerfish" type="CharacterBody2D"]
 light_mask = 2
+collision_layer = 19
+motion_mode = 1
 script = ExtResource("1_m4374")
-top_left_bound = Vector2(4, 11)
-bottom_right_bound = Vector2(7, 14)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-light_mask = 2
+light_mask = 6
 sprite_frames = SubResource("SpriteFrames_m4374")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -50,4 +50,14 @@ texture = SubResource("GradientTexture2D_m4374")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_m4374")
-occluder_light_mask = 2
+occluder_light_mask = 4
+
+[node name="DetectionRadius" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionRadius"]
+position = Vector2(-102, -19)
+polygon = PackedVector2Array(126, -2, 478, -276, 1324, -580, 1721, 25, 1270, 651, 454, 257)
+
+[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
+[connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]

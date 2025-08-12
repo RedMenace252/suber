@@ -13,7 +13,6 @@
 position = Vector2(5760, 2160)
 
 [node name="LevelThree" parent="." instance=ExtResource("3_07ucy")]
-position = Vector2(9600, 6480)
 
 [node name="SecretLevelOne" parent="." instance=ExtResource("4_6w61a")]
 position = Vector2(7680, 2160)

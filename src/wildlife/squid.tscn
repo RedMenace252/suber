@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmjndlcbpopjd"]
+
+[ext_resource type="Texture2D" uid="uid://ct45iaf2ctuka" path="res://assets/art/wildlife/squid.png" id="1_bproe"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bproe"]
+polygon = PackedVector2Array(98, -721, 225, -785, 525, -779, 669, -676, 813, -370, 687, -734, 729, -845, 841, -902, 946, -882, 957, -806, 825, -791, 772, -676, 879, -360, 807, -113, 544, 42, 614, 242, 570, 675, 759, 841, 753, 843, 910, 876, 911, 932, 785, 961, 560, 887, 463, 679, 541, 303, 502, 92, 327, 51, 223, 305, 258, 751, 87, 1080, -179, 1080, -320, 876, -344, 272, -427, 72, -672, 96, -762, 255, -441, 700, -462, 921, -627, 1035, -821, 1035, -859, 935, -707, 945, -548, 814, -624, 555, -790, 493, -852, 275, -717, 16, -895, -295, -791, -594, -825, -721, -960, -777, -936, -849, -797, -856, -708, -756, -732, -273, -652, -735, -573, -797, -445, -801, -407, -766, -311, -780, -213, -728, -216, -611, -369, -545, -349, -683, -507, -628, -483, -369, -383, -131, -280, -23, 186, -45, 287, -233, 343, -604, 289, -668, 145, -555, 72, -604)
+
+[node name="Squid" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 6
+texture = ExtResource("1_bproe")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_bproe")
+occluder_light_mask = 4

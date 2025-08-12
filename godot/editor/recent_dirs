@@ -1,17 +1,18 @@
+res://assets/art/wildlife
 res://src/wildlife
+res://src/player_2d
+res://src/world_2d
+res://src/world_2d/world objects
+res://src/world_2d/triggers
 C:/Users/Jed/Documents/suber/src/wildlife
 res://src/singletons
 res://assets/art/submarine
-res://assets/art/wildlife
-res://src/world_2d
-res://src/world_2d/triggers
 res://assets/art/tiles
 C:/Users/Jed/Documents/suber
 res://assets/art/environment
 C:/Users/Jed/Downloads
 res://src/player_3d
 res://src/ui
-res://src/world_2d/world objects
 res://
 res://src/main
 res://src/tilesets
