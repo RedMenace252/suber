@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://wnqv0r4lu6kn"]
+[gd_scene load_steps=8 format=3 uid="uid://wnqv0r4lu6kn"]
 
-[ext_resource type="Script" uid="uid://b5681hk4g1mdf" path="res://src/wildlife/anglerfish.gd" id="1_m4374"]
+[ext_resource type="Script" uid="uid://c7h7740e6vgbd" path="res://src/wildlife/predator.gd" id="1_m4374"]
 [ext_resource type="Texture2D" uid="uid://b7xy764x5jgfb" path="res://assets/art/wildlife/anglerfish.png" id="1_mn5cc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m4374"]
@@ -29,6 +29,9 @@ fill_to = Vector2(0, 0)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_m4374"]
 polygon = PackedVector2Array(17, -53, 57, -69, 85, -70, 95, -54, 94, -19, 98, -15, 88, -12, 89, -52, 59, -54, 36, -39, 50, -31, 54, -1, 48, 33, 49, 44, 12, 48, -7, 33, -42, 39, -43, 47, -53, 48, -58, 42, -85, 42, -88, 50, -106, 56, -118, 24, -104, 4, -112, -9, -87, -34, -66, -23, -61, -34, -40, -45, -44, -48, -42, -56, -21, -51, -23, -67, -12, -72, 6, -53)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_m4374"]
+radius = 500.0
+
 [node name="Anglerfish" type="CharacterBody2D"]
 light_mask = 2
 collision_layer = 19
@@ -52,12 +55,10 @@ texture = SubResource("GradientTexture2D_m4374")
 occluder = SubResource("OccluderPolygon2D_m4374")
 occluder_light_mask = 4
 
-[node name="DetectionRadius" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="."]
 collision_mask = 4
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionRadius"]
-position = Vector2(-102, -19)
-polygon = PackedVector2Array(126, -2, 478, -276, 1324, -580, 1721, 25, 1270, 651, 454, 257)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_m4374")
 
-[connection signal="body_entered" from="DetectionRadius" to="." method="_on_detection_radius_body_entered"]
-[connection signal="body_exited" from="DetectionRadius" to="." method="_on_detection_radius_body_exited"]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

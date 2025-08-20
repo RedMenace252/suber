@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://gkl5foimbhex"]
+
+[ext_resource type="Script" uid="uid://cv7b153x08kwf" path="res://src/world_2d/events and objects/treasure_chest.gd" id="1_ho1ej"]
+[ext_resource type="Texture2D" uid="uid://b3mvhfdwemp2y" path="res://assets/art/environment/treasure_chest.png" id="1_vo10a"]
+[ext_resource type="Texture2D" uid="uid://b33almwhadu5g" path="res://assets/art/environment/treasure_chest_2.png" id="4_ncdsk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ho1ej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vo10a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ncdsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ncdsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ncdsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ncdsk")
+}],
+"loop": true,
+"name": &"collect",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vo10a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vo10a"]
+size = Vector2(192, 163)
+
+[sub_resource type="Animation" id="Animation_ncdsk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ipycn"]
+resource_name = "collect"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 0.34151),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.5, 1.501),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.498039)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ncdsk"]
+_data = {
+&"RESET": SubResource("Animation_ncdsk"),
+&"collect": SubResource("Animation_ipycn")
+}
+
+[node name="TreasureChest" type="Node2D"]
+script = ExtResource("1_ho1ej")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ho1ej")
+animation = &"collect"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 5.5)
+shape = SubResource("RectangleShape2D_vo10a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ncdsk")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

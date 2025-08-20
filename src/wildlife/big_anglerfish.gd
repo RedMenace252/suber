@@ -168,11 +168,7 @@ func caught_player():
 	#potential_target = null
 	#target_direction *= -1
 	speed -= 300
-	
-func _on_detection_radius_body_entered(body: Node2D) -> void:
+
+func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player2D":
 		potential_target = body
-
-func _on_detection_radius_body_exited(body: Node2D) -> void:
-	if body.name == "Player2D":
-		potential_target = null

@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var bottom_right_bound: Vector2
 
 @export var speed = 100
-var turn_speed = 1
+var turn_speed = 3
 var acceleration = 100
 var chase_range = 750
 
@@ -55,10 +55,10 @@ func _physics_process(delta):
 	if target != null:
 		target_direction = target.global_position - global_position
 		speed = move_toward(speed, 400, delta * acceleration)
-		turn_speed = move_toward(turn_speed, 3, delta * 2)
+		turn_speed = move_toward(turn_speed, 10, delta * 2)
 	else:
 		speed = move_toward(speed, 100, delta * acceleration)
-		turn_speed = move_toward(turn_speed, 1, delta * 2)
+		turn_speed = move_toward(turn_speed, 3, delta * 2)
 		
 	if target:
 		if target_direction.length() >= chase_range:

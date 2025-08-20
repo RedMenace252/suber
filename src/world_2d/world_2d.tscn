@@ -1,18 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfpljttujuemk"]
+[gd_scene load_steps=6 format=3 uid="uid://bfpljttujuemk"]
 
-[ext_resource type="PackedScene" uid="uid://dpgffyg303pxy" path="res://src/world_2d/level_one.tscn" id="1_xl7vm"]
-[ext_resource type="PackedScene" uid="uid://ddqw28vb2rsrh" path="res://src/world_2d/level_two.tscn" id="2_eeti5"]
-[ext_resource type="PackedScene" uid="uid://bxnyoiniv5ptp" path="res://src/world_2d/level_three.tscn" id="3_07ucy"]
-[ext_resource type="PackedScene" uid="uid://dvw423mf2wh2d" path="res://src/world_2d/secret_level_one.tscn" id="4_6w61a"]
+[ext_resource type="PackedScene" uid="uid://dpgffyg303pxy" path="res://src/world_2d/levels/level_one.tscn" id="1_xl7vm"]
+[ext_resource type="PackedScene" uid="uid://ddqw28vb2rsrh" path="res://src/world_2d/levels/level_one_transition.tscn" id="2_eeti5"]
+[ext_resource type="PackedScene" uid="uid://bxnyoiniv5ptp" path="res://src/world_2d/levels/level_two.tscn" id="3_07ucy"]
+[ext_resource type="PackedScene" uid="uid://dvw423mf2wh2d" path="res://src/world_2d/levels/secret_level_one.tscn" id="4_6w61a"]
+[ext_resource type="PackedScene" uid="uid://vbj1mhj6qbw7" path="res://src/world_2d/levels/level_three.tscn" id="5_l5m31"]
 
 [node name="World" type="Node2D"]
 
 [node name="LevelOne" parent="." instance=ExtResource("1_xl7vm")]
 
-[node name="LevelTwo" parent="." instance=ExtResource("2_eeti5")]
+[node name="LevelOneTransition" parent="." instance=ExtResource("2_eeti5")]
 position = Vector2(5760, 2160)
-
-[node name="LevelThree" parent="." instance=ExtResource("3_07ucy")]
 
 [node name="SecretLevelOne" parent="." instance=ExtResource("4_6w61a")]
 position = Vector2(7680, 2160)
+
+[node name="LevelTwo" parent="." instance=ExtResource("3_07ucy")]
+position = Vector2(9600, 6480)
+
+[node name="LevelThree" parent="." instance=ExtResource("5_l5m31")]
+position = Vector2(28800, 28080)

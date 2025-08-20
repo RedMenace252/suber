@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://e2tjdwjosbgp"]
+[gd_scene load_steps=5 format=3 uid="uid://e2tjdwjosbgp"]
 
 [ext_resource type="PackedScene" uid="uid://wnqv0r4lu6kn" path="res://src/wildlife/anglerfish.tscn" id="1_fbv51"]
 [ext_resource type="Script" uid="uid://xxsl6vbxjb75" path="res://src/wildlife/big_anglerfish.gd" id="2_1j4n2"]
@@ -6,6 +6,9 @@
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fbv51"]
 cull_mode = 2
 polygon = PackedVector2Array(17, -53, 57, -69, 85, -70, 95, -54, 94, -19, 98, -15, 88, -12, 89, -52, 59, -54, 36, -39, 50, -31, 54, -1, 48, 33, 49, 44, 12, 48, -7, 33, -42, 39, -43, 47, -53, 48, -58, 42, -85, 42, -88, 50, -106, 56, -118, 24, -104, 4, -112, -9, -87, -34, -66, -23, -61, -34, -40, -45, -44, -48, -42, -56, -21, -51, -23, -67, -12, -72, 6, -53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbv51"]
+size = Vector2(2876, 1162)
 
 [node name="BigAnglerfish" instance=ExtResource("1_fbv51")]
 collision_layer = 16
@@ -30,5 +33,8 @@ visible = false
 scale = Vector2(3, 3)
 occluder = SubResource("OccluderPolygon2D_fbv51")
 
-[node name="DetectionRadius" parent="." index="4"]
-scale = Vector2(3, 3)
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+position = Vector2(1472, 41)
+shape = SubResource("RectangleShape2D_fbv51")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

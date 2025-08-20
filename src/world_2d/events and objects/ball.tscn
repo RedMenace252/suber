@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctt8lac2cails"]
+
+[ext_resource type="Texture2D" uid="uid://cdusnprlq4hr8" path="res://assets/art/environment/ball.png" id="1_edb8b"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0xoei"]
+light_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ec5sr"]
+radius = 107.005
+
+[node name="Ball" type="RigidBody2D"]
+light_mask = 2
+collision_layer = 32
+collision_mask = 5
+mass = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("CanvasItemMaterial_0xoei")
+shape = SubResource("CircleShape2D_ec5sr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 6
+scale = Vector2(16, 16)
+texture = ExtResource("1_edb8b")

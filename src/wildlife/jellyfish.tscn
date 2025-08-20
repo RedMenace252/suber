@@ -69,7 +69,7 @@ position = Vector2(1, 2)
 rotation = 1.5708
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_f8s3g")
-animation = &"electric"
+animation = &"propel"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

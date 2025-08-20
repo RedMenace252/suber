@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjh8sakmalpon"]
+
+[ext_resource type="Texture2D" uid="uid://dndewn87fk03u" path="res://assets/art/wildlife/BlueJelly1.png" id="1_2vjim"]
+[ext_resource type="Script" uid="uid://d0smstyrd3ybl" path="res://src/wildlife/glowjelly.gd" id="1_cdutm"]
+[ext_resource type="Texture2D" uid="uid://df8qqayvuf3fd" path="res://assets/art/wildlife/BlueJellyElectric1.png" id="1_qrgyv"]
+[ext_resource type="Texture2D" uid="uid://b5y15wwvemjcd" path="res://assets/art/wildlife/BlueJellyElectric2.png" id="2_cdutm"]
+[ext_resource type="Texture2D" uid="uid://dx0ueg34img7m" path="res://assets/art/wildlife/BlueJelly2.png" id="2_hcmvi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p51ik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qrgyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cdutm")
+}],
+"loop": true,
+"name": &"electric",
+"speed": 1.2
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qrgyv")
+}],
+"loop": true,
+"name": &"electric_propel",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2vjim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hcmvi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.2
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2vjim")
+}],
+"loop": true,
+"name": &"propel",
+"speed": 0.5
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qrgyv"]
+radius = 39.0
+
+[sub_resource type="Gradient" id="Gradient_cdutm"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xydma"]
+gradient = SubResource("Gradient_cdutm")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.102564, 0.162393)
+
+[node name="GlowJelly" type="CharacterBody2D"]
+collision_layer = 9
+script = ExtResource("1_cdutm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
+position = Vector2(1, 2)
+rotation = 1.5708
+scale = Vector2(8, 8)
+sprite_frames = SubResource("SpriteFrames_p51ik")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qrgyv")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.431373, 0.431373, 1, 1)
+energy = 0.4
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_xydma")

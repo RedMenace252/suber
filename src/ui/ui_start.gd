@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var start_button = $PanelContainer/VBoxContainer/Start
-@onready var exit_button = $PanelContainer/VBoxContainer/Exit
-@onready var flashing_logo = $PanelContainer/VBoxContainer/Logo/FlashingLogo
+@onready var start_button : Button = $FrontLayer/PanelContainer/VBoxContainer/Start
+@onready var exit_button : Button = $FrontLayer/PanelContainer/VBoxContainer/Exit
+#@onready var logo_animator : AnimationPlayer = $FrontLayer/PanelContainer/VBoxContainer/Logo/LogoAnimator
 
 func _ready():
 	start_button.pressed.connect(_on_start_pressed)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cph6ce3jnqrmb"]
+[gd_scene load_steps=11 format=3 uid="uid://cph6ce3jnqrmb"]
 
 [ext_resource type="Script" uid="uid://0wtm5h8nw3dn" path="res://src/ui/ui_start.gd" id="1_gvv6s"]
 [ext_resource type="Texture2D" uid="uid://bfocjdxbtvdic" path="res://assets/art/suberlogo white.png" id="2_gvv6s"]
@@ -20,14 +20,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("../..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(480, 135)]
 }
 
 [sub_resource type="Animation" id="Animation_gvv6s"]
@@ -48,21 +48,45 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_rk50i"]
+resource_name = "logo_move"
+length = 6.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(480, 135), Vector2(480, 100), Vector2(480, 135)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rk50i"]
 _data = {
 &"RESET": SubResource("Animation_me5nu"),
-&"flashing_logo": SubResource("Animation_gvv6s")
+&"flashing_logo": SubResource("Animation_gvv6s"),
+&"logo_move": SubResource("Animation_rk50i")
 }
 
 [node name="StartMenu" type="CanvasLayer"]
 script = ExtResource("1_gvv6s")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Background" type="TextureRect" parent="BackgroundLayer"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = SubResource("AnimatedTexture_p0h25")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="FrontLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="FrontLayer"]
 anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
@@ -75,24 +99,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gvv6s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="FrontLayer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Logo" type="TextureRect" parent="PanelContainer/VBoxContainer"]
+[node name="Logo" type="TextureRect" parent="FrontLayer/PanelContainer/VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+light_mask = 3
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.5
 texture = ExtResource("2_gvv6s")
 
-[node name="FlashingLogo" type="AnimationPlayer" parent="PanelContainer/VBoxContainer/Logo"]
+[node name="LogoAnimator" type="AnimationPlayer" parent="FrontLayer/PanelContainer/VBoxContainer/Logo"]
 libraries = {
 &"": SubResource("AnimationLibrary_rk50i")
 }
-autoplay = "flashing_logo"
+autoplay = "logo_move"
+playback_auto_capture_ease_type = 2
 
-[node name="Start" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="FrontLayer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/icon_hover_color = Color(0, 1, 0, 0.196078)
@@ -103,7 +130,7 @@ text = "new game"
 flat = true
 icon_alignment = 1
 
-[node name="Exit" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="FrontLayer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/icon_hover_color = Color(1, 0, 0, 0.196078)

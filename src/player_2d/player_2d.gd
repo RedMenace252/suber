@@ -57,8 +57,8 @@ const MAX_CHAIN_ANGLE := deg_to_rad(225)   # maximum turn angle in radians
 var chain_dash_count = 0
 var failed_chain_dash = false
 
-@onready var DashTrailScene := preload("res://src/player_2d/dash_trail.tscn")
-var active_trail: Line2D = null
+#@onready var DashTrailScene := preload("res://src/player_2d/dash_trail.tscn")
+#var active_trail: Line2D = null
 
 var acceleration = 3000
 var deceleration = 5000
@@ -82,9 +82,18 @@ func _physics_process(delta):
 	#	move_sprite()
 		
 
-	if active_trail:
-		active_trail.add_point(global_position)
+	#if active_trail:
+		#active_trail.add_point(global_position)
 
+	
+	#very temp 
+	$Bubbles.direction = -velocity.normalized()
+	
+	if dash_cooldown_timer > 0.5:
+		$Bubbles.emitting = true
+	else:
+		$Bubbles.emitting = false
+			
 	#experimental dash
 	if powered:
 		#velocity = Vector2.ZERO
@@ -94,7 +103,8 @@ func _physics_process(delta):
 			if dash_timer <= 0:
 				is_dashing = false
 				control_factor = 1
-		
+				
+					
 		movement_input(delta)
 		gravity(delta)
 		
@@ -117,7 +127,7 @@ func _process(delta):
 	var input_vec := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	var in_chain_window = false
-	var chain_window_size = clamp(0.3/chain_dash_count, 0.05, 0.3)
+	var chain_window_size = clamp(0.1/chain_dash_count, 0.05, 0.1)
 	var chain_window_end = CHAIN_WINDOW_START - chain_window_size
 	in_chain_window = dash_cooldown_timer <= CHAIN_WINDOW_START and dash_cooldown_timer >= chain_window_end
 	
@@ -125,15 +135,16 @@ func _process(delta):
 	if dash_cooldown_timer <= 0.0:
 		failed_chain_dash = false #reset
 		chain_dash_count = 0 #reset
+		dash_speed = 4
 		#some kind of visual indicator the timer is up
 	else:
 		#reset visual indicator
 		pass
 
 	if in_chain_window && !failed_chain_dash:
-		pass
+		current_sprite.modulate = Color(1.5,1.5,1.5)
 	else:
-		pass
+		current_sprite.modulate = Color(1,1,1)
 		
 	# Check for dash input
 	if Input.is_action_just_pressed("dash") and input_vec.length() > 0:
@@ -144,15 +155,16 @@ func _process(delta):
 		if dash_cooldown_timer > CHAIN_WINDOW_START:
 			failed_chain_dash = true
 		
-		if in_chain_window:
-			var angle_diff = abs(new_dir.angle_to(dash_direction))
-			if angle_diff < MIN_CHAIN_ANGLE or angle_diff > MAX_CHAIN_ANGLE:
-				in_chain_window = false  # Not enough turn or too sharp
+		#if in_chain_window:
+			#var angle_diff = abs(new_dir.angle_to(dash_direction))
+			#if angle_diff < MIN_CHAIN_ANGLE or angle_diff > MAX_CHAIN_ANGLE:
+			#	print("balls")
 		
 		if (in_chain_window && !failed_chain_dash) or can_normal_dash:
 			dash_direction = new_dir
 			start_dash()
 			chain_dash_count += 1
+			
 
 
 
@@ -215,7 +227,7 @@ func movement_input(delta):
 	velocity = velocity.move_toward(input_vector * speed, acceleration * delta)
 
 func gravity(delta):
-	if above_water:
+	if above_water && !is_dashing:
 		if gravity_velocity == 0:
 			if input_vector.y >= 0:
 				gravity_velocity = speed
@@ -265,18 +277,24 @@ func move_and_handle_collisions(delta):
 			if invuln_timer <= 0:
 				invuln_timer = 2 #using invuln timer to check how many collisions happened within 2 seconds
 			
-			if collision.get_collider() is RigidBody2D && successive_collisions: #if object is moveable
-				collision.get_collider().apply_impulse(velocity.normalized() * 75)
-				var normal = collision.get_normal()
-				bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
-				control_factor = 0 #lose control of movement
-			else: #if object is immovable (ie wall)
+			#if collision.get_collider() is RigidBody2D && successive_collisions:
+				#collision.get_collider().apply_impulse(velocity.normalized() * 75)
+				#var normal = collision.get_normal()
+				#bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
+				#control_factor = 0 #lose control of movement
+			#else: #if object is immovable (ie wall)
 				#take_damage(10)  #expermenting with removing wall collision damage
+			var collider = collision.get_collider()
+			if collider is RigidBody2D && collider.collision_layer & (1 << 5):
+				if is_dashing:
+					collider.apply_impulse(input_vector.normalized() * speed)
+				else:
+					collider.apply_impulse(input_vector.normalized() * speed)
+			else:
 				red_screen.color.a = 0.6
 				var normal = collision.get_normal()
 				bounce_velocity = velocity.bounce(normal).normalized() + normal.normalized()
 				control_factor = 0 #lose control of movement
-				var collider = collision.get_collider()
 				if collider is CharacterBody2D:
 					if collider.collision_layer & (1 << 3): #is collider on collision layer 4 (hazards)
 						take_damage(10)
@@ -288,9 +306,9 @@ func move_and_handle_collisions(delta):
 						take_damage(15)
 						successive_collisions = 3
 						control_factor = 0
-						collider.caught_player()
+						collider._caught_player()
 					
-			successive_collisions += 1
+				successive_collisions += 1
 			
 			if successive_collisions >= 3:
 				invulnerable = true
@@ -351,7 +369,9 @@ func _switch_artstyle() -> void:
 		current_sprite = clean_sprite
 	else:
 		current_sprite = dirty_sprite
-	
+
+func _external_input(velocity_change : Vector2, acceleration_time : float):
+	pass #function in new player2d script, just added here to prevent crashing when using old script
 		
 		
 ####################################################################
@@ -380,9 +400,9 @@ func start_dash():
 	dash_cooldown_timer = dash_cooldown
 	
 	# Spawn the trail
-	active_trail = DashTrailScene.instantiate()
-	active_trail.add_point(global_position)
-	get_parent().add_child(active_trail)  # ✅ makes it a sibling, not child
+	#active_trail = DashTrailScene.instantiate()
+	#active_trail.add_point(global_position)
+	#get_parent().add_child(active_trail)  # ✅ makes it a sibling, not child
 	
 	velocity = input_vector * speed
 	velocity *= dash_speed

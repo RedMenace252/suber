@@ -11,7 +11,7 @@ var in_3d_mode = false
 var is_switching = false
 
 var first_time_switching = true
-var manual_switching_enabled = false
+var manual_switching_enabled = true
 
 
 func _ready():
@@ -21,6 +21,8 @@ func _ready():
 	#SignalBus.emit_signal("display_dialogue", "intro")
 	SignalBus.toggle_view.connect(toggle_view_mode)
 
+	#########################
+	#replace_sprites_recursively(self)
 
 func _input(event):
 	if event.is_action_pressed("toggle_cockpit"):
@@ -106,3 +108,57 @@ func enter_3d():
 	player3d.set_process_input(true)
 	player3d.mouse_look_enabled = true
 	is_switching = false
+
+
+#######################
+
+@export var placeholder_sprite: Sprite2D
+var timer : float = 0.0
+
+func _process(delta):
+	timer += delta
+	if timer >= 5:
+		#replace_sprites_recursively(self)
+		timer = 0
+
+
+func replace_sprites_recursively(node: Node):
+	for child in node.get_children():
+		if child is Sprite2D and child.texture and placeholder_sprite.texture:
+			var old_size = child.texture.get_size()
+			var new_size = placeholder_sprite.texture.get_size()
+			var original_scale = child.scale
+
+			# Avoid divide-by-zero
+			if new_size.x != 0 and new_size.y != 0:
+				var scale_factor_x = old_size.x / new_size.x
+				var scale_factor_y = old_size.y / new_size.y
+				child.scale = Vector2(scale_factor_x * original_scale.x, scale_factor_y * original_scale.y)
+
+			child.texture = placeholder_sprite.texture
+
+		elif child is AnimatedSprite2D and child.sprite_frames and placeholder_sprite.texture:
+			# Save existing scale
+			var original_scale = child.scale
+
+			# Get size of first frame
+			var anims = child.sprite_frames.get_animation_names()
+			if anims.size() > 0 and child.sprite_frames.get_frame_count(anims[0]) > 0:
+				var old_tex = child.sprite_frames.get_frame_texture(anims[0], 0)
+				if old_tex:
+					var old_size = old_tex.get_size()
+					var new_size = placeholder_sprite.texture.get_size()
+					if new_size.x != 0 and new_size.y != 0:
+						var scale_factor_x = old_size.x / new_size.x
+						var scale_factor_y = old_size.y / new_size.y
+						child.scale = Vector2(scale_factor_x * original_scale.x, scale_factor_y * original_scale.y)
+
+			# Replace frames
+			var frames = SpriteFrames.new()
+			frames.add_animation("default")
+			frames.add_frame("default", placeholder_sprite.texture)
+			child.sprite_frames = frames
+			child.play("default")
+
+		# Recurse into children
+		replace_sprites_recursively(child)

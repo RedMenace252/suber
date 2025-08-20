@@ -91,7 +91,6 @@ func _update_screen(new_screen: Vector2):
 
 	get_parent().set_current_screen(cur_screen)
 	
-	print(cur_large_area)
 
 	
 	

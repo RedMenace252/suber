@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://g0y2ihlgfb1i"]
+
+[ext_resource type="Texture2D" uid="uid://gounym2va8kp" path="res://assets/art/submarine/Bubble.png" id="1_g2hin"]
+
+[sub_resource type="Gradient" id="Gradient_g2hin"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Bubbles" type="CPUParticles2D"]
+amount = 500
+texture = ExtResource("1_g2hin")
+lifetime = 10.0
+randomness = 0.5
+lifetime_randomness = 0.3
+direction = Vector2(0, -1)
+gravity = Vector2(0, -10)
+initial_velocity_max = 100.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_g2hin")
