@@ -25,12 +25,12 @@ func _process(delta):
 	if chasing:
 		speed = move_toward(speed, max_speed, acceleration * delta)
 		goal = target.global_position
-	elif global_position != start_pos:
+	elif (global_position - start_pos).length() < 10:
 		speed = move_toward(speed, 1, acceleration * delta)
 		goal = start_pos
 	else: 
 		speed = 0
-		goal = start_pos
+		global_position = start_pos
 		
 	var direction = (goal - global_position).normalized()
 	
@@ -51,9 +51,11 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.name == "Player2D":
 		target = body
 		chasing = true
+		set_collision_layer_value(5, true)
 
 func _stop_chase():
 	chasing = false
+	set_collision_layer_value(5, false)
 	target = null
 
 func _caught_player():

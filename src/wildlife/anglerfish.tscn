@@ -34,7 +34,7 @@ radius = 500.0
 
 [node name="Anglerfish" type="CharacterBody2D"]
 light_mask = 2
-collision_layer = 19
+collision_layer = 16
 motion_mode = 1
 script = ExtResource("1_m4374")
 

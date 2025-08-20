@@ -232,6 +232,7 @@ position = Vector2(3, -0.5)
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
 light_mask = 0
 custom_minimum_size = Vector2(100, 12)
 offset_left = -48.0

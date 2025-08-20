@@ -11,7 +11,6 @@ polygon = PackedVector2Array(17, -53, 57, -69, 85, -70, 95, -54, 94, -19, 98, -1
 size = Vector2(2876, 1162)
 
 [node name="BigAnglerfish" instance=ExtResource("1_fbv51")]
-collision_layer = 16
 collision_mask = 0
 script = ExtResource("2_1j4n2")
 speed = 0.0

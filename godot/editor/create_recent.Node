@@ -1,6 +1,8 @@
+ColorRect
+Control
+Node2D
 CollisionPolygon2D
 CPUParticles2D
-Node2D
 CollisionShape2D
 Area2D
 Sprite2D
@@ -11,5 +13,3 @@ PointLight2D
 TextureRect
 AnimatedSprite2D
 RigidBody2D
-PinJoint2D
-StaticBody2D

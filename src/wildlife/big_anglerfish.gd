@@ -93,7 +93,7 @@ func _physics_process(delta):
 		target_direction = (vector_to_target + wave_offset).normalized()
 
 		if vector_to_target.length() >= 2000:
-			speed = move_toward(speed, 1000, delta * acceleration * 3)
+			speed = move_toward(speed, 2000, delta * acceleration * 3)
 		elif vector_to_target.length() >= 1000:
 			speed = move_toward(speed, 550, delta * acceleration * 2)
 		else:
