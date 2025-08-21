@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwqubo7gur4n7"]
 
 [ext_resource type="Texture2D" uid="uid://cfu710i714cfg" path="res://assets/art/wildlife/Shark1.png" id="1_4pxqc"]
-[ext_resource type="Script" uid="uid://c7h7740e6vgbd" path="res://src/wildlife/predator.gd" id="1_giq1r"]
+[ext_resource type="Script" uid="uid://di3tfme5supma" path="res://src/wildlife/predator.gd" id="1_giq1r"]
 [ext_resource type="Texture2D" uid="uid://ue8h0j3xdu4y" path="res://assets/art/wildlife/Shark2.png" id="2_giq1r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xsj4r"]

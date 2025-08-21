@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://e2tjdwjosbgp"]
 
 [ext_resource type="PackedScene" uid="uid://wnqv0r4lu6kn" path="res://src/wildlife/anglerfish.tscn" id="1_fbv51"]
-[ext_resource type="Script" uid="uid://xxsl6vbxjb75" path="res://src/wildlife/big_anglerfish.gd" id="2_1j4n2"]
+[ext_resource type="Script" uid="uid://dx60aflpbr1lc" path="res://src/wildlife/big_anglerfish.gd" id="2_1j4n2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fbv51"]
 cull_mode = 2

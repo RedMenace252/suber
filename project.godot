@@ -29,8 +29,9 @@ window/stretch/mode="viewport"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/Jed/Documents/suber/subermovie.avi"
-movie_writer/fps=15
+movie_writer/movie_file="C:/Users/Jedsp/Documents/suber/subermovie.avi"
+movie_writer/disable_vsync=true
+movie_writer/fps=30
 
 [input]
 

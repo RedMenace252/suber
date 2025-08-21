@@ -45,6 +45,7 @@ var zap_timer : float = 0
 #sprite control
 @onready var sprite_controller : Node2D = $Sprite
 var facing_right : bool = true
+@onready var direction_scale : float = scale.x
 
 #sonar
 @onready var sonar = $SonarEmitter
@@ -59,7 +60,7 @@ var pirate_mode_ready : bool = false
 func _process(delta: float) -> void:
 	$Bubbles.direction = -velocity.normalized()
 	
-	_control_sprite()
+	_control_sprite(delta)
 	_light(delta)
 	_process_inputs()
 	
@@ -73,13 +74,16 @@ func _process(delta: float) -> void:
 	
 	red_screen.color.a = move_toward(red_screen.color.a, 0, delta * 2)
 	
-func _control_sprite():
+func _control_sprite(delta : float):
 	if facing_right and velocity.x < 0:
 		facing_right = false
-		scale.x *= -1
+		direction_scale *= -1
 	elif !facing_right and velocity.x > 0:
 		facing_right = true
-		scale.x *= -1
+		direction_scale *= -1
+		
+	sprite_controller.scale.x = move_toward(sprite_controller.scale.x, direction_scale, delta * 10)
+	$CollisionBox.scale.x = move_toward($CollisionBox.scale.x, direction_scale, delta * 10)
 		
 	if zapped:
 		sprite_controller._set_animation("zapped")

@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://0wtm5h8nw3dn" path="res://src/ui/ui_start.gd" id="1_gvv6s"]
 [ext_resource type="Texture2D" uid="uid://c7irr4xfnjlqk" path="res://assets/art/main_menu_bg_1.png" id="2_rk50i"]
 [ext_resource type="Texture2D" uid="uid://6ds0l00flyhv" path="res://assets/art/main_menu_bg_2.png" id="3_xvgx2"]
-[ext_resource type="Texture2D" uid="uid://dylgjrfpm5rgy" path="res://assets/art/titlerecrop.png" id="4_rk50i"]
-[ext_resource type="Shader" uid="uid://dbw5yv1m6f6jn" path="res://src/test/test_crt_shader.gdshader" id="5_xvgx2"]
+[ext_resource type="Texture2D" uid="uid://b31g3ttc88aj4" path="res://assets/art/titlerecrop.png" id="4_rk50i"]
+[ext_resource type="Shader" uid="uid://bow8lbf0o27k3" path="res://src/test/test_crt_shader.gdshader" id="5_xvgx2"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_p0h25"]
 frames = 2

@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://c73n5jbnkhfcp"]
 
-[ext_resource type="Texture2D" uid="uid://cujcpgdn5pw8k" path="res://assets/art/environment/chain_base.png" id="1_a24m7"]
-[ext_resource type="Texture2D" uid="uid://btd37aexh8qwm" path="res://assets/art/environment/chain_link.png" id="2_7cxsp"]
-[ext_resource type="Script" uid="uid://che7nwfxn7286" path="res://src/world_2d/events and objects/chain_link_weak.gd" id="3_el78f"]
-[ext_resource type="Texture2D" uid="uid://dea7ahv1sey88" path="res://assets/art/environment/anchor_end.png" id="3_jxypy"]
-[ext_resource type="Texture2D" uid="uid://klwcimmph3ls" path="res://assets/art/environment/chain_link_weak_4.png" id="3_mv3cp"]
-[ext_resource type="Texture2D" uid="uid://tui5bi6ec6uw" path="res://assets/art/environment/chain_link_weak_1.png" id="3_s3e1a"]
-[ext_resource type="Texture2D" uid="uid://qswif3hh7xk2" path="res://assets/art/environment/chain_link_weak_2.png" id="4_el78f"]
-[ext_resource type="Texture2D" uid="uid://c0rjstkck3otf" path="res://assets/art/environment/chain_link_weak_3.png" id="5_6rf6e"]
+[ext_resource type="Texture2D" uid="uid://dmu4ky7nxkc0t" path="res://assets/art/environment/chain_base.png" id="1_a24m7"]
+[ext_resource type="Texture2D" uid="uid://bv7bhiakj0a74" path="res://assets/art/environment/chain_link.png" id="2_7cxsp"]
+[ext_resource type="Script" uid="uid://bbn2y73arq1lv" path="res://src/world_2d/events and objects/chain_link_weak.gd" id="3_el78f"]
+[ext_resource type="Texture2D" uid="uid://bjy6i2irn1a81" path="res://assets/art/environment/anchor_end.png" id="3_jxypy"]
+[ext_resource type="Texture2D" uid="uid://bum2cmsyyr6oq" path="res://assets/art/environment/chain_link_weak_4.png" id="3_mv3cp"]
+[ext_resource type="Texture2D" uid="uid://laqfuaqxwexq" path="res://assets/art/environment/chain_link_weak_1.png" id="3_s3e1a"]
+[ext_resource type="Texture2D" uid="uid://b6bgj6ji0q5gk" path="res://assets/art/environment/chain_link_weak_2.png" id="4_el78f"]
+[ext_resource type="Texture2D" uid="uid://b0arqg40inhg3" path="res://assets/art/environment/chain_link_weak_3.png" id="5_6rf6e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jxypy"]
 radius = 24.5153

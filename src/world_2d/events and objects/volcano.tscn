@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://clotphkcm6uhi"]
 
-[ext_resource type="Script" uid="uid://b2ry42adxdwh0" path="res://src/world_2d/events and objects/volcano.gd" id="1_luu45"]
+[ext_resource type="Script" uid="uid://ds3urqhppdvah" path="res://src/world_2d/events and objects/volcano.gd" id="1_luu45"]
 [ext_resource type="Texture2D" uid="uid://gounym2va8kp" path="res://assets/art/submarine/Bubble.png" id="2_88vd8"]
 
 [node name="Volcano" type="Node2D"]

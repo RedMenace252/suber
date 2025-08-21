@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://wnqv0r4lu6kn"]
 
-[ext_resource type="Script" uid="uid://c7h7740e6vgbd" path="res://src/wildlife/predator.gd" id="1_m4374"]
-[ext_resource type="Texture2D" uid="uid://b7xy764x5jgfb" path="res://assets/art/wildlife/anglerfish.png" id="1_mn5cc"]
+[ext_resource type="Script" uid="uid://di3tfme5supma" path="res://src/wildlife/predator.gd" id="1_m4374"]
+[ext_resource type="Texture2D" uid="uid://cpgnr7326a5r1" path="res://assets/art/wildlife/anglerfish.png" id="1_mn5cc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m4374"]
 animations = [{

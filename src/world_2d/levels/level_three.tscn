@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://vbj1mhj6qbw7"]
 
 [ext_resource type="TileSet" uid="uid://bju7pk30wvva2" path="res://assets/art/tiles/clean_tileset.tres" id="1_cg3ab"]
-[ext_resource type="Script" uid="uid://bpjavj0gsxbbv" path="res://src/world_2d/events and objects/sky.gd" id="1_fwbil"]
+[ext_resource type="Script" uid="uid://cqoiavm7ww7er" path="res://src/world_2d/events and objects/sky.gd" id="1_fwbil"]
 [ext_resource type="PackedScene" uid="uid://clotphkcm6uhi" path="res://src/world_2d/events and objects/volcano.tscn" id="3_xwcuj"]
 
 [sub_resource type="Gradient" id="Gradient_k7vlo"]

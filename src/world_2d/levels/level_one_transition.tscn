@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://bju7pk30wvva2" path="res://assets/art/tiles/clean_tileset.tres" id="1_81653"]
 [ext_resource type="PackedScene" uid="uid://ctt8lac2cails" path="res://src/world_2d/events and objects/ball.tscn" id="2_v5hkn"]
 [ext_resource type="PackedScene" uid="uid://cv1qy4oi3hpjb" path="res://src/wildlife/eels.tscn" id="3_spw7a"]
-[ext_resource type="Script" uid="uid://c33astod5vhv2" path="res://src/world_2d/events and objects/eels.gd" id="4_tobts"]
+[ext_resource type="Script" uid="uid://dqlw43n6ufgkt" path="res://src/world_2d/events and objects/eels.gd" id="4_tobts"]
 [ext_resource type="Texture2D" uid="uid://cw5qnneb0bm8f" path="res://assets/art/tiles/ocean.png" id="5_dt76b"]
-[ext_resource type="Script" uid="uid://chu16if5elqmy" path="res://src/world_2d/events and objects/debris_dialogue.gd" id="6_wpxcc"]
+[ext_resource type="Script" uid="uid://enw1btajgfyb" path="res://src/world_2d/events and objects/debris_dialogue.gd" id="6_wpxcc"]
 
 [sub_resource type="Gradient" id="Gradient_5n75y"]
 offsets = PackedFloat32Array(0, 0.641711)

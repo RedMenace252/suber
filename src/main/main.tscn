@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ddfhvkuagrdt8" path="res://src/wildlife/fish.tscn" id="2_30cu5"]
 [ext_resource type="PackedScene" uid="uid://cj3xfrm21n4fp" path="res://src/player_2d/player_2d.tscn" id="3_frqgp"]
 [ext_resource type="PackedScene" uid="uid://cpt1lju5gtena" path="res://src/ui/user_interface.tscn" id="7_30cu5"]
-[ext_resource type="Texture2D" uid="uid://bdt3vgd7u06lf" path="res://assets/art/placeholder.png" id="7_frqgp"]
+[ext_resource type="Texture2D" uid="uid://cn05m8jl0ub7u" path="res://assets/art/placeholder.png" id="7_frqgp"]
 [ext_resource type="PackedScene" uid="uid://csdqidf21t33k" path="res://src/player_3d/submarine_cockpit.tscn" id="8_frqgp"]
 
 [node name="Main" type="Node" node_paths=PackedStringArray("placeholder_sprite")]
@@ -28,7 +28,7 @@ position = Vector2(3922, 6340)
 position = Vector2(6582, 1928)
 
 [node name="Player2D" parent="Scene2D" instance=ExtResource("3_frqgp")]
-position = Vector2(14840, 504)
+position = Vector2(10485, 12484)
 
 [node name="Scene3D" type="Node3D" parent="."]
 
